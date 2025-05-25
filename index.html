@@ -3,475 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentorship Program | Unlock Your Tech Leadership Potential</title>
+    <title>CTO Tomorrow - Unlock Your Leadership Potential</title>
     <style>
-        /* --- Base Styles --- */
-        body {
+        * {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #121212; /* Very dark grey/almost black - Inspired by ctotomorrow */
-            color: #E0E0E0; /* Light grey for primary text */
-            line-height: 1.6;
-            font-size: 16px; /* Base font size */
-        }
-
-        /* --- Container --- */
-        .container {
-            width: 90%; /* More flexible for smaller screens */
-            max-width: 1100px;
-            margin: 0 auto; /* Simplified margin */
-            overflow: hidden;
-            padding: 0 15px; /* Slightly reduced padding */
-        }
-
-        /* --- Header --- */
-        header {
-            background: #1F1F1F; /* Slightly lighter dark for header */
-            color: #FFFFFF;
-            padding: 1rem 0;
-            border-bottom: 3px solid #00A79D; /* Teal accent - Inspired by ctotomorrow */
-            position: sticky; /* Sticky header */
-            top: 0;
-            z-index: 1000;
-        }
-        header a {
-            color: #FFFFFF;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem; /* Adjusted font size */
-        }
-        header ul {
             padding: 0;
-            list-style: none;
-            text-align: right;
-            margin: 0; /* Remove default margin */
-        }
-        header li {
-            display: inline;
-            padding: 0 15px; /* Adjusted padding */
-        }
-        header #branding {
-            float: left;
-            margin-top: 5px; /* Align better with nav items */
-        }
-        header #branding h1 {
-            margin: 0;
-            font-size: 1.5rem; /* Adjusted font size */
-        }
-        header nav {
-            float: right;
+            box-sizing: border-box;
         }
 
-        /* --- Hero Section --- */
-        .hero {
-            min-height: 75vh; /* Slightly increased height */
-            background: #121212 url('https://placehold.co/1500x800/1a1a1a/ffffff?text=Unlock+Your+Potential') no-repeat center center/cover;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background: linear-gradient(135deg, #26abed 0%, #39b54a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #FFFFFF;
-            padding: 3rem 1rem; /* Responsive padding */
-        }
-        .hero-content {
-            max-width: 750px; /* Increased max-width */
-            background-color: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
-            padding: 2rem;
-            border-radius: 8px;
-        }
-        .hero h1 {
-            font-size: 2.8rem; /* Adjusted for impact */
-            margin-bottom: 1rem;
-            color: #FFFFFF;
-            font-weight: 600;
-        }
-        .hero p {
-            font-size: 1.15rem; /* Adjusted for readability */
-            margin-bottom: 2rem;
-            color: #E0E0E0;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #00A79D; /* Teal accent */
-            color: #FFFFFF;
-            padding: 14px 28px; /* Adjusted padding */
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.05rem; /* Adjusted font size */
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none; /* Remove default border */
-            cursor: pointer;
-        }
-        .cta-button:hover {
-            background: #008578; /* Darker teal on hover */
-            transform: translateY(-2px); /* Slight lift on hover */
+            gap: 10px;
         }
 
-        /* --- General Section Styling --- */
-        .section {
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #39b54a;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #26abed, #39b54a);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(57, 181, 74, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
             padding: 4rem 0;
             text-align: center;
-        }
-        .section-dark {
-            background: #1F1F1F; /* Consistent dark section background */
-        }
-        .section h2 {
-            font-size: 2.2rem; /* Adjusted font size */
-            margin-bottom: 1.5rem; /* Increased margin */
-            color: #FFFFFF;
-            font-weight: 600;
-        }
-        .section .lead {
-            font-size: 1.1rem;
-            color: #B0B0B0;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            color: white;
         }
 
-        /* --- Grids for Benefits, How It Works, Testimonials --- */
-        .benefits-grid, .how-it-works-grid, .testimonials-grid, .mentors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            text-align: left;
-        }
-        .benefit-item, .step-item, .testimonial-item, .mentor-profile {
-            background: #242424; /* Slightly lighter than section dark for cards */
-            padding: 1.8rem; /* Adjusted padding */
-            border-radius: 8px;
-            border-left: 5px solid #00A79D; /* Teal accent */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .benefit-item:hover, .step-item:hover, .testimonial-item:hover, .mentor-profile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .benefit-item h3, .step-item h3, .mentor-profile h3 {
-            font-size: 1.4rem; /* Adjusted font size */
-            color: #00A79D; /* Teal accent for headings */
-            margin-top: 0; /* Remove default top margin */
-            margin-bottom: 0.75rem;
-        }
-        .benefit-item p, .step-item p, .mentor-profile p {
-            color: #C0C0C0; /* Lighter text for paragraph content in cards */
-            font-size: 0.95rem;
-        }
-
-        /* --- Testimonials Specific --- */
-        .testimonial-item {
-            border-left-color: #4A90E2; /* Different accent for testimonials if desired */
-        }
-        .testimonial-item p.quote {
-            font-style: italic;
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: #D0D0D0;
-            font-size: 1rem;
-        }
-        .testimonial-item p.author {
-            font-weight: bold;
-            color: #00A79D; /* Teal for author name */
-            text-align: right;
-            font-size: 0.9rem;
-        }
-        .testimonial-item p.author::before {
-            content: "— ";
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
         }
 
-        /* --- Mentors Showcase --- */
-        .mentors-showcase {
-            background: #121212; /* Match body background */
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
-        .mentor-profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1rem; /* Increased margin */
-            border: 3px solid #00A79D;
-            display: block;
+
+        .video-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        /* Hero Images */
+        .hero-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
-        .mentor-profile p {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #B0B0B0;
-        }
-         .mentor-profile h3 {
-            text-align: center;
+
+        .hero-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
 
-
-        /* --- "Who Is This For?" Section --- */
-        .who-is-this-for ul {
-            list-style: none; /* Removing default bullets */
-            padding: 0;
-            max-width: 650px; /* Increased max-width */
-            margin: 2rem auto;
-            text-align: left;
-        }
-        .who-is-this-for li {
-            background: #242424;
-            padding: 12px 18px; /* Adjusted padding */
-            margin-bottom: 12px; /* Increased margin */
-            border-radius: 5px;
-            border-left: 3px solid #00A79D;
-            color: #D0D0D0;
-            font-size: 1rem;
-        }
-        .who-is-this-for li::before {
-            content: "✓"; /* Using a checkmark */
-            color: #00A79D;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em; /* Align with text */
-            padding-right: 0.5em;
+        .hero-image:hover {
+            transform: translateY(-5px);
         }
 
-
-        /* --- Footer --- */
-        footer {
-            background: #1F1F1F;
-            color: #A0A0A0;
-            text-align: center;
-            padding: 2.5rem 0; /* Increased padding */
+        .hero-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .features {
+            background: white;
+            padding: 5rem 0;
             margin-top: 3rem;
-            border-top: 3px solid #00A79D;
-        }
-        footer p {
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-        }
-        footer nav a {
-            color: #00A79D;
-            text-decoration: none;
-            margin: 0 10px; /* Spacing for footer links */
-            font-size: 0.9rem;
-            text-transform: none; /* Normal case for footer links */
-        }
-        footer nav a:hover {
-            text-decoration: underline;
-        }
-        .social-links {
-            margin-top: 1rem;
-        }
-        .social-links a {
-            margin: 0 12px; /* Spacing for social icons */
-            color: #00A79D;
-            font-size: 1.6rem; /* Placeholder for icons, adjust if using font icons */
-            text-decoration: none;
-        }
-        .social-links a:hover {
-            color: #008578;
         }
 
-        /* --- Responsive Adjustments --- */
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #8cc63f 0%, #26abed 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* Blockers Section */
+        .blockers {
+            background: linear-gradient(135deg, #39b54a 0%, #8cc63f 100%);
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .blockers h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .blockers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blocker-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .blocker-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #000000;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .email-input:focus {
+            border-color: #39b54a;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #26abed, #39b54a);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(57, 181, 74, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
+            
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
-            .section h2 {
-                font-size: 1.8rem;
+            
+            .video-container video {
+                height: 250px;
             }
-            .container {
-                width: 95%; /* More width for smaller devices */
+            
+            .email-form {
+                flex-direction: column;
+                align-items: center;
             }
-            header #branding {
-                float: none;
-                text-align: center;
-                margin-bottom: 10px; /* Space between logo and nav */
-            }
-            header nav {
-                float: none;
-                text-align: center;
-            }
-            header li {
-                display: inline; /* Keep them inline but allow wrapping */
-                padding: 5px 10px;
-                font-size: 0.85rem;
-            }
-            .benefits-grid, .how-it-works-grid, .testimonials-grid, .mentors-grid {
-                grid-template-columns: 1fr; /* Stack on smaller screens */
+            
+            .email-input {
+                min-width: 100%;
+                margin-bottom: 1rem;
             }
         }
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 0.9rem;
-            }
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 0.95rem;
-            }
-            header li {
-                padding: 5px 7px; /* Further reduce padding for very small screens */
-            }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            animation: fadeInUp 0.5s ease-out;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <div id="branding">
-                <h1><a href="#">Mentee Program</a></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#why-join">Why Join?</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#mentors">Mentors</a></li>
-                    <li><a href="#cta" class="cta-button" style="padding: 8px 15px; font-size: 0.85rem; margin-left:10px;">Apply Now</a></li>
-                </ul>
+            <nav class="nav">
+                <div class="logo">
+                    <img src="https://kumarana.github.io/ctotomfe/ctotomorrow.webp" alt="CTO Tomorrow Logo" onerror="this.style.display='none'">
+                    <div class="logo-text">CTO Tomorrow</div>
+                </div>
+                <a href="#join" class="cta-button">Join Now</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Unlock Your Potential: Journey to Tech Leadership</h1>
-            <p>Connect with experienced tech leaders, gain tailored guidance for your unique challenges, and accelerate your growth beyond just technical skills. Join a community dedicated to fostering innovation and leadership.</p>
-            <a href="#cta" class="cta-button">Find Your Mentor Today</a>
-        </div>
-    </section>
-
-    <section id="why-join" class="section section-dark">
         <div class="container">
-            <h2>Why Partner with a Mentor Here?</h2>
-            <p class="lead">Overcome common hurdles like limited access to relevant mentors and a narrow focus on technical skills. Fast-track your development with expert support and current, actionable advice.</p>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <h3>Learn from the Best</h3>
-                    <p>Gain direct access to relevant mentors – seasoned CTOs and tech leaders who've successfully navigated complex technical and leadership paths. They provide targeted guidance on real needs.</p>
+            <h1>Unlock the CTO Within</h1>
+            <p>Transform from a technical contributor to a visionary technology leader. Join a community of like-minded peers and experienced mentors who will accelerate your journey to the C-suite.</p>
+            
+            <div class="video-container">
+                <video controls width="100%" height="450" style="border-radius: 20px;">
+                    <source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hero-images">
+                <div class="hero-image">
+                    <img src="https://ctotomorrow.com/web/image/436-73e2d08d/cto.webp" 
+                         alt="CTO Leadership Mindset" 
+                         onerror="this.style.display='none'">
                 </div>
-                <div class="benefit-item">
-                    <h3>Broaden Your Expertise</h3>
-                    <p>Move beyond a narrow focus on technical skills. Develop crucial leadership capabilities, business acumen, and innovation strategies essential for top-tier roles. Master the mindset and method of a CTO.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Relevant & Current Advice</h3>
-                    <p>Receive guidance that addresses today's evolving challenges from mentors at the forefront of technology, ensuring your skills remain cutting-edge and you avoid outdated advice.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Community & Holistic Growth</h3>
-                    <p>Join a supportive community that fosters your growth, innovation, and leadership. Engage in peer-to-peer debates, benefit from a leadership knowledge base, and even explore shadowing opportunities.</p>
+                <div class="hero-image">
+                    <img src="https://ctotomorrow.com/web/image/377-031e1a81/image.webp" 
+                         alt="CTO Strategy and Innovation" 
+                         onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="how-it-works" class="section">
+    <section class="features">
         <div class="container">
-            <h2>Your Mentorship Journey</h2>
-            <p class="lead">A simple, structured path to help you achieve your career aspirations, focusing on transforming you from task execution to a thought leader.</p>
-            <div class="how-it-works-grid">
-                <div class="step-item">
-                    <h3>1. Share Your Goals</h3>
-                    <p>Tell us about your aspirations, current challenges, and what you aim to achieve. This helps us understand your unique needs and assess current constraints and resources.</p>
+            <h2>Your Path to CTO Excellence</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Targeted Mentoring</h3>
+                    <p>Get personalized guidance from seasoned CTOs who understand your unique challenges and can help you navigate both technical and leadership responsibilities.</p>
                 </div>
-                <div class="step-item">
-                    <h3>2. Get Matched</h3>
-                    <p>We carefully connect you with a mentor whose experience, skills, and industry focus align perfectly with your development objectives, ensuring relevant guidance.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Strategic Mindset</h3>
+                    <p>Develop the visionary thinking needed to align technical decisions with business objectives and drive organizational innovation.</p>
                 </div>
-                <div class="step-item">
-                    <h3>3. Transform & Grow</h3>
-                    <p>Engage in regular, insightful sessions. Receive targeted guidance on real needs and execution challenges, helping you evolve into an advocate of best practices and a strategic thinker.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Peer Community</h3>
+                    <p>Connect with fellow aspiring CTOs, share experiences, and learn from diverse perspectives through structured discussions and collaborative problem-solving.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="section section-dark">
+    <section class="blockers">
         <div class="container">
-            <h2>Insights from Our Community</h2>
-            <p class="lead">Hear from mentees who have experienced transformative growth and gained invaluable, condensed knowledge.</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <p class="quote">"The mentorship provided the clarity and actionable insights I needed to navigate complex career decisions. It’s like having a condensed guide to tech leadership, challenging me to become a better version of myself."</p>
-                    <p class="author">Alex P., Senior Engineer</p>
+            <h2>Break Through Common Barriers</h2>
+            <div class="blockers-grid">
+                <div class="blocker-card">
+                    <h3>🔍 Limited Access to Relevant Mentors</h3>
+                    <p>Many aspiring CTOs struggle to find mentors who have successfully navigated both technical and leadership roles. We connect you with experienced mentors who provide tailored guidance for your unique challenges.</p>
                 </div>
-                <div class="testimonial-item">
-                    <p class="quote">"My mentor challenged my perspectives and pushed me to think more strategically, significantly accelerating my growth as a leader. Truly invaluable and thought-provoking."</p>
-                    <p class="author">Sarah K., Aspiring Tech Lead</p>
+                <div class="blocker-card">
+                    <h3>📈 Beyond Technical Skills</h3>
+                    <p>While technical expertise is vital, successful CTOs need strong leadership, business acumen, and innovation capabilities. We help you master these essential skills alongside your technical proficiency.</p>
                 </div>
-                <div class="testimonial-item">
-                    <p class="quote">"I gained practical skills in leadership and strategy that go far beyond typical courses. This program has been pivotal for my career advancement, providing easy-to-apply rules for success."</p>
-                    <p class="author">Michael B., Product Manager</p>
+                <div class="blocker-card">
+                    <h3>⚡ Stay Current</h3>
+                    <p>In our fast-evolving tech landscape, outdated advice falls short. Our mentors stay current with the latest trends and provide guidance that addresses today's challenges and tomorrow's opportunities.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="mentors" class="section mentors-showcase">
+    <section class="cta-section" id="join">
         <div class="container">
-            <h2>Meet Mentors Who Inspire</h2>
-            <p class="lead">Our mentors are seasoned CTOs, VPs of Engineering, and tech visionaries who have been in your shoes. They are dedicated to sharing their real-world experience and insights from their journey to help you succeed.</p>
-            <div class="mentors-grid"> <div class="mentor-profile">
-                    <img src="https://placehold.co/100x100/00A79D/ffffff?text=ER" alt="Mentor Dr. Evelyn Reed" onerror="this.src='https://placehold.co/100x100/cccccc/ffffff?text=Mentor';">
-                    <h3>Dr. Evelyn Reed</h3>
-                    <p>CTO at Innovate Solutions, AI & Distributed Systems Expert</p>
-                </div>
-                <div class="mentor-profile">
-                    <img src="https://placehold.co/100x100/00A79D/ffffff?text=JC" alt="Mentor John Chen" onerror="this.src='https://placehold.co/100x100/cccccc/ffffff?text=Mentor';">
-                    <h3>John Chen</h3>
-                    <p>VP of Engineering at TechCorp, Scaling Agile Teams Specialist</p>
-                </div>
-                <div class="mentor-profile">
-                    <img src="https://placehold.co/100x100/00A79D/ffffff?text=AK" alt="Mentor Aisha Khan" onerror="this.src='https://placehold.co/100x100/cccccc/ffffff?text=Mentor';">
-                    <h3>Aisha Khan</h3>
-                    <p>Lead Architect & Cloud Native Advocate, Ex-Startup Founder</p>
-                </div>
+            <h2>Ready to Transform Your Career?</h2>
+            <p>Join thousands of aspiring technology leaders who are already on their journey to becoming exceptional CTOs. Start your transformation today.</p>
+            
+            <form class="email-form" id="joinForm">
+                <input type="email" 
+                       class="email-input" 
+                       placeholder="Enter your email address" 
+                       required>
+                <button type="submit" class="submit-btn">Join Now</button>
+            </form>
+            
+            <div class="success-message" id="successMessage">
+                🎉 Welcome to CTO Tomorrow! Check your email for next steps.
             </div>
         </div>
     </section>
 
-    <section id="who-is-this-for" class="section section-dark">
-        <div class="container">
-            <h2>Is This Program For You?</h2>
-            <p class="lead">This mentorship is designed for ambitious tech professionals ready to make a significant leap in their careers and "Unlock the CTO within."</p>
-            <ul>
-                <li>Are you aiming to move beyond individual contribution to lead and inspire teams?</li>
-                <li>Do you want to develop a strategic mindset and the essential "Method" of a CTO alongside your technical expertise?</li>
-                <li>Are you seeking to navigate the complexities of the tech world with tailored, expert guidance, addressing "Limited Access to Relevant Mentors"?</li>
-                <li>Is your goal to accelerate your journey towards a leadership role (e.g., Tech Lead, Engineering Manager, CTO) by fostering a "Growth-focused Mindset"?</li>
-            </ul>
-            <p>If you answered yes to these, you're in the right place to grow and shape your future.</p>
-        </div>
-    </section>
+    <script>
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('.email-input').value;
+            const successMessage = document.getElementById('successMessage');
+            
+            // Simple email validation
+            if (email && email.includes('@')) {
+                // Hide form and show success message
+                this.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // In a real implementation, you would send this to your backend
+                console.log('Email submitted:', email);
+                
+                // Optional: Reset form after 3 seconds
+                setTimeout(() => {
+                    this.style.display = 'flex';
+                    successMessage.style.display = 'none';
+                    this.reset();
+                }, 3000);
+            }
+        });
 
-    <section id="cta" class="section">
-        <div class="container">
-            <h2>Ready to Unlock Your Future?</h2>
-            <p class="lead">Join a mentorship program designed to provide targeted guidance on your real needs and execution challenges. Take the next step in your tech leadership journey and start transforming into an advocate of best practices.</p>
-            <a href="#apply-form-placeholder" class="cta-button">Join the Mentorship Program Now</a>
-            </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Mentee Leadership Program. Inspired by and aspiring to the standards of ctotomorrow.com.</p>
-            <nav>
-                <a href="#">About Us</a> |
-                <a href="#">Our Mentors</a> |
-                <a href="#">FAQ</a> |
-                <a href="#">Contact</a> |
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Terms of Service</a>
-            </nav>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">Fb</a>
-                <a href="#" aria-label="Twitter">Tw</a>
-                <a href="#" aria-label="LinkedIn">In</a>
-            </div>
-        </div>
-    </footer>
-
+        // Smooth scrolling for navigation
+        document.querySelector('a[href="#join"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('join').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
