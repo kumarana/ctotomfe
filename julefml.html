@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuleFML - Framework Levels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Base styles for transitioning sections */
+        #category-info, #level-navigation-container, #level-details {
+            transition: opacity 0.3s ease-in-out, max-height 0.5s ease-in-out;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden; /* Crucial for the collapse effect */
+        }
+        /* Styles for VISIBLE transitioning sections */
+        #category-info.visible, 
+        #level-navigation-container.visible, 
+        #level-details.visible {
+            opacity: 1;
+            max-height: 2000px; /* Generous max-height for content */
+            overflow: auto; /* Allow content to be visible and scroll if it somehow exceeds max-height */
+        }
+        /* Styling for bullet points in the intro and level details */
+        #introduction ul,
+        #level-details ul {
+            list-style-type: disc;
+            padding-left: 20px; 
+            margin-top: 0.5rem; 
+            margin-bottom: 1rem; 
+        }
+        #introduction ul li,
+        #level-details ul li {
+            margin-bottom: 0.25rem; 
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-6xl">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-indigo-700">JuleFML Categories & Levels</h1>
+            <p class="text-sky-600 mt-2 text-sm sm:text-base">Explore the defined categories and levels within the JuleFML framework.</p>
+        </header>
+
+        <section id="introduction" class="mb-8 p-6 bg-white rounded-xl shadow-xl">
+            <p class="text-slate-700 mb-6 text-sm sm:text-base">
+                This framework outlines key stages in a technology professional's career, highlighting the evolving skills, responsibilities, and impact at each level. It serves as a guide for growth, development, and understanding the progression towards technology leadership.
+            </p>
+            <h3 class="text-xl font-semibold text-slate-700 mb-3">Career Categories & Experience:</h3>
+            <ul class="space-y-2 text-slate-600 text-sm sm:text-base">
+                <!-- List items removed as per requirement -->
+            </ul>
+        </section>
+
+        <nav id="category-card-navigation" class="mb-6 sm:mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-600 mb-3 sm:mb-4 text-center sm:text-left">Select a Category to Explore:</h2>
+            <div id="category-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                </div>
+        </nav>
+
+        <main id="content-area" class="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-xl min-h-[300px]">
+            <section id="category-info" class="mb-6 pb-6 border-b border-slate-200">
+                </section>
+
+            <div id="level-navigation-container" class="mb-6 sm:mb-8">
+                 <h3 class="text-xl font-semibold text-indigo-600 mb-4">Explore Levels within this Category:</h3>
+                <div id="level-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    </div>
+            </div>
+
+            <article id="level-details" class="prose max-w-none prose-indigo">
+                <p class="text-center text-slate-500 py-10">Select your category to understand and different levels.</p>
+            </article>
+        </main>
+
+        <footer class="text-center mt-10 sm:mt-12 text-slate-500 text-xs sm:text-sm">
+            <p>&copy; 2024 JuleFML Showcase. For demonstration purposes.</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- DATA STORE ---
+        const appData = [
+            {
+                id: "veterans",
+                name: "Veterans",
+                experience_years: "N/A",
+                humorous_intro: "Hardened heroes who’ve shipped code through dial-up, broadband, and now the cloud. They know where every skeleton (and mainframe) is buried.",
+                formal_description_category: "Veterans represent the bedrock of technological expertise within an organization. They possess a wealth of experience, having navigated numerous technological shifts and challenges. Their deep understanding of both legacy systems and emerging trends makes them invaluable in guiding strategic decisions and mentoring future leaders.",
+                one_liner_category: "Seasoned technology leaders offering extensive experience and strategic guidance.",
+                color_theme: {
+                    bg: "bg-amber-50",
+                    border: "border-amber-600",
+                    text: "text-amber-700",
+                    active_card: "ring-2 ring-offset-2 ring-amber-500 bg-amber-100",
+                    hover_bg: "hover:bg-amber-100"
+                },
+                levels: [
+                    {
+                        id: "explorer",
+                        name: "Explorer",
+                        humorous_statement: "First rule of the tech jungle: even old maps need new legends.",
+                        formal_paragraph_after_humorous: "Veteran Explorers are those who, despite their years in the field, never lose their sense of curiosity. They’re the ones who still get excited about new tools, frameworks, and methodologies, and who believe that learning is a lifelong adventure.",
+                        one_liner_level: "Actively seeks out and experiments with new technologies, tools, and methodologies.",
+                        bullet_points: [
+                            "Tests out fresh frameworks before the interns finish their coffee.",
+                            "Translates “we’ve always done it this way” into actionable to-do lists.",
+                            "Keeps a personal museum of decommissioned pagers—purely for morale.",
+                            "Mentors like a wizard: answers three questions, produces one life lesson."
+                        ],
+                        formal_description_level: "Veteran Explorers are seasoned professionals who remain curious and open to new technologies despite their extensive experience. They actively seek out emerging trends, challenge established norms, and foster a culture of continuous learning within their teams. Their blend of historical perspective and willingness to experiment makes them invaluable in bridging the gap between legacy systems and modern solutions."
+                    },
+                    {
+                        id: "alchemist",
+                        name: "Alchemist",
+                        humorous_statement: "Transforms legacy spaghetti into microservice risotto.",
+                        formal_paragraph_after_humorous: "Veteran Alchemists are the magicians of modernization, able to turn the most tangled legacy code into something elegant and scalable. They see every technical mess as an opportunity for creative transformation.",
+                        one_liner_level: "Transforms existing systems and processes into more efficient and robust solutions.",
+                        bullet_points: [
+                            "Refactors 10-year-old code without breaking prod (usually).",
+                            "Automates everything—including the coffee machine release pipeline.",
+                            "Turns budget constraints into creative constraints—and then into features.",
+                            "Explains “technical debt” with a compound-interest calculator and dramatic flair."
+                        ],
+                        formal_description_level: "Veteran Alchemists are experts at transforming outdated systems into robust, scalable architectures. They possess deep technical knowledge and a knack for creative problem-solving, often finding innovative ways to modernize and optimize existing processes. Their ability to balance technical debt with business needs ensures long-term stability and growth for their organizations."
+                    },
+                    {
+                        id: "maverick",
+                        name: "Maverick",
+                        humorous_statement: "Meeting invite? Declined. Innovation sprint? Accepted.",
+                        formal_paragraph_after_humorous: "Veteran Mavericks are the rebels with a cause, always ready to challenge the status quo and push for bold, innovative solutions. They’re the ones who turn “impossible” into “already in production.”",
+                        one_liner_level: "Challenges conventional approaches and drives innovative, high-impact change.",
+                        bullet_points: [
+                            "Re-architects monoliths while live-blogging the migration.",
+                            "Negotiates vendor contracts like they’re side quests.",
+                            "Installs feature flags faster than you can say “rollback.”",
+                            "Has a sixth sense for impending outages—nicknamed “the Pager Tingle.”"
+                        ],
+                        formal_description_level: "Veteran Mavericks are bold innovators who drive transformative change within their organizations. They are unafraid to challenge the status quo, take calculated risks, and lead high-impact projects. Their strategic vision and hands-on expertise enable them to deliver complex solutions while inspiring teams to embrace new ways of thinking."
+                    },
+                    {
+                        id: "oracle",
+                        name: "Oracle",
+                        humorous_statement: "When they speak, the CI/CD pipeline pauses to listen.",
+                        formal_paragraph_after_humorous: "Veteran Oracles are the wise sages of the tech world, whose words carry weight and whose predictions often become reality. They’re the trusted advisors everyone turns to when the path forward is unclear.",
+                        one_liner_level: "Provides strategic foresight, mentors others, and influences technological direction.",
+                        bullet_points: [
+                            "Draws multi-cloud strategy on a napkin that later sells on eBay.",
+                            "Offers one-liner advice that becomes company lore.",
+                            "Sits on advisory boards, literally and figuratively.",
+                            "Can predict the next tech buzzword but politely refuses to coin it."
+                        ],
+                        formal_description_level: "Veteran Oracles are revered thought leaders whose insights shape the direction of technology within and beyond their organizations. They provide strategic guidance, mentor future leaders, and influence industry standards. Their deep wisdom, combined with a forward-looking mindset, ensures that their organizations remain resilient and competitive in a rapidly evolving landscape."
+                    }
+                ]
+            },
+            {
+                id: "emerging",
+                name: "Emerging",
+                experience_years: "N/A",
+                humorous_intro: "Tech leaders stepping out of middle-earth and into Mordor—er, bigger meetings.",
+                formal_description_category: "Emerging leaders represent the next generation of technological expertise, poised to take on greater responsibilities and drive innovation. They are characterized by their adaptability, ambition, and commitment to continuous learning. Their ability to bridge the gap between established practices and emerging trends makes them essential for organizational growth.",
+                one_liner_category: "Adaptable technology professionals growing into significant leadership and innovation roles.",
+                color_theme: {
+                    bg: "bg-purple-50",
+                    border: "border-purple-600",
+                    text: "text-purple-700",
+                    active_card: "ring-2 ring-offset-2 ring-purple-500 bg-purple-100",
+                    hover_bg: "hover:bg-purple-100"
+                },
+                levels: [
+                    {
+                        id: "explorer",
+                        name: "Explorer",
+                        humorous_statement: "Builds proof-of-concepts faster than approvals arrive.",
+                        formal_paragraph_after_humorous: "Emerging Explorers are the early adopters and experimenters, always eager to try out new ideas and technologies. They’re the ones who turn “what if” into “let’s see what happens.”",
+                        one_liner_level: "Actively seeks out and experiments with new technologies, tools, and methodologies.",
+                        bullet_points: [
+                            "Reads RFCs like bedtime stories.",
+                            "Deploys to staging because “YOLO” is not on the roadmap.",
+                            "Tracks sprint velocity in emojis.",
+                            "Collects edge-case bugs as Pokémon: gotta catch ’em all."
+                        ],
+                        formal_description_level: "Emerging Explorers are ambitious professionals eager to make their mark. They are quick to adopt new tools and methodologies, often leading the charge in prototyping and experimentation. Their enthusiasm and adaptability help teams stay agile and responsive to changing business needs."
+                    },
+                    {
+                        id: "alchemist",
+                        name: "Alchemist",
+                        humorous_statement: "Mixes Scrum rituals and caffeine in equal parts.",
+                        formal_paragraph_after_humorous: "Emerging Alchemists are the process tinkerers, blending best practices with a dash of creativity. They’re the ones who can turn a vague product idea into a well-oiled development machine.",
+                        one_liner_level: "Transforms existing systems and processes into more efficient and robust solutions.",
+                        bullet_points: [
+                            "Convinces security teams that innovation ≠ chaos.",
+                            "Converts vague product visions into detailed backlog epics.",
+                            "Builds dashboards no one asked for but everyone uses.",
+                            "Measures success by reduced Slack pings after 6 p.m."
+                        ],
+                        formal_description_level: "Emerging Alchemists excel at turning abstract ideas into actionable plans. They bridge the gap between vision and execution, ensuring that innovation is both practical and secure. Their organizational skills and technical acumen make them key drivers of project success and team cohesion."
+                    },
+                    {
+                        id: "maverick",
+                        name: "Maverick",
+                        humorous_statement: "Some call it scope creep; they call it opportunity.",
+                        formal_paragraph_after_humorous: "Emerging Mavericks are the risk-takers and opportunity-spotters, always ready to push boundaries and try something new. They see every challenge as a chance to innovate.",
+                        one_liner_level: "Challenges conventional approaches and drives innovative, high-impact change.",
+                        bullet_points: [
+                            "Champions serverless until finance notices the bill.",
+                            "Pushes for “design for failure” and then schedules the fire drill.",
+                            "Turns cross-team politics into cross-team playlists.",
+                            "Says “Let’s A/B test it” often enough that marketing steals the phrase."
+                        ],
+                        formal_description_level: "Emerging Mavericks are fearless change agents who thrive in dynamic environments. They see challenges as opportunities and are adept at rallying teams around bold initiatives. Their proactive approach and willingness to experiment drive innovation and continuous improvement."
+                    },
+                    {
+                        id: "oracle",
+                        name: "Oracle",
+                        humorous_statement: "Knows which tech debt to pay and which to refinance.",
+                        formal_paragraph_after_humorous: "Emerging Oracles are the strategic thinkers, able to see the big picture and guide teams through complexity. They’re the ones who can spot patterns and predict what’s coming next.",
+                        one_liner_level: "Provides strategic foresight, mentors others, and influences technological direction.",
+                        bullet_points: [
+                            "Aligns architecture with OKRs like celestial bodies.",
+                            "Mentors two levels up and one level sideways.",
+                            "Predicts quarterly incident themes (and pre-writes retrospectives).",
+                            "Uses whiteboard markers the way Gandalf uses a staff."
+                        ],
+                        formal_description_level: "Emerging Oracles possess a rare combination of technical depth and strategic insight. They guide teams through complex decisions, anticipate future challenges, and foster a culture of mentorship and learning. Their influence extends beyond their immediate teams, shaping the broader organizational direction."
+                    }
+                ]
+            },
+            {
+                id: "rising",
+                name: "Rising",
+                experience_years: "N/A",
+                humorous_intro: "Fast-track specialists climbing the leadership beanstalk two commits at a time.",
+                formal_description_category: "Rising leaders are high-potential individuals who demonstrate exceptional technical skills and leadership qualities. They are on a trajectory to assume significant responsibilities and drive innovation within their organizations. Their proactive approach, adaptability, and commitment to excellence make them valuable assets.",
+                one_liner_category: "High-potential individuals rapidly developing expertise and demonstrating leadership qualities.",
+                color_theme: {
+                    bg: "bg-sky-50",
+                    border: "border-sky-600",
+                    text: "text-sky-700",
+                    active_card: "ring-2 ring-offset-2 ring-sky-500 bg-sky-100",
+                    hover_bg: "hover:bg-sky-100"
+                },
+                levels: [
+                    {
+                        id: "explorer",
+                        name: "Explorer",
+                        humorous_statement: "Signing up for every beta before reading the changelog.",
+                        formal_paragraph_after_humorous: "Rising Explorers are the enthusiastic early adopters, always first in line to try out the latest tech. They’re not afraid to break things in the name of learning.",
+                        one_liner_level: "Actively seeks out and experiments with new technologies, tools, and methodologies.",
+                        bullet_points: [
+                            "Lives on DEV.to comment sections.",
+                            "Integrates five APIs before lunch—docs optional.",
+                            "Thinks “edge computing” means working from a cliff-side café.",
+                            "Files bugs with GIFs for maximum empathy."
+                        ],
+                        formal_description_level: "Rising Explorers are energetic and resourceful, always eager to try new technologies and approaches. Their hands-on experimentation and willingness to learn from failure make them valuable contributors to any team. They bring fresh perspectives and a contagious enthusiasm for innovation."
+                    },
+                    {
+                        id: "alchemist",
+                        name: "Alchemist",
+                        humorous_statement: "Turns hackathon prototypes into production—sometimes intentionally.",
+                        formal_paragraph_after_humorous: "Rising Alchemists are the builders and fixers, able to turn a weekend project into a production-ready solution. They thrive on making things work—sometimes in unexpected ways.",
+                        one_liner_level: "Transforms existing systems and processes into more efficient and robust solutions.",
+                        bullet_points: [
+                            "Automates CI because manual merges kill the vibe.",
+                            "Pitch-slaps stakeholders with live demos.",
+                            "Treats unit-test coverage like personal high scores.",
+                            "Swaps keyboards when burnt out—mechanical for click therapy."
+                        ],
+                        formal_description_level: "Rising Alchemists are skilled at transforming ideas into tangible results. They excel at automation, testing, and process improvement, ensuring that projects move smoothly from concept to deployment. Their technical proficiency and proactive mindset drive team efficiency and quality."
+                    },
+                    {
+                        id: "maverick",
+                        name: "Maverick",
+                        humorous_statement: "“Move fast, file tickets later.”",
+                        formal_paragraph_after_humorous: "Rising Mavericks are the disruptors, always looking for a faster, better, or more interesting way to do things. They’re the ones who challenge the rules and inspire others to do the same.",
+                        one_liner_level: "Challenges conventional approaches and drives innovative, high-impact change.",
+                        bullet_points: [
+                            "Schedules one-hour sprints—calls them “bursts.”",
+                            "Refuses “it can’t be done” with a pull request.",
+                            "Speaks fluent GraphQL, REST, and existential dread.",
+                            "Submits RFCs with embedded memes for readability."
+                        ],
+                        formal_description_level: "Rising Mavericks are bold and innovative, unafraid to challenge conventions and push boundaries. They thrive in fast-paced environments, driving rapid progress and encouraging creative problem-solving. Their leadership inspires teams to embrace change and pursue ambitious goals."
+                    },
+                    {
+                        id: "oracle",
+                        name: "Oracle",
+                        humorous_statement: "Sees architectural patterns in latte foam.",
+                        formal_paragraph_after_humorous: "Rising Oracles are the visionaries, able to connect the dots between technology and business. They see the roadmap not just as a plan, but as a story waiting to be told.",
+                        one_liner_level: "Provides strategic foresight, mentors others, and influences technological direction.",
+                        bullet_points: [
+                            "Maps tech roadmap to business KPIs and comic-book arcs.",
+                            "Negotiates release dates with Mercury retrograde in mind.",
+                            "Mentors via code reviews that double as haiku.",
+                            "Keeps a secret backlog labeled “When I’m CTO.”"
+                        ],
+                        formal_description_level: "Rising Oracles demonstrate exceptional foresight and strategic thinking. They connect technical initiatives to business objectives, mentor peers, and contribute to long-term planning. Their holistic perspective and commitment to growth position them as future leaders in technology."
+                    }
+                ]
+            },
+            {
+                id: "aspiring",
+                name: "Aspiring",
+                experience_years: "N/A",
+                humorous_intro: "Fresh faces, bright eyes, and GitHub repos full of potential (and TODOs).",
+                formal_description_category: "Aspiring leaders represent the future of technology, bringing fresh perspectives and a passion for innovation. They are characterized by their eagerness to learn, their willingness to take on challenges, and their commitment to personal and professional growth. Their potential for leadership and technical excellence makes them valuable assets to any organization.",
+                one_liner_category: "Newcomers to technology focused on foundational skill development and eager to learn.",
+                color_theme: {
+                    bg: "bg-green-50",
+                    border: "border-green-600",
+                    text: "text-green-700",
+                    active_card: "ring-2 ring-offset-2 ring-green-500 bg-green-100",
+                    hover_bg: "hover:bg-green-100"
+                },
+                levels: [
+                    {
+                        id: "explorer",
+                        name: "Explorer",
+                        humorous_statement: "Wears the “Hello, World!” badge with pride.",
+                        formal_paragraph_after_humorous: "Aspiring Explorers are the newcomers, excited to dive in and learn everything they can. They’re not afraid to make mistakes, and every bug is just another lesson in disguise.",
+                        one_liner_level: "Actively seeks out and experiments with new technologies, tools, and methodologies.",
+                        bullet_points: [
+                            "Breaks prod—but only the internal sandbox one.",
+                            "Googles error messages like an Olympic sport.",
+                            "Adds comments apologizing to Future Self.",
+                            "Treats Stack Overflow like a social network (because it is)."
+                        ],
+                        formal_description_level: "Aspiring Explorers are enthusiastic newcomers eager to learn and grow. They approach challenges with curiosity and persistence, quickly building foundational skills. Their willingness to ask questions and seek help accelerates their development and integration into the tech community."
+                    },
+                    {
+                        id: "alchemist",
+                        name: "Alchemist",
+                        humorous_statement: "Mixes tutorials until something compiles.",
+                        formal_paragraph_after_humorous: "Aspiring Alchemists are the experimenters, always trying out new tutorials and piecing together solutions from whatever resources they can find. They’re not afraid to break things in the pursuit of understanding.",
+                        one_liner_level: "Transforms existing systems and processes into more efficient and robust solutions.",
+                        bullet_points: [
+                            "Turns copy-paste into copy-master.",
+                            "Refactors side projects instead of chores.",
+                            "Measures nights by cups of instant noodles.",
+                            "Implements logging just to print motivational quotes."
+                        ],
+                        formal_description_level: "Aspiring Alchemists are hands-on learners who thrive on experimentation. They actively seek out new knowledge, apply it in creative ways, and are not afraid to make mistakes. Their dedication to continuous improvement lays the groundwork for future technical mastery."
+                    },
+                    {
+                        id: "maverick",
+                        name: "Maverick",
+                        humorous_statement: "Refuses to accept the default theme.",
+                        formal_paragraph_after_humorous: "Aspiring Mavericks are the tinkerers and customizers, always looking for ways to make things their own. They’re the ones who see every tool as a canvas for creativity.",
+                        one_liner_level: "Challenges conventional approaches and drives innovative, high-impact change.",
+                        bullet_points: [
+                            "Writes custom linters for fun (and revenge).",
+                            "Files feature requests on open-source repos at 2 a.m.",
+                            "Spins up Kubernetes clusters to host a personal blog.",
+                            "MacGyvers IoT gadgets to feed the office plant."
+                        ],
+                        formal_description_level: "Aspiring Mavericks are independent thinkers who enjoy pushing boundaries and exploring unconventional solutions. Their passion for technology drives them to take initiative, experiment boldly, and contribute to open-source and community projects. They are future innovators in the making."
+                    },
+                    {
+                        id: "oracle",
+                        name: "Oracle",
+                        humorous_statement: "Yoda in a hoodie (limited edition).",
+                        formal_paragraph_after_humorous: "Aspiring Oracles are the natural mentors and communicators, able to explain complex concepts in simple terms. They’re the ones who inspire others to learn and grow alongside them.",
+                        one_liner_level: "Provides strategic foresight, mentors others, and influences technological direction.",
+                        bullet_points: [
+                            "Explains pointers with pizza slices.",
+                            "Gives lightning talks that actually cause thunderous applause.",
+                            "Predicts which tutorial will be outdated next week.",
+                            "Understands that great power comes with pull-request responsibility."
+                        ],
+                        formal_description_level: "Aspiring Oracles are emerging thought leaders who combine technical curiosity with a gift for communication. They share knowledge generously, inspire peers, and demonstrate a deep understanding of both technology and teamwork. Their potential for leadership and influence is already evident."
+                    }
+                ]
+            }
+        ];
+
+        // --- SVG ICONS ---
+        const levelIcons = {
+            explorer: `<svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>`,
+            alchemist: `<svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826 3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`,
+            maverick: `<svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`,
+            oracle: `<svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>`
+        };
+        const categoryIcons = {
+            aspiring: `<svg class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8s-1.5-2-4-2-4 2-4 2"></path></svg>`,
+            rising: `<svg class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>`,
+            emerging: `<svg class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6.343 6.343l-2.828 2.829M17.657 6.343l2.828 2.829M12 21a9 9 0 100-18 9 9 0 000 18zM12 14a2 2 0 100-4 2 2 0 000 4z"></path></svg>`,
+            veterans: `<svg class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>`
+        };
+
+        // --- STATE MANAGEMENT ---
+        let currentCategoryIndex = 0; 
+        let currentLevelIndex = 0; 
+
+        // --- DOM Elements ---
+        const categoryCardsContainer = document.getElementById('category-cards-container');
+        const categoryInfoContainer = document.getElementById('category-info');
+        const levelNavigationContainer = document.getElementById('level-navigation-container');
+        const levelCardsContainer = document.getElementById('level-cards-container');
+        const levelDetailsContainer = document.getElementById('level-details');
+
+        // --- RENDER FUNCTIONS ---
+        function renderCategoryCards() {
+            categoryCardsContainer.innerHTML = '';
+            appData.forEach((category, index) => {
+                const card = document.createElement('button');
+                const isActive = index === currentCategoryIndex;
+                const iconHTML = categoryIcons[category.id] || '';
+                
+                card.className = `text-center p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 ease-in-out focus:outline-none 
+                                 ${category.color_theme.hover_bg} ${category.color_theme.text} border-2 ${category.color_theme.border}
+                                 ${isActive ? category.color_theme.active_card : 'bg-white'}`;
+                card.innerHTML = `
+                    ${iconHTML}
+                    <h3 class="font-semibold text-lg sm:text-xl">${category.name}</h3>
+                `;
+                card.addEventListener('click', () => {
+                    currentCategoryIndex = index;
+                    currentLevelIndex = 0; 
+                    updateView();
+                });
+                categoryCardsContainer.appendChild(card);
+            });
+        }
+
+        function renderCategoryInfo() {
+            if (currentCategoryIndex === null) { 
+                categoryInfoContainer.classList.remove('visible');
+                return;
+            }
+            const category = appData[currentCategoryIndex];
+            categoryInfoContainer.className = `mb-6 pb-6 border-b ${category.color_theme.border} ${category.color_theme.bg} p-4 rounded-lg shadow-inner visible`;
+            // Updated tagline color for category humorous intro
+            categoryInfoContainer.innerHTML = `
+                <h2 class="text-2xl sm:text-3xl font-semibold ${category.color_theme.text} mb-2">${category.name}</h2>
+                <p class="italic text-sky-600 mb-3 text-sm sm:text-base">${category.humorous_intro}</p> 
+                <p class="text-slate-700 text-sm sm:text-base">${category.formal_description_category}</p>
+                <p class="text-indigo-500 italic mt-2 text-sm">One-liner: ${category.one_liner_category}</p>
+            `;
+        }
+
+        function renderLevelNavigation() {
+            if (currentCategoryIndex === null) { 
+                levelNavigationContainer.classList.remove('visible');
+                levelCardsContainer.innerHTML = '';
+                return;
+            }
+            levelNavigationContainer.classList.add('visible');
+            levelCardsContainer.innerHTML = '';
+            const category = appData[currentCategoryIndex];
+            category.levels.forEach((level, index) => {
+                const card = document.createElement('button');
+                const isActive = index === currentLevelIndex;
+                const iconHTML = levelIcons[level.id] || '';
+                
+                card.className = `text-center p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out focus:outline-none 
+                                 ${isActive 
+                                    ? `${category.color_theme.active_card} ${category.color_theme.text}` 
+                                    : `bg-slate-50 ${category.color_theme.hover_bg} text-slate-700 focus:${category.color_theme.active_card.split(' ')[0]} focus:ring-2`
+                                 }`;
+                card.innerHTML = `
+                    ${iconHTML}
+                    <h4 class="font-semibold text-base sm:text-lg">${level.name}</h4>
+                `;
+                card.addEventListener('click', () => {
+                    currentLevelIndex = index;
+                    renderLevelDetails(); 
+                    renderLevelNavigation(); 
+                });
+                levelCardsContainer.appendChild(card);
+            });
+        }
+
+        function renderLevelDetails() {
+            if (currentCategoryIndex === null ) { 
+                levelDetailsContainer.classList.remove('visible');
+                levelDetailsContainer.innerHTML = '<p class="text-center text-slate-500 py-10">Select your category to understand and different levels.</p>';
+                return;
+            }
+            
+            const level = appData[currentCategoryIndex].levels[currentLevelIndex]; 
+            const categoryTheme = appData[currentCategoryIndex].color_theme;
+            levelDetailsContainer.classList.add('visible');
+
+            // Updated tagline color for level humorous statement
+            levelDetailsContainer.innerHTML = `
+                <h3 class="text-2xl sm:text-3xl font-bold ${categoryTheme.text} mb-3">${level.name}</h3>
+                <p class="italic text-sky-600 mb-2 text-md sm:text-lg">${level.humorous_statement}</p>
+                <p class="text-slate-700 mb-4 text-sm sm:text-base">${level.formal_paragraph_after_humorous}</p>
+                <p class="text-purple-500 italic mt-1 mb-3 text-sm">Focus: ${level.one_liner_level}</p>
+                <strong class="block mb-1 ${categoryTheme.text} text-sm sm:text-base">Key Traits & Behaviors:</strong>
+                <ul class="list-disc pl-5 mb-4 text-slate-700 space-y-1 text-sm sm:text-base">
+                    ${level.bullet_points.map(bp => `<li>${bp}</li>`).join('')}
+                </ul>
+                <strong class="block mb-1 ${categoryTheme.text} text-sm sm:text-base">Formal Description:</strong>
+                <p class="text-slate-700 text-sm sm:text-base">${level.formal_description_level}</p>
+            `;
+        }
+        
+        function updateView() {
+            renderCategoryCards(); 
+            renderCategoryInfo();
+            renderLevelNavigation();
+            renderLevelDetails();
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            updateView();
+        });
+
+    </script>
+</body>
+</html>
