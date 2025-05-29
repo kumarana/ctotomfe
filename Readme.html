@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Additional table styling for clarity */
+        #file-details-table th, #file-details-table td {
+            border-bottom-width: 1px; /* Add bottom border to all cells */
+        }
+        #file-details-table tr:last-child td {
+            border-bottom-width: 0px; /* Remove bottom border from last row's cells */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased">
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold text-sky-700">Project Directory Overview</h1>
+        </header>
+
+        <section id="file-list-section" class="mb-12">
+            <h2 class="text-2xl font-semibold text-slate-700 mb-5 border-b pb-2 border-slate-300">Files in Directory</h2>
+            <div id="file-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- File names will be populated here as styled cards -->
+            </div>
+        </section>
+
+        <section id="file-details-table-section" class="mb-10">
+            <h2 class="text-2xl font-semibold text-slate-700 mb-5 border-b pb-2 border-slate-300">File Details</h2>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+                <table id="file-details-table" class="min-w-full">
+                    <thead class="bg-slate-200">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">File Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Description / Latest Change</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Last Changed By</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Date of Last Change</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-slate-200">
+                        <!-- Table rows will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 text-slate-500 text-sm">
+            <p>Generated on <span id="generation-date">[Date]</span></p>
+        </footer>
+    </div>
+    <script>
+        // Populate File List
+        const fileList = [
+            "1 MIN CTO TOMORROW.mp4", "CTO Framework.html", "README.md", "ctotomorrow.webp",
+            "indexcto.html", "julefml.html", "test.htm"
+        ];
+        const fileListContainer = document.getElementById('file-list');
+        fileList.forEach(fileName => {
+            const fileCard = document.createElement('div');
+            fileCard.className = 'bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-200';
+            const fileIcon = document.createElement('span');
+            fileIcon.className = 'text-sky-500 mr-2'; // Simple icon placeholder
+            // Basic icon selection based on extension
+            if (fileName.endsWith('.html') || fileName.endsWith('.htm')) fileIcon.innerHTML = '&#x1F4C4;'; // Page icon
+            else if (fileName.endsWith('.mp4')) fileIcon.innerHTML = '&#x1F3A5;'; // Video icon
+            else if (fileName.endsWith('.webp') || fileName.endsWith('.jpg') || fileName.endsWith('.png')) fileIcon.innerHTML = '&#x1F4F7;'; // Image icon
+            else if (fileName.endsWith('.md')) fileIcon.innerHTML = '&#x1F4DD;'; // Document icon
+            else fileIcon.innerHTML = '&#x1F4C1;'; // Folder/generic file icon
+
+            const fileNameSpan = document.createElement('span');
+            fileNameSpan.textContent = fileName;
+            fileNameSpan.className = 'text-sm font-medium text-slate-700';
+            
+            fileCard.appendChild(fileIcon);
+            fileCard.appendChild(fileNameSpan);
+            fileListContainer.appendChild(fileCard);
+        });
+
+        // Populate File Details Table
+        const gitLogData = {
+          "1 MIN CTO TOMORROW.mp4": "Anandan Kumaran|Wed May 28 10:37:39 2025 +0530|added",
+          "CTO Framework.html": "Anandan Kumaran|Wed May 28 10:37:39 2025 +0530|added",
+          "README.md": "Anandan Kumaran|Wed May 28 10:37:39 2025 +0530|added",
+          "ctotomorrow.webp": "Anandan Kumaran|Wed May 28 10:37:39 2025 +0530|added",
+          "indexcto.html": "Anandan Kumaran|Wed May 28 10:37:39 2025 +0530|added",
+          "julefml.html": "google-labs-jules[bot]|Wed May 28 05:36:11 2025 +0000|Apply patch /tmp/75567719-954e-46d4-bdc4-00d0892250ae.patch",
+          "test.htm": "Anandan Kumaran|Wed May 28 10:37:39 2025 +0530|added"
+        };
+        const tableBody = document.getElementById('file-details-table').getElementsByTagName('tbody')[0];
+
+        fileList.forEach(fileName => {
+            const logEntry = gitLogData[fileName] || "N/A|N/A|N/A";
+            const [author, date, subject] = logEntry.split('|');
+
+            const row = tableBody.insertRow();
+            row.className = 'hover:bg-slate-50 transition-colors duration-150';
+
+            const cellFileName = row.insertCell();
+            cellFileName.textContent = fileName;
+            cellFileName.className = 'px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900';
+
+            const cellSubject = row.insertCell();
+            cellSubject.textContent = subject;
+            cellSubject.className = 'px-6 py-4 whitespace-nowrap text-sm text-slate-600';
+            
+            const cellAuthor = row.insertCell();
+            cellAuthor.textContent = author;
+            cellAuthor.className = 'px-6 py-4 whitespace-nowrap text-sm text-slate-600';
+
+            const cellDate = row.insertCell();
+            // Attempt to format date for better readability if it's a parseable format
+            let displayDate = date;
+            try {
+                const parsedDate = new Date(date);
+                if (!isNaN(parsedDate)) {
+                     displayDate = parsedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                }
+            } catch (e) { /* ignore date parsing error, use original */ }
+            cellDate.textContent = displayDate;
+            cellDate.className = 'px-6 py-4 whitespace-nowrap text-sm text-slate-600';
+        });
+
+        // Set the generation date dynamically
+        document.getElementById('generation-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+    </script>
+</body>
+</html>
