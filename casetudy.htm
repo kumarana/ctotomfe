@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTO Tomorrow - Unlock Your Leadership Potential</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background: linear-gradient(135deg, #26abed 0%, #39b54a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #39b54a;
+        }
+
+        .nav-link {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #39b54a; /* Green color from logo */
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.05); /* Subtle hover effect */
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #26abed, #39b54a);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(57, 181, 74, 0.3);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center; /* Center align the text */
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem; /* Adjusted margin */
+            color: #000000;
+        }
+
+        /* Main intro paragraph for testimonials section */
+        .testimonials-section > .container > p:first-of-type {
+            font-size: 1.25rem; /* Adjusted font size */
+            margin-bottom: 2.5rem; /* Adjusted margin */
+            color: #555; /* Adjusted text color */
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+            justify-items: center;
+        }
+
+        /* Styling for each testimonial card (video + text wrapper) */
+        .testimonial-videos-grid > div {
+            background-color: #f9f9f9; /* Light grey background */
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%; /* Ensure cards take up cell width */
+            max-width: 500px; /* Max card width for consistency */
+        }
+
+        .testimonial-videos-grid video {
+            width: 100%;
+            max-width: 560px; /* This will be constrained by the card's width */
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem; /* Adjusted margin */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Added shadow to video */
+        }
+
+        /* Styling for testimonial captions */
+        .testimonial-videos-grid p {
+            text-align: center;
+            margin-bottom: 0; /* Removed bottom margin as card has padding */
+            color: #222; /* Darker text for better contrast */
+            font-size: 1rem; /* Increased font size */
+            font-weight: 500; /* Made font a bit bolder */
+            line-height: 1.5; /* Improved line height */
+            max-width: 100%; /* Caption width relative to card */
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background-color: #333; /* Dark grey background */
+            color: #ccc; /* Light grey text */
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 4rem; /* Space above the footer */
+        }
+
+        .site-footer p {
+            margin: 0.5rem 0; /* Adjusted margin for better spacing between lines in footer */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="indexcto.html" class="logo-link" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <img src="https://kumarana.github.io/ctotomfe/ctotomorrow.webp" alt="CTO Tomorrow Logo" onerror="this.style.display='none'">
+                        <div class="logo-text">CTO Tomorrow</div>
+                    </div>
+                </a>
+                <div>
+                    <a href="casetudy.htm" class="nav-link">Case Studies</a>
+                    <a href="indexcto.html#join" class="cta-button">Join Now</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Case Studies & Testimonials</h2>
+            <p>See what people are saying about Anandan Kumaran's impact.</p>
+
+            <div class="testimonial-videos-grid">
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"Anandan's insights were pivotal in restructuring our tech roadmap." - CEO, Tech Solutions Inc.</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"His mentorship helped me grow from a team lead to a confident engineering manager." - Engineering Manager, Innovate Corp.</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"Working with Anandan helped us scale our operations by 200%." - COO, Growth Startup</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"His strategic advice was invaluable during our Series B funding." - Founder, Fintech Company</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"Anandan's ability to simplify complex technical challenges is unmatched." - VP of Engineering, SaaS Platform</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"He has a unique talent for fostering leadership within tech teams." - CTO, e-Commerce Giant</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"The CTO Tomorrow framework provided a clear path to executive leadership." - Aspiring CTO</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"Anandan's coaching on team building and culture was transformative." - Head of Product, Mobile Solutions</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"His deep understanding of market trends gave us a competitive edge." - Chief Architect, AI Innovations</p>
+                </div>
+                <div>
+                    <video controls width="100%"><source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                    <p>"A truly inspiring mentor who genuinely cares about your growth." - Senior Developer, Global Tech Firm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> CTO Tomorrow. All Rights Reserved.</p>
+            <p>Designed by Anandan Kumaran</p>
+        </div>
+    </footer>
+</body>
+</html>
