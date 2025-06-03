@@ -348,7 +348,7 @@
                     <img src="https://kumarana.github.io/ctotomfe/ctotomorrow.webp" alt="CTO Tomorrow Logo" onerror="this.style.display='none'">
                     <div class="logo-text">CTO Tomorrow</div>
                 </div>
-                <a href="#join" class="cta-button">Join Now</a>
+                <a href="join.htm" class="cta-button">Join Now</a>
             </nav>
         </div>
     </header>
@@ -467,13 +467,16 @@
             }
         });
 
-        // Smooth scrolling for navigation
-        document.querySelector('a[href="#join"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('join').scrollIntoView({
-                behavior: 'smooth'
+        // Smooth scrolling for navigation (for older anchor link)
+        const joinLink = document.querySelector('a[href="#join"]');
+        if (joinLink) {
+            joinLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('join').scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
