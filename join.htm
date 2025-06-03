@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose the CTO Tomorrow membership that fits your learning style and connect with mentor Anandan Kumaran.">
+    <title>Join CTO Tomorrow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background: linear-gradient(135deg, #26abed 0%, #39b54a 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #39b54a;
+        }
+        .cta-button {
+            background: linear-gradient(45deg, #26abed, #39b54a);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(57, 181, 74, 0.3);
+        }
+        .hero {
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .video-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .video-container video {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 20px;
+        }
+        .pricing-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .pricing-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+        .pricing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .pricing-card {
+            background: linear-gradient(135deg, #26abed, #39b54a);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 260px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .pricing-price {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .pricing-card li {
+            margin-bottom: 0.5rem;
+        }
+        .pricing-button {
+            background: white;
+            color: #39b54a;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .credibility {
+            background: #f9f9f9;
+            padding: 4rem 0;
+            color: #000;
+        }
+        .credibility h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .testimonial {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .video-container video {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="https://kumarana.github.io/ctotomfe/ctotomorrow.webp" alt="CTO Tomorrow Logo" onerror="this.style.display='none'">
+                    <div class="logo-text">CTO Tomorrow</div>
+                </div>
+                <a href="indexcto.html" class="cta-button">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Join the CTO Tomorrow Community</h1>
+            <div class="video-container">
+                <video controls width="100%" height="450">
+                    <source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Membership Options</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="pricing-price">Weekly newsletter</div>
+                    <ul>
+                        <li>Email once a week on key topics</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Pro</h3>
+                    <div class="pricing-price">₹299/year (billed annually) or ₹499/month</div>
+                    <ul>
+                        <li>Includes Free tier</li>
+                        <li>Daily 10‑minute learning tip</li>
+                        <li>Remember, little drops make an ocean</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Choose Pro</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Expert</h3>
+                    <div class="pricing-price">₹9999/year (billed annually) or ₹699/month</div>
+                    <ul>
+                        <li>Everything in Pro</li>
+                        <li>Monthly 1‑1 connect with Anandan Kumaran</li>
+                        <li>Individual guidance</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Become Expert</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Assessment & Roadmap</h3>
+                    <div class="pricing-price">₹3999 one time</div>
+                    <ul>
+                        <li>Assessment of your skills</li>
+                        <li>Personalized learning roadmap</li>
+                        <li>Includes one 1‑1 with Anandan Kumaran</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Start Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="credibility">
+        <div class="container">
+            <h2>Why Learn from Anandan Kumaran?</h2>
+            <p style="max-width:800px;margin:0 auto 2rem auto; text-align:center;">Kumaran has over two decades of experience leading technology teams and helping professionals grow into strategic leaders. His guidance blends practical engineering expertise with real‑world leadership insight.</p>
+            <div style="max-width:800px;margin:0 auto;">
+                <div class="testimonial">
+                    <p>"Kumaran's advice transformed how I approach problem solving. His mentorship is priceless."</p>
+                    <p style="font-weight:bold; margin-top:0.5rem;">— Ravi, Senior Engineer</p>
+                </div>
+                <div class="testimonial">
+                    <p>"The 1‑1 sessions gave me clear direction in my career. Highly recommended for aspiring tech leaders."</p>
+                    <p style="font-weight:bold; margin-top:0.5rem;">— Sneha, Engineering Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            &copy; 2024 CTO Tomorrow
+        </div>
+    </footer>
+</body>
+</html>
