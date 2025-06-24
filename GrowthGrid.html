@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Technology Leader's Growth Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Gray */
+            color: #F9FAFB; /* Almost White */
+        }
+        /* Custom brand colors for Tailwind */
+        .bg-brand-blue { background-color: #26abed; }
+        .text-brand-blue { color: #26abed; }
+        .border-brand-blue { border-color: #26abed; }
+
+        .bg-brand-green { background-color: #39b54a; }
+        .text-brand-green { color: #39b54a; }
+        .border-brand-green { border-color: #39b54a; }
+
+        .bg-brand-lime { background-color: #8cc63f; }
+        .text-brand-lime { color: #8cc63f; }
+        .border-brand-lime { border-color: #8cc63f; }
+
+        .bg-brand-explorer { background-color: #ca8a04; } /* Yellow-ish for Explorer */
+        .text-brand-explorer { color: #ca8a04; }
+        .border-brand-explorer { border-color: #ca8a04; }
+
+        .bg-brand-alchemist { background-color: #c026d3; } /* Magenta for Alchemist */
+        .text-brand-alchemist { color: #c026d3; }
+        .border-brand-alchemist { border-color: #c026d3; }
+
+
+        .card {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Transition for filtering */
+        .grid-cell {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background-color 0.3s ease;
+        }
+        
+        .filtered-out {
+            opacity: 0.2;
+            transform: scale(0.95);
+        }
+        
+        /* Modal styles */
+        .modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-20px);
+        }
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="app" class="container mx-auto p-4 sm:p-6 md:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">The Technology Leader's <span class="text-brand-blue">Growth Grid</span></h1>
+            <p class="text-lg text-gray-400">An interactive guide to leadership archetypes and progression.</p>
+        </header>
+
+        <!-- Filter Controls -->
+        <div id="filters" class="mb-8 p-4 bg-gray-800 rounded-xl shadow-lg">
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                 <span class="font-bold text-lg mr-4">Filter by:</span>
+                 <button data-filter="all" class="filter-btn active-filter bg-brand-blue text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-opacity-80 transition">Show All</button>
+                 <button data-filter="Explorer" class="filter-btn text-white bg-brand-explorer px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-opacity-80 transition">Explorer</button>
+                 <button data-filter="Alchemist" class="filter-btn text-white bg-brand-alchemist px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-opacity-80 transition">Alchemist</button>
+                 <button data-filter="Maverick" class="filter-btn text-white bg-brand-green px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-opacity-80 transition">Maverick</button>
+                 <button data-filter="Oracle" class="filter-btn text-white bg-brand-blue px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-opacity-80 transition">Oracle</button>
+                 <span class="w-full sm:w-auto h-px sm:h-6 sm:w-px bg-gray-600 my-2 sm:my-0 mx-2"></span>
+                 <button data-filter="Aspiring" class="filter-btn text-gray-300 border border-gray-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 hover:text-white transition">Aspiring</button>
+                 <button data-filter="Rising" class="filter-btn text-gray-300 border border-gray-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 hover:text-white transition">Rising</button>
+                 <button data-filter="Emerging" class="filter-btn text-gray-300 border border-gray-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 hover:text-white transition">Emerging</button>
+                 <button data-filter="Veterans" class="filter-btn text-gray-300 border border-gray-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 hover:text-white transition">Veterans</button>
+            </div>
+        </div>
+
+        <!-- Growth Grid -->
+        <div id="growth-grid" class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <!-- Grid will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="card-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 modal-backdrop opacity-0 pointer-events-none">
+        <div class="modal-content bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl mx-auto border-t-4 border-brand-blue overflow-hidden">
+            <div class="p-6 md:p-8">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h2 id="modal-archetype" class="text-2xl md:text-3xl font-bold text-white">Archetype</h2>
+                        <p id="modal-progression" class="text-md text-gray-400">Progression Level</p>
+                    </div>
+                    <button id="modal-close-btn" class="text-gray-400 hover:text-white transition text-3xl">&times;</button>
+                </div>
+                <div id="modal-body" class="text-gray-300 space-y-3 mt-6">
+                    <!-- Modal content goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Data for the growth grid
+            const gridData = [
+                { progression: 'Aspiring', explorer: ['Curious hands-on learner', 'Likes trying new tools', 'Deploys by googling'], alchemist: ['Hacks things to work', 'Combines tutorials creatively', 'Likes solving messy code'], maverick: ['Breaks rules playfully', 'Customizes everything', 'Dares to try new'], oracle: ['Learning wisdom from others', 'Asks great questions', 'Observes team patterns'] },
+                { progression: 'Rising', explorer: ['Fast-tech experimenter', 'Automates boring tasks', 'Tries new frameworks'], alchemist: ['Builds real-world tools', 'Automates boring tasks', 'Turns chaos into code'], maverick: ['Challenges norms boldly', 'Pushes against the grain', 'Questions everything'], oracle: ['Sees tech-business patterns', 'Anticipates scaling problems', 'Connects dots early'] },
+                { progression: 'Emerging', explorer: ['Leads innovation projects', 'Translates vision to code', 'Experiments at scale'], alchemist: ['Optimizes teams and systems', 'Streamlines delivery flow', 'Makes services run smoother'], maverick: ['Pushes boundaries safely', 'Turns blockers into bets', 'Drives bold change'], oracle: ['Guides complex decisions', 'Sees around corners', 'Builds sustainable vision'] },
+                { progression: 'Veterans', explorer: ['Lifelong tech explorer', 'Learns something new every day', 'Plays with new ideas'], alchemist: ['Masters modernization', 'Refactors with grace', 'Brings old systems to life'], maverick: ['Redefines what\'s possible', 'Disrupts with wisdom', 'Sells bold strategies'], oracle: ['Shapes vision, mentors many', 'Predicts future shifts', 'Influences industry thinking'] },
+            ];
+            
+            const archetypes = ['Explorer', 'Alchemist', 'Maverick', 'Oracle'];
+            const progressionLevels = ['Aspiring', 'Rising', 'Emerging', 'Veterans'];
+            
+            const gridContainer = document.getElementById('growth-grid');
+
+            function getArchetypeColor(archetype) {
+                switch (archetype) {
+                    case 'Explorer': return 'brand-explorer';
+                    case 'Alchemist': return 'brand-alchemist';
+                    case 'Maverick': return 'brand-green';
+                    case 'Oracle': return 'brand-blue';
+                    default: return 'gray-500';
+                }
+            }
+            
+            // --- Build the Grid ---
+            function buildGrid() {
+                // 1. Add an empty corner cell
+                gridContainer.innerHTML = '<div class="hidden md:block"></div>';
+
+                // 2. Add Archetype Headers
+                archetypes.forEach(archetype => {
+                    const colorClass = getArchetypeColor(archetype);
+                    const header = document.createElement('div');
+                    // Add archetype-header class for easier selection later
+                    header.className = `archetype-header hidden md:flex items-center justify-center p-4 bg-gray-800 rounded-lg shadow text-center font-bold text-xl text-white border-b-4 border-${colorClass}`;
+                    header.innerHTML = `<span class="text-${colorClass}">${archetype}</span>`;
+                    gridContainer.appendChild(header);
+                });
+
+                // 3. Add Progression Rows and Cards
+                gridData.forEach((row, rowIndex) => {
+                    // *** NEW: Define an alternating background class for rows ***
+                    const rowBgClass = rowIndex % 2 === 1 ? 'bg-white/5' : 'bg-gray-800';
+
+                    // Progression Level Header
+                    const progHeader = document.createElement('div');
+                    // *** MODIFIED: Apply the alternating background class ***
+                    progHeader.className = `grid-cell flex items-center justify-center p-3 text-lg font-bold ${rowBgClass} rounded-lg shadow md:writing-vertical-lr md:rotate-180`;
+                    progHeader.dataset.progression = row.progression;
+                    progHeader.innerHTML = `<span class="transform md:-rotate-90">${row.progression}</span>`;
+                    gridContainer.appendChild(progHeader);
+                    
+                    // Cards for each archetype in the row
+                    archetypes.forEach(archetype => {
+                        const cardData = row[archetype.toLowerCase()];
+                        const colorClass = getArchetypeColor(archetype);
+                        
+                        const card = document.createElement('div');
+                        // *** MODIFIED: Remove default bg and apply alternating background class ***
+                        card.className = `card grid-cell ${rowBgClass} rounded-lg p-5 border-l-4 border-${colorClass} shadow-lg`;
+                        card.dataset.archetype = archetype;
+                        card.dataset.progression = row.progression;
+
+                        let content = `<h3 class="md:hidden font-bold text-lg mb-2 text-${colorClass}">${archetype}</h3><ul class="space-y-2 list-disc list-inside text-gray-300">`;
+                        cardData.forEach(item => {
+                            content += `<li>${item}</li>`;
+                        });
+                        content += `</ul>`;
+                        card.innerHTML = content;
+                        gridContainer.appendChild(card);
+                    });
+                });
+            }
+
+            buildGrid();
+
+            // --- Modal Logic ---
+            const modal = document.getElementById('card-modal');
+            const modalArchetype = document.getElementById('modal-archetype');
+            const modalProgression = document.getElementById('modal-progression');
+            const modalBody = document.getElementById('modal-body');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalContent = document.querySelector('.modal-content');
+
+            gridContainer.addEventListener('click', (e) => {
+                const card = e.target.closest('.card');
+                if (!card) return;
+
+                const archetype = card.dataset.archetype;
+                const progression = card.dataset.progression;
+                const colorClass = getArchetypeColor(archetype);
+                
+                const data = gridData.find(d => d.progression === progression)[archetype.toLowerCase()];
+
+                // Update modal content
+                modalArchetype.textContent = archetype;
+                modalArchetype.className = `text-2xl md:text-3xl font-bold text-${colorClass}`;
+                modalProgression.textContent = progression;
+                modalContent.style.borderColor = `var(--color-${colorClass}, #26abed)`;
+                modalContent.className = `modal-content bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl mx-auto border-t-4 border-${colorClass} overflow-hidden`;
+
+
+                let bodyContent = '<ul class="space-y-3">';
+                data.forEach(item => {
+                    bodyContent += `<li class="flex items-start"><span class="text-${colorClass} mr-3 mt-1">&#10003;</span><span>${item}</span></li>`;
+                });
+                bodyContent += `</ul>`;
+                modalBody.innerHTML = bodyContent;
+                
+                // Show modal
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('active');
+            });
+
+            function closeModal() {
+                 modal.classList.add('opacity-0', 'pointer-events-none');
+                 modal.classList.remove('active');
+            }
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) {
+                   closeModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") closeModal();
+            })
+
+            // --- Filter Logic ---
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const gridCells = document.querySelectorAll('#growth-grid > div');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.filter;
+            
+                    // Update active button style
+                    filterButtons.forEach(btn => btn.classList.remove('active-filter', 'bg-brand-blue'));
+                    button.classList.add('active-filter', 'bg-brand-blue');
+            
+            
+                    const isProgressionFilter = progressionLevels.includes(filter);
+            
+                    gridCells.forEach(cell => {
+                        // Reset state for all cells before applying new filter
+                        cell.classList.remove('hidden', 'filtered-out');
+            
+                        const cellProgression = cell.dataset.progression;
+                        const cellArchetype = cell.dataset.archetype;
+                        const isTopHeader = cell.classList.contains('archetype-header');
+            
+                        if (filter === 'all') {
+                            return; // Exit, all cells are now visible
+                        }
+            
+                        if (isProgressionFilter) {
+                            // For progression filters, HIDE rows that don't match.
+                            // A "row" consists of cells that have a data-progression attribute.
+                            if (cellProgression && cellProgression !== filter) {
+                                cell.classList.add('hidden');
+                            }
+                        } else {
+                            // For archetype filters, DIM elements that don't match.
+            
+                            // Dim cards that are not of the selected archetype.
+                            if (cellArchetype && cellArchetype !== filter) {
+                                cell.classList.add('filtered-out');
+                            }
+            
+                            // Dim other top-level archetype headers.
+                            if (isTopHeader && cell.textContent.trim() !== filter) {
+                                cell.classList.add('filtered-out');
+                            }
+            
+                            // Dim all the progression-level side headers (Aspiring, Rising, etc.).
+                            if (cellProgression && !cellArchetype) {
+                                cell.classList.add('filtered-out');
+                            }
+                        }
+                    });
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
