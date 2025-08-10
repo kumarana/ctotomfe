@@ -79,24 +79,30 @@ For each response, identify behavioral indicators:
 ## Input Format Expected
 ```json
 {
-  "participant_info": {
-    "experience_years": number,
-    "domain": "string",
-    "participant_id": "string"
-  },
-  "responses": [
-    {
-      "pillar": number,
-      "question_text": "string",
-      "options": {"A": "...", "B": "...", "C": "...", "D": "..."},
-      "user_response": "A|B|C|D",
-      "correct_answer": "A|B|C|D",
-      "response_time": number,
-      "confidence": "low|medium|high",
-      "scenario_description": "string"
-    }
-  ]
+    "participant_info": {
+        "experience_years": number,
+        "domain": "string",
+        "participant_id": "string"
+    },
+    "responses": [
+        {
+            "pillar": number,
+            "question_text": "string",
+            "options": {
+                "A": "...",
+                "B": "...",
+                "C": "...",
+                "D": "..."
+            },
+            "user_response": "A|B|C|D",
+            "correct_answer": "A|B|C|D",
+            "response_time": number,
+            "confidence": "low|medium|high",
+            "scenario_description": "string"
+        }
+    ]
 }
+
 ```
 
 ## Required Output Format
