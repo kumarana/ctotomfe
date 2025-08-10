@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Leader Capability Assessment Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .intro p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        .pillars-overview {
+            margin-bottom: 50px;
+        }
+        
+        .pillars-overview h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pillar-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .pillar-card p {
+            color: #495057;
+            font-size: 0.95em;
+        }
+        
+        .results-section {
+            margin-top: 50px;
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .results-header h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #28a745;
+            transition: transform 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .score-display {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-radius: 10px;
+        }
+        
+        .score-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #28a745;
+            margin-right: 15px;
+        }
+        
+        .score-label {
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            border-radius: 6px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .analysis {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .analysis h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .analysis p {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        .strengths {
+            color: #28a745;
+            font-weight: 500;
+        }
+        
+        .improvements {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        
+        .recommendations {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .overall-summary {
+            margin-top: 50px;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 20px;
+        }
+        
+        .overall-summary h2 {
+            color: #1565c0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .assessment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header">
+            <h1>🚀 Technology Leader Capability Assessment</h1>
+            <p style="font-size: 1.2em; color: #6c757d; margin-top: 10px;">Comprehensive Leadership Evaluation Report</p>
+        </div>
+        
+        <div class="intro">
+            <h2>Assessment Purpose</h2>
+            <p>This comprehensive assessment evaluates technology leaders across five critical dimensions that define exceptional leadership in today's rapidly evolving digital landscape. The evaluation provides insights into current capabilities, identifies growth opportunities, and offers actionable recommendations for leadership development.</p>
+            <p>Each pillar represents a fundamental competency area that distinguishes high-performing technology leaders from their peers, enabling them to drive innovation, build high-performing teams, and deliver sustainable business outcomes.</p>
+            
+            <div style="margin-top: 25px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
+                <h3 style="margin-bottom: 15px; color: #856404;">📋 Assessment Status</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div><strong>Experience Level:</strong> Rising (3-9 years)</div>
+                    <div><strong>Progress:</strong> 2 of 5 questions completed</div>
+                    <div><strong>Current Score:</strong> 50% (1/2 correct)</div>
+                    <div><strong>Assessment Date:</strong> January 9, 2025</div>
+                </div>
+                <div style="margin-top: 15px; color: #856404;"><strong>Overall Performance:</strong> Mixed - Needs Development</div>
+            </div>
+        </div>
+        
+        <div class="pillars-overview">
+            <h2>Technology Leadership Framework - 5 Pillars Overview</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <h3>🎯 Quality Attributes Mastery</h3>
+                    <p><strong>The art of building systems that actually work in the real world</strong><br><br>
+                    Masters performance, reliability, security, and usability to ensure solutions deliver value throughout their operational lifetime. Focus on balancing competing requirements while optimizing for real-world production environments where 90%+ of costs occur. This pillar is essential for technology leaders as it ensures sustainable, scalable solutions that minimize technical debt and operational overhead.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>🤝 Human Dynamics Excellence</h3>
+                    <p><strong>Because great tech is built by great teams</strong><br><br>
+                    Develops leadership, collaboration, and communication skills essential for working with diverse stakeholders and building consensus. Encompasses everything from presentation skills and negotiation to organizational culture management and peer interaction. Technology leaders must excel in this area to build high-performing teams, navigate complex organizational dynamics, and create environments where innovation flourishes.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>🎨 Design Excellence</h3>
+                    <p><strong>Creating elegant solutions that stand the test of time</strong><br><br>
+                    Focuses on systematic approaches to architecture and design, including patterns, methodologies, and whole-system thinking. Emphasizes requirements modeling, decomposition strategies, and creating designs that are both functional and maintainable. This pillar enables technology leaders to create robust, extensible architectures that evolve gracefully with changing business needs and technological advances.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>💼 Business and Strategy Excellence</h3>
+                    <p><strong>Connecting technology decisions to business outcomes</strong><br><br>
+                    Bridges the gap between technical solutions and business value through financial modeling, risk management, and strategic thinking. Covers business fundamentals, industry analysis, compliance, and the ability to justify technology investments with clear ROI. Critical for technology leaders to align technical initiatives with business objectives and communicate value to stakeholders at all organizational levels.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>⚙️ Engineering Environment Excellence</h3>
+                    <p><strong>Building the foundation that enables great work</strong><br><br>
+                    Establishes the infrastructure, processes, and governance frameworks that amplify team effectiveness. Includes project management, asset management, testing methodologies, knowledge management, and the platforms that support engineering productivity. This pillar empowers technology leaders to create environments where teams can focus on innovation rather than wrestling with tooling and process inefficiencies.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; border-left: 5px solid #28a745;">
+                <p style="font-size: 1.1em; color: #495057; font-style: italic; margin: 0;">
+                    <strong>Together, these 5 pillars create well-rounded technology leaders who can navigate technical complexity, lead diverse teams, design robust solutions, drive business value, and build the environments where innovation thrives.</strong>
+                </p>
+            </div>
+        </div>
+        
+        <div class="results-section">
+            <div class="results-header">
+                <h2>📈 Assessment Results & Analysis</h2>
+                <p style="font-size: 1.1em; color: #6c757d;">Detailed evaluation across all leadership dimensions</p>
+            </div>
+            
+            <div class="assessment-grid">
+                <!-- Pillar 1: Quality Attributes Mastery - COMPLETED -->
+                <div class="result-card" style="border-left: 6px solid #dc3545;">
+                    <h3>🎯 Quality Attributes Mastery</h3>
+                    <div class="score-display" style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);">
+                        <div class="score-number" style="color: #dc3545;">0</div>
+                        <div class="score-label">/ 1 point<br><strong>Below Rising Level</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%; background: linear-gradient(90deg, #dc3545 0%, #c82333 100%);"></div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 3px solid #6c757d;">
+                        <h4 style="margin-bottom: 10px; color: #495057;">🎯 Scenario Tested:</h4>
+                        <p style="font-size: 0.9em; color: #6c757d; margin: 0;">Production application experiencing performance issues during peak loads with multiple stakeholder concerns (users, operations, security).</p>
+                        <div style="margin-top: 10px;">
+                            <strong>Your Response:</strong> Fix performance issue first (immediate user focus)<br>
+                            <strong>Rising Level Approach:</strong> Document concerns, research relationships, propose prioritized plan considering trade-offs
+                        </div>
+                    </div>
+                    
+                    <div class="analysis">
+                        <h4>Demonstrated Skills:</h4>
+                        <p class="strengths">• User-focused thinking<br>
+                        • Responsive to immediate pressure</p>
+                        
+                        <h4>Missing Skills:</h4>
+                        <p class="improvements">• Systems thinking about quality attributes<br>
+                        • Trade-off analysis capability<br>
+                        • Stakeholder balancing<br>
+                        • Documentation and research habits<br>
+                        • Strategic prioritization</p>
+                        
+                        <div class="recommendations">
+                            <h4>💡 Development Focus:</h4>
+                            <p><strong>Learn quality attribute interactions (PRAS framework)</strong><br>
+                            • Develop systematic problem analysis skills<br>
+                            • Practice stakeholder impact assessment<br>
+                            • Build documentation habits for complex decisions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pillar 2: Human Dynamics Excellence - COMPLETED -->
+                <div class="result-card" style="border-left: 6px solid #28a745;">
+                    <h3>🤝 Human Dynamics Excellence</h3>
+                    <div class="score-display">
+                        <div class="score-number" style="color: #28a745;">1</div>
+                        <div class="score-label">/ 1 point<br><strong>Strong Rising Level</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 3px solid #6c757d;">
+                        <h4 style="margin-bottom: 10px; color: #495057;">🤝 Scenario Tested:</h4>
+                        <p style="font-size: 0.9em; color: #6c757d; margin: 0;">Cross-functional team with conflicting perspectives: frontend dev wants latest React, backend prefers proven tech, PM pushes for speed, QA concerned about complexity.</p>
+                        <div style="margin-top: 10px;">
+                            <strong>Your Response:</strong> ✅ Facilitate discussion to understand concerns, research trade-offs, guide balanced decision
+                        </div>
+                    </div>
+                    
+                    <div class="analysis">
+                        <h4>Demonstrated Skills:</h4>
+                        <p class="strengths">• Facilitation leadership<br>
+                        • Stakeholder perspective gathering<br>
+                        • Research-driven decision making<br>
+                        • Balance of innovation and pragmatism<br>
+                        • Collaborative problem solving</p>
+                        
+                        <h4>Key Strengths:</h4>
+                        <p class="strengths">• Natural facilitation instincts<br>
+                        • Research-oriented approach<br>
+                        • Multi-stakeholder awareness<br>
+                        • Goal-oriented decision making</p>
+                        
+                        <div class="recommendations" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-left: 4px solid #28a745;">
+                            <h4>💡 Leverage This Strength:</h4>
+                            <p><strong>Use facilitation skills to lead technical discussions</strong><br>
+                            • Apply collaborative approach to quality attribute decisions<br>
+                            • Build on research instincts for technical learning<br>
+                            • Continue developing facilitation and collaborative leadership skills</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pillar 3: Design Excellence - NOT STARTED -->
+                <div class="result-card" style="border-left: 6px solid #6c757d; opacity: 0.7;">
+                    <h3>🎨 Design Excellence</h3>
+                    <div class="score-display" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                        <div class="score-number" style="color: #6c757d;">--</div>
+                        <div class="score-label">Not Started<br><strong>Pending Assessment</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%; background: #6c757d;"></div>
+                    </div>
+                    <div class="analysis">
+                        <h4>Status:</h4>
+                        <p style="color: #6c757d; font-style: italic;">This pillar assessment is pending. Continue with the assessment to evaluate design excellence capabilities including systematic approaches to architecture, patterns, methodologies, and whole-system thinking.</p>
+                    </div>
+                </div>
+                
+                <!-- Pillar 4: Business and Strategy Excellence - NOT STARTED -->
+                <div class="result-card" style="border-left: 6px solid #6c757d; opacity: 0.7;">
+                    <h3>💼 Business Technology Strategy</h3>
+                    <div class="score-display" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                        <div class="score-number" style="color: #6c757d;">--</div>
+                        <div class="score-label">Not Started<br><strong>Pending Assessment</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%; background: #6c757d;"></div>
+                    </div>
+                    <div class="analysis">
+                        <h4>Status:</h4>
+                        <p style="color: #6c757d; font-style: italic;">This pillar assessment is pending. Continue with the assessment to evaluate business strategy capabilities including financial modeling, risk management, and connecting technology decisions to business outcomes.</p>
+                    </div>
+                </div>
+                
+                <!-- Pillar 5: Engineering Environment Excellence - NOT STARTED -->
+                <div class="result-card" style="border-left: 6px solid #6c757d; opacity: 0.7;">
+                    <h3>⚙️ Engineering Environment</h3>
+                    <div class="score-display" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                        <div class="score-number" style="color: #6c757d;">--</div>
+                        <div class="score-label">Not Started<br><strong>Pending Assessment</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%; background: #6c757d;"></div>
+                    </div>
+                    <div class="analysis">
+                        <h4>Status:</h4>
+                        <p style="color: #6c757d; font-style: italic;">This pillar assessment is pending. Continue with the assessment to evaluate engineering environment capabilities including infrastructure, processes, and governance frameworks that amplify team effectiveness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="overall-summary">
+            <h2>📊 Interim Assessment Analysis</h2>
+            <div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+                <div class="score-number" style="font-size: 3em; color: #1565c0;">50%</div>
+                <div style="margin-left: 20px; text-align: left;">
+                    <div style="font-size: 1.3em; font-weight: 600; color: #2c3e50;">Current Performance</div>
+                    <div style="color: #1565c0; font-weight: 500;">Mixed - Needs Development</div>
+                    <div style="color: #6c757d; font-size: 0.9em;">2 of 5 pillars completed</div>
+                </div>
+            </div>
+            
+            <!-- Archetype Analysis -->
+            <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: left;">
+                <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎯 Leadership Archetype Analysis</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                        <h4 style="color: #155724; margin-bottom: 10px;">🔮 Oracle Traits Observed</h4>
+                        <ul style="color: #495057; margin: 0; padding-left: 20px;">
+                            <li>Facilitation approach in human dynamics</li>
+                            <li>Research-driven decision making</li>
+                            <li>Multi-perspective gathering</li>
+                        </ul>
+                    </div>
+                    <div style="background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                        <h4 style="color: #856404; margin-bottom: 10px;">🧭 Explorer Traits Observed</h4>
+                        <ul style="color: #495057; margin: 0; padding-left: 20px;">
+                            <li>User-focused thinking</li>
+                            <li>Immediate problem response</li>
+                            <li>Reactive problem-solving approach</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                    <strong style="color: #2c3e50;">Preliminary Assessment:</strong> 
+                    <span style="color: #1565c0;">Rising Explorer with emerging Oracle tendencies</span><br>
+                    <small style="color: #6c757d;">(Confidence: Low - conflicting indicators need more data)</small>
+                </div>
+            </div>
+            
+            <!-- Current Strengths and Development Areas -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+                <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #28a745;">
+                    <h3 style="color: #155724; margin-bottom: 15px;">💪 Current Strengths</h3>
+                    <ul style="color: #495057; margin: 0; padding-left: 20px; line-height: 1.6;">
+                        <li>Human dynamics facilitation</li>
+                        <li>Collaborative leadership instincts</li>
+                        <li>Multi-stakeholder awareness</li>
+                        <li>Research-oriented problem solving</li>
+                    </ul>
+                </div>
+                <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #dc3545;">
+                    <h3 style="color: #721c24; margin-bottom: 15px;">🎯 Development Priorities</h3>
+                    <ul style="color: #495057; margin: 0; padding-left: 20px; line-height: 1.6;">
+                        <li>Quality attribute systems thinking</li>
+                        <li>Technical trade-off analysis</li>
+                        <li>Strategic prioritization frameworks</li>
+                        <li>Documentation and analysis habits</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Next Steps -->
+            <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 15px; margin: 20px 0; text-align: left;">
+                <h3 style="color: #1565c0; margin-bottom: 15px; text-align: center;">🚀 Immediate Next Steps</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div>
+                        <h4 style="color: #1976d2; margin-bottom: 8px;">📚 Immediate Learning Focus</h4>
+                        <ul style="color: #495057; font-size: 0.9em; margin: 0; padding-left: 20px;">
+                            <li>Study quality attribute relationships (PRAS framework)</li>
+                            <li>Practice systematic problem analysis</li>
+                            <li>Learn trade-off analysis techniques</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #1976d2; margin-bottom: 8px;">💼 Continue Assessment</h4>
+                        <ul style="color: #495057; font-size: 0.9em; margin: 0; padding-left: 20px;">
+                            <li>Complete remaining 3 pillars</li>
+                            <li>Clarify archetype patterns</li>
+                            <li>Identify competency trends</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.1em; color: #495057; max-width: 800px; margin: 20px auto 0;">
+                The assessment reveals a leader with strong people-focused capabilities but significant gaps in technical systems thinking. 
+                The mixed signals suggest either a transition period between archetypes or domain-specific strengths that need balancing. 
+                Completing the remaining pillars will provide crucial insights into the overall leadership profile.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Sample assessment data - replace with your actual JSON
+        const sampleAssessmentData = {
+            "assessment_results": {
+                "participant_profile": {
+                    "experience_category": "Rising",
+                    "experience_range": "3-9 years",
+                    "questions_completed": 2,
+                    "assessment_status": "In Progress",
+                    "assessment_date": "2025-01-09",
+                    "overall_performance": "Mixed - Needs Development"
+                },
+                "pillar_1_quality_attributes": {
+                    "scenario": "Production application experiencing performance issues during peak loads. Multiple stakeholders have different priorities: users complaining about speed, operations team concerned about reliability, and security team flagged vulnerabilities that need addressing.",
+                    "question": "What's your Rising-level approach to balancing these quality attributes?",
+                    "options": {
+                        "A": "Fix the performance issue first since users are complaining the most",
+                        "B": "Document all three concerns, research their relationships, and propose a prioritized plan that considers trade-offs between performance, reliability, and security",
+                        "C": "Ask your manager which quality attribute to focus on first",
+                        "D": "Try to address all three simultaneously to make everyone happy"
+                    },
+                    "user_response": "A",
+                    "correct_answer": "B",
+                    "is_correct": false,
+                    "competency_level": "Below Rising Level",
+                    "demonstrated_skills": [
+                        "User-focused thinking",
+                        "Response to immediate pressure"
+                    ],
+                    "missing_skills": [
+                        "Systems thinking about quality attributes",
+                        "Trade-off analysis capability",
+                        "Stakeholder balancing",
+                        "Documentation and research habits",
+                        "Strategic prioritization"
+                    ],
+                    "feedback": {
+                        "why_incorrect": "Choice A shows reactive problem-solving focused on the loudest voice rather than systematic analysis. Rising level requires understanding quality attribute relationships and trade-offs.",
+                        "growth_areas": [
+                            "Learn quality attribute interactions (PRAS framework)",
+                            "Develop systematic problem analysis skills",
+                            "Practice stakeholder impact assessment",
+                            "Build documentation habits for complex decisions"
+                        ]
+                    },
+                    "score": 0,
+                    "max_score": 1
+                },
+                "pillar_2_human_dynamics": {
+                    "scenario": "You're leading a cross-functional team working on a new feature. The frontend developer wants to use the latest React framework, the backend developer prefers to stick with proven technologies, the product manager is pushing for faster delivery, and the QA engineer is concerned about testing complexity.",
+                    "question": "How do you handle these conflicting perspectives as a Rising leader?",
+                    "options": {
+                        "A": "Let the team vote on which approach to take",
+                        "B": "Side with the most senior developer to avoid conflict",
+                        "C": "Facilitate a discussion to understand each person's concerns, research the trade-offs of different approaches, and guide the team toward a decision that balances innovation with delivery goals",
+                        "D": "Make the decision yourself based on what you think is best"
+                    },
+                    "user_response": "C",
+                    "correct_answer": "C",
+                    "is_correct": true,
+                    "competency_level": "Strong Rising Level",
+                    "demonstrated_skills": [
+                        "Facilitation leadership",
+                        "Stakeholder perspective gathering",
+                        "Research-driven decision making",
+                        "Balance of innovation and pragmatism",
+                        "Collaborative problem solving"
+                    ],
+                    "feedback": {
+                        "why_correct": "Choice C demonstrates Rising-level leadership by facilitating rather than dictating, gathering perspectives systematically, and balancing multiple concerns. This shows emerging leadership maturity.",
+                        "strengths": [
+                            "Natural facilitation instincts",
+                            "Research-oriented approach",
+                            "Multi-stakeholder awareness",
+                            "Goal-oriented decision making"
+                        ]
+                    },
+                    "score": 1,
+                    "max_score": 1
+                },
+                "remaining_pillars": [
+                    {
+                        "pillar_3": "Design Excellence",
+                        "status": "Not Started"
+                    },
+                    {
+                        "pillar_4": "Business Technology Strategy",
+                        "status": "Not Started"
+                    },
+                    {
+                        "pillar_5": "Engineering Environment",
+                        "status": "Not Started"
+                    }
+                ],
+                "current_assessment": {
+                    "total_questions": 5,
+                    "completed_questions": 2,
+                    "correct_answers": 1,
+                    "incorrect_answers": 1,
+                    "score": 1,
+                    "max_possible": 2,
+                    "percentage": 50,
+                    "performance_trend": "Mixed",
+                    "strengths_identified": [
+                        "Human dynamics facilitation",
+                        "Collaborative leadership instincts",
+                        "Multi-stakeholder awareness",
+                        "Research-oriented problem solving"
+                    ],
+                    "development_areas": [
+                        "Quality attribute systems thinking",
+                        "Technical trade-off analysis",
+                        "Strategic prioritization frameworks",
+                        "Documentation and analysis habits"
+                    ]
+                },
+                "archetype_indicators": {
+                    "current_evidence": {
+                        "oracle_traits": [
+                            "Facilitation approach in human dynamics",
+                            "Research-driven decision making",
+                            "Multi-perspective gathering"
+                        ],
+                        "explorer_traits": [
+                            "User-focused thinking",
+                            "Immediate problem response"
+                        ]
+                    },
+                    "preliminary_assessment": "Rising Explorer with emerging Oracle tendencies",
+                    "confidence_level": "Low - conflicting indicators need more data",
+                    "archetype_confusion": {
+                        "pillar_1_suggests": "Rising Explorer (reactive, user-focused)",
+                        "pillar_2_suggests": "Rising Oracle (facilitative, strategic)",
+                        "interpretation": "Possible transition period or domain-specific strengths"
+                    }
+                },
+                "competency_analysis": {
+                    "strong_areas": {
+                        "human_dynamics": {
+                            "level": "Rising Oracle",
+                            "evidence": "Natural facilitation, multi-stakeholder thinking, collaborative approach",
+                            "growth_potential": "High - shows leadership instincts"
+                        }
+                    },
+                    "weak_areas": {
+                        "quality_attributes": {
+                            "level": "Aspiring Explorer",
+                            "evidence": "Reactive problem-solving, single-attribute focus, lack of systems thinking",
+                            "growth_potential": "High - needs foundational learning"
+                        }
+                    },
+                    "mixed_signals": {
+                        "technical_vs_people": "Strong people skills but weak technical analysis",
+                        "strategic_vs_reactive": "Strategic in team dynamics but reactive in technical issues",
+                        "implications": "May be people-focused leader who needs technical depth"
+                    }
+                },
+                "development_recommendations": {
+                    "immediate_focus": [
+                        "Study quality attribute relationships (Performance, Reliability, Availability, Scalability)",
+                        "Practice systematic problem analysis frameworks",
+                        "Learn trade-off analysis techniques",
+                        "Develop technical documentation habits"
+                    ],
+                    "leverage_strengths": [
+                        "Use facilitation skills to lead technical discussions",
+                        "Apply collaborative approach to quality attribute decisions",
+                        "Build on research instincts for technical learning"
+                    ],
+                    "archetype_development": {
+                        "if_rising_oracle": "Build technical systems thinking to match people leadership skills",
+                        "if_rising_explorer": "Develop more strategic frameworks while maintaining curiosity"
+                    }
+                },
+                "next_steps": {
+                    "assessment_continuation": "Complete remaining 3 pillars to clarify archetype and competency patterns",
+                    "immediate_learning": "Focus on quality attribute fundamentals before next technical challenges",
+                    "strength_building": "Continue developing facilitation and collaborative leadership skills",
+                    "gap_closing": "Bridge the technical analysis gap to match people leadership capability"
+                },
+                "risk_indicators": {
+                    "competency_gaps": [
+                        "Technical decision-making under pressure",
+                        "Systems thinking in complex technical scenarios",
+                        "Stakeholder management when technical and business needs conflict"
+                    ],
+                    "mitigation_strategies": [
+                        "Pair with technical mentors for complex decisions",
+                        "Practice systematic analysis before making technical choices",
+                        "Develop frameworks for balancing competing technical requirements"
+                    ]
+                }
+            }
+        };
+
+        // Function to load assessment results dynamically
+        function loadAssessmentResults(data) {
+            try {
+                const results = data.assessment_results;
+                
+                // Update participant profile
+                updateParticipantProfile(results.participant_profile);
+                
+                // Update pillar results
+                updatePillarResults(results);
+                
+                // Update archetype analysis
+                updateArchetypeAnalysis(results.archetype_indicators, results.competency_analysis);
+                
+                // Update strengths and development areas
+                updateStrengthsAndDevelopment(results.current_assessment);
+                
+                // Update next steps
+                updateNextSteps(results.development_recommendations, results.next_steps);
+                
+                // Update overall summary
+                updateOverallSummary(results.current_assessment, results.archetype_indicators);
+                
+                console.log('Assessment results loaded successfully');
+            } catch (error) {
+                console.error('Error loading assessment results:', error);
+            }
+        }
+        
+        function updateParticipantProfile(profile) {
+            const statusContainer = document.querySelector('.intro');
+            statusContainer.innerHTML = `
+                <h2>Assessment Purpose</h2>
+                <p>This comprehensive assessment evaluates technology leaders across five critical dimensions that define exceptional leadership in today's rapidly evolving digital landscape. The evaluation provides insights into current capabilities, identifies growth opportunities, and offers actionable recommendations for leadership development.</p>
+                <p>Each pillar represents a fundamental competency area that distinguishes high-performing technology leaders from their peers, enabling them to drive innovation, build high-performing teams, and deliver sustainable business outcomes.</p>
+                
+                <div style="margin-top: 25px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
+                    <h3 style="margin-bottom: 15px; color: #856404;">📋 Assessment Status</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div><strong>Experience Level:</strong> ${profile.experience_category} (${profile.experience_range})</div>
+                        <div><strong>Progress:</strong> ${profile.questions_completed} of 5 questions completed</div>
+                        <div><strong>Current Score:</strong> ${profile.questions_completed > 0 ? Math.round((profile.questions_completed / 5) * 100) : 0}% progress</div>
+                        <div><strong>Assessment Date:</strong> ${new Date(profile.assessment_date).toLocaleDateString()}</div>
+                    </div>
+                    <div style="margin-top: 15px; color: #856404;"><strong>Overall Performance:</strong> ${profile.overall_performance}</div>
+                </div>
+            `;
+        }
+        
+        function updatePillarResults(results) {
+            const assessmentGrid = document.querySelector('.assessment-grid');
+            const pillars = [
+                { key: 'pillar_1_quality_attributes', title: '🎯 Quality Attributes Mastery', data: results.pillar_1_quality_attributes },
+                { key: 'pillar_2_human_dynamics', title: '🤝 Human Dynamics Excellence', data: results.pillar_2_human_dynamics },
+                { key: 'pillar_3_design', title: '🎨 Design Excellence', data: null },
+                { key: 'pillar_4_business', title: '💼 Business Technology Strategy', data: null },
+                { key: 'pillar_5_engineering', title: '⚙️ Engineering Environment', data: null }
+            ];
+            
+            assessmentGrid.innerHTML = pillars.map((pillar, index) => {
+                if (pillar.data) {
+                    return createCompletedPillarCard(pillar.title, pillar.data);
+                } else {
+                    const remainingPillar = results.remaining_pillars.find(p => 
+                        Object.values(p)[0].toLowerCase().includes(pillar.title.toLowerCase().split(' ')[1])
+                    );
+                    return createPendingPillarCard(pillar.title, remainingPillar);
+                }
+            }).join('');
+        }
+        
+        function createCompletedPillarCard(title, data) {
+            const isCorrect = data.is_correct;
+            const borderColor = isCorrect ? '#28a745' : '#dc3545';
+            const bgColor = isCorrect ? 'linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%)' : 'linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%)';
+            const textColor = isCorrect ? '#28a745' : '#dc3545';
+            const progressColor = isCorrect ? 'linear-gradient(90deg, #28a745 0%, #20c997 100%)' : 'linear-gradient(90deg, #dc3545 0%, #c82333 100%)';
+            const progressWidth = isCorrect ? '100%' : '0%';
+            const performanceLevel = data.competency_level;
+            
+            return `
+                <div class="result-card" style="border-left: 6px solid ${borderColor};">
+                    <h3>${title}</h3>
+                    <div class="score-display" style="background: ${bgColor};">
+                        <div class="score-number" style="color: ${textColor};">${data.score}</div>
+                        <div class="score-label">/ ${data.max_score} point<br><strong>${performanceLevel}</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progressWidth}; background: ${progressColor};"></div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 3px solid #6c757d;">
+                        <h4 style="margin-bottom: 10px; color: #495057;">🎯 Scenario Tested:</h4>
+                        <p style="font-size: 0.9em; color: #6c757d; margin: 0;">${data.scenario}</p>
+                        <div style="margin-top: 10px;">
+                            <strong>Your Response:</strong> ${data.user_response} - ${data.options[data.user_response]}<br>
+                            ${!isCorrect ? `<strong>Rising Level Approach:</strong> ${data.correct_answer} - ${data.options[data.correct_answer]}` : '<strong>✅ Correct Rising Level Approach</strong>'}
+                        </div>
+                    </div>
+                    
+                    <div class="analysis">
+                        ${data.demonstrated_skills ? `
+                            <h4>Demonstrated Skills:</h4>
+                            <p class="strengths">${data.demonstrated_skills.map(skill => '• ' + skill).join('<br>')}</p>
+                        ` : ''}
+                        
+                        ${data.missing_skills ? `
+                            <h4>Missing Skills:</h4>
+                            <p class="improvements">${data.missing_skills.map(skill => '• ' + skill).join('<br>')}</p>
+                        ` : ''}
+                        
+                        <div class="recommendations" style="background: ${isCorrect ? 'linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%)' : 'linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%)'}; border-left: 4px solid ${isCorrect ? '#28a745' : '#ffc107'};">
+                            <h4>💡 ${isCorrect ? 'Leverage This Strength:' : 'Development Focus:'}</h4>
+                            <p>${isCorrect ? 
+                                (data.feedback.strengths ? data.feedback.strengths.map(s => '• ' + s).join('<br>') : 'Continue leveraging this strength') :
+                                (data.feedback.growth_areas ? data.feedback.growth_areas.map(area => '• ' + area).join('<br>') : 'Focus on development areas')
+                            }</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function createPendingPillarCard(title, data) {
+            return `
+                <div class="result-card" style="border-left: 6px solid #6c757d; opacity: 0.7;">
+                    <h3>${title}</h3>
+                    <div class="score-display" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                        <div class="score-number" style="color: #6c757d;">--</div>
+                        <div class="score-label">Not Started<br><strong>Pending Assessment</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%; background: #6c757d;"></div>
+                    </div>
+                    <div class="analysis">
+                        <h4>Status:</h4>
+                        <p style="color: #6c757d; font-style: italic;">This pillar assessment is pending. Continue with the assessment to evaluate capabilities in this critical leadership dimension.</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateArchetypeAnalysis(indicators, competency) {
+            // This will be populated in the overall summary section
+        }
+        
+        function updateStrengthsAndDevelopment(assessment) {
+            // This will be populated in the overall summary section
+        }
+        
+        function updateNextSteps(recommendations, nextSteps) {
+            // This will be populated in the overall summary section
+        }
+        
+        function updateOverallSummary(assessment, indicators) {
+            const summarySection = document.querySelector('.overall-summary');
+            summarySection.innerHTML = `
+                <h2>📊 Interim Assessment Analysis</h2>
+                <div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+                    <div class="score-number" style="font-size: 3em; color: #1565c0;">${assessment.percentage}%</div>
+                    <div style="margin-left: 20px; text-align: left;">
+                        <div style="font-size: 1.3em; font-weight: 600; color: #2c3e50;">Current Performance</div>
+                        <div style="color: #1565c0; font-weight: 500;">${assessment.performance_trend} - Needs Development</div>
+                        <div style="color: #6c757d; font-size: 0.9em;">${assessment.completed_questions} of ${assessment.total_questions} pillars completed</div>
+                    </div>
+                </div>
+                
+                <!-- Archetype Analysis -->
+                <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: left;">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎯 Leadership Archetype Analysis</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                            <h4 style="color: #155724; margin-bottom: 10px;">🔮 Oracle Traits Observed</h4>
+                            <ul style="color: #495057; margin: 0; padding-left: 20px;">
+                                ${indicators.current_evidence.oracle_traits.map(trait => `<li>${trait}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div style="background: #fff3cd; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                            <h4 style="color: #856404; margin-bottom: 10px;">🧭 Explorer Traits Observed</h4>
+                            <ul style="color: #495057; margin: 0; padding-left: 20px;">
+                                ${indicators.current_evidence.explorer_traits.map(trait => `<li>${trait}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                        <strong style="color: #2c3e50;">Preliminary Assessment:</strong> 
+                        <span style="color: #1565c0;">${indicators.preliminary_assessment}</span><br>
+                        <small style="color: #6c757d;">(Confidence: ${indicators.confidence_level})</small>
+                    </div>
+                </div>
+                
+                <!-- Current Strengths and Development Areas -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+                    <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #28a745;">
+                        <h3 style="color: #155724; margin-bottom: 15px;">💪 Current Strengths</h3>
+                        <ul style="color: #495057; margin: 0; padding-left: 20px; line-height: 1.6;">
+                            ${assessment.strengths_identified.map(strength => `<li>${strength}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #dc3545;">
+                        <h3 style="color: #721c24; margin-bottom: 15px;">🎯 Development Priorities</h3>
+                        <ul style="color: #495057; margin: 0; padding-left: 20px; line-height: 1.6;">
+                            ${assessment.development_areas.map(area => `<li>${area}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Next Steps -->
+                <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 15px; margin: 20px 0; text-align: left;">
+                    <h3 style="color: #1565c0; margin-bottom: 15px; text-align: center;">🚀 Immediate Next Steps</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <div>
+                            <h4 style="color: #1976d2; margin-bottom: 8px;">📚 Immediate Learning Focus</h4>
+                            <ul style="color: #495057; font-size: 0.9em; margin: 0; padding-left: 20px;">
+                                <li>Study quality attribute relationships (PRAS framework)</li>
+                                <li>Practice systematic problem analysis</li>
+                                <li>Learn trade-off analysis techniques</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #1976d2; margin-bottom: 8px;">💼 Continue Assessment</h4>
+                            <ul style="color: #495057; font-size: 0.9em; margin: 0; padding-left: 20px;">
+                                <li>Complete remaining ${5 - assessment.completed_questions} pillars</li>
+                                <li>Clarify archetype patterns</li>
+                                <li>Identify competency trends</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1em; color: #495057; max-width: 800px; margin: 20px auto 0;">
+                    The assessment reveals a leader with strong people-focused capabilities but significant gaps in technical systems thinking. 
+                    The mixed signals suggest either a transition period between archetypes or domain-specific strengths that need balancing. 
+                    Completing the remaining pillars will provide crucial insights into the overall leadership profile.
+                </p>
+            `;
+        }
+
+        // Function to load external JSON data
+        function loadExternalAssessmentData(jsonData) {
+            loadAssessmentResults(jsonData);
+        }
+
+        // Initialize with sample data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the sample data
+            loadAssessmentResults(sampleAssessmentData);
+            
+            // Animate progress bars after content is loaded
+            setTimeout(() => {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = targetWidth;
+                    }, 100);
+                });
+            }, 100);
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.result-card, .pillar-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.style.opacity || this.style.opacity === '1') {
+                        this.style.transform = 'translateY(-5px)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            console.log('Dynamic assessment results system initialized');
+            console.log('To load new data, call: loadExternalAssessmentData(yourJsonData)');
+        });
+    </script>
+</body>
+</html>

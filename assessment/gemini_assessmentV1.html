@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Leader Capability Assessment Results</title>
+    <style>
+        /* General styles, font, background */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Header and Intro Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .congratulations {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .intro p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        /* Pillars Overview Section */
+        .pillars-overview {
+            margin-bottom: 50px;
+        }
+        
+        .pillars-overview h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pillar-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .pillar-card p {
+            color: #495057;
+            font-size: 0.95em;
+        }
+        
+        /* Results Section */
+        .results-section {
+            margin-top: 50px;
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .results-header h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .result-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .score-display {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .score-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .score-label {
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 6-px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .analysis {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .analysis h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .analysis p {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        .strengths {
+            color: #28a745;
+            font-weight: 500;
+        }
+        
+        .improvements {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        
+        .recommendations {
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid;
+        }
+        
+        /* Overall Summary Section */
+        .overall-summary {
+            margin-top: 50px;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 20px;
+        }
+        
+        .overall-summary h2 {
+            color: #1565c0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        /* New Data Load section */
+        .data-load-section {
+            margin-top: 50px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-load-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .data-load-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .data-load-controls button {
+            padding: 12px 20px;
+            font-size: 1em;
+            font-weight: 600;
+            color: white;
+            background: #667eea;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .data-load-controls button:hover {
+            background: #764ba2;
+        }
+
+        .data-load-controls textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        .data-load-status {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .data-load-status.success {
+            color: #28a745;
+        }
+
+        .data-load-status.error {
+            color: #dc3545;
+        }
+
+        /* Collapsible styles */
+        .collapsible-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+        
+        .collapsible-header h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .collapsible-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-header.collapsed .collapsible-icon {
+            transform: rotate(-90deg);
+        }
+
+        .collapsible-content {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.expanded {
+            max-height: 500px; /* A large enough value to accommodate content */
+            transition: max-height 0.3s ease-in;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .assessment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="header">
+            <h1>🚀 Technology Leader Capability Assessment</h1>
+            <div id="congratulations-message" class="congratulations"></div>
+            <p style="font-size: 1.2em; color: #6c757d; margin-top: 10px;">Comprehensive Leadership Evaluation Report</p>
+        </div>
+
+        <div class="data-load-section">
+            <h2>Load New Assessment Data</h2>
+            <div class="data-load-controls" id="data-load-content">
+                <textarea id="json-input" placeholder="Paste your JSON data here..."></textarea>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <button id="load-data-button">Load Assessment Data</button>
+                    <button id="load-sample1-button">Load Sample 1</button>
+                    <button id="load-sample2-button">Load Sample 2</button>
+                </div>
+                <div id="status-message" class="data-load-status"></div>
+            </div>
+        </div>
+        
+        <div class="intro">
+            <h2>Assessment Purpose</h2>
+            <p>This comprehensive assessment evaluates technology leaders across five critical dimensions that define exceptional leadership in today's rapidly evolving digital landscape. The evaluation provides insights into current capabilities, identifies growth opportunities, and offers actionable recommendations for leadership development.</p>
+            <p>Each pillar represents a fundamental competency area that distinguishes high-performing technology leaders from their peers, enabling them to drive innovation, build high-performing teams, and deliver sustainable business outcomes.</p>
+            
+            <div style="margin-top: 25px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
+                <h3 style="margin-bottom: 15px; color: #856404;">📋 Assessment Status</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div id="experience-level"></div>
+                    <div id="progress"></div>
+                    <div id="current-score"></div>
+                    <div id="assessment-date"></div>
+                </div>
+                <div style="margin-top: 15px; color: #856404;" id="overall-performance"></div>
+            </div>
+        </div>
+        
+        <div class="pillars-overview">
+            <h2>Technology Leadership Framework - 5 Pillars Overview</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <h3>🎯 Quality Attributes Mastery</h3>
+                    <p><strong>The art of building systems that actually work in the real world</strong><br><br>
+                    Masters performance, reliability, security, and usability to ensure solutions deliver value throughout their operational lifetime. Focus on balancing competing requirements while optimizing for real-world production environments where 90%+ of costs occur. This pillar is essential for technology leaders as it ensures sustainable, scalable solutions that minimize technical debt and operational overhead.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>🤝 Human Dynamics Excellence</h3>
+                    <p><strong>Because great tech is built by great teams</strong><br><br>
+                    Develops leadership, collaboration, and communication skills essential for working with diverse stakeholders and building consensus. Encompasses everything from presentation skills and negotiation to organizational culture management and peer interaction. Technology leaders must excel in this area to build high-performing teams, navigate complex organizational dynamics, and create environments where innovation flourishes.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>🎨 Design Excellence</h3>
+                    <p><strong>Creating elegant solutions that stand the test of time</strong><br><br>
+                    Focuses on systematic approaches to architecture and design, including patterns, methodologies, and whole-system thinking. Emphasizes requirements modeling, decomposition strategies, and creating designs that are both functional and maintainable. This pillar enables technology leaders to create robust, extensible architectures that evolve gracefully with changing business needs and technological advances.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>💼 Business and Strategy Excellence</h3>
+                    <p><strong>Connecting technology decisions to business outcomes</strong><br><br>
+                    Bridges the gap between technical solutions and business value through financial modeling, risk management, and strategic thinking. Covers business fundamentals, industry analysis, and the ability to justify technology investments with clear ROI. Critical for technology leaders to align technical initiatives with business objectives and communicate value to stakeholders at all organizational levels.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <h3>⚙️ Engineering Environment Excellence</h3>
+                    <p><strong>Building the foundation that enables great work</strong><br><br>
+                    Establishes the infrastructure, processes, and governance frameworks that amplify team effectiveness. Includes project management, asset management, testing methodologies, knowledge management, and the platforms that support engineering productivity. This pillar empowers technology leaders to create environments where teams can focus on innovation rather than wrestling with tooling and process inefficiencies.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; border-left: 5px solid #28a745;">
+                <p style="font-size: 1.1em; color: #495057; font-style: italic; margin: 0;">
+                    <strong>Together, these 5 pillars create well-rounded technology leaders who can navigate technical complexity, lead diverse teams, design robust solutions, drive business value, and build the environments where innovation thrives.</strong>
+                </p>
+            </div>
+        </div>
+        
+        <div class="results-section">
+            <div class="results-header">
+                <h2>📈 Assessment Results & Analysis</h2>
+                <p style="font-size: 1.1em; color: #6c757d;">Detailed evaluation across all leadership dimensions</p>
+            </div>
+            
+            <div class="assessment-grid">
+                <!-- Dynamic pillar cards will be inserted here -->
+            </div>
+        </div>
+        
+        <div class="overall-summary">
+            <h2>📊 Interim Assessment Analysis</h2>
+            <div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+                <div class="score-number" style="font-size: 3em; color: #1565c0;" id="overall-percentage"></div>
+                <div style="margin-left: 20px; text-align: left;">
+                    <div style="font-size: 1.3em; font-weight: 600; color: #2c3e50;">Current Performance</div>
+                    <div style="color: #1565c0; font-weight: 500;" id="overall-performance-summary"></div>
+                    <div style="color: #6c757d; font-size: 0.9em;" id="completed-pillars-summary"></div>
+                </div>
+            </div>
+            
+            <!-- Archetype Analysis -->
+            <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: left;">
+                <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎯 Leadership Archetype Analysis</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;" id="archetype-evidence-grid">
+                    <!-- Dynamic archetype evidence will be inserted here -->
+                </div>
+                <div style="text-align: center; margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;" id="preliminary-assessment">
+                    <!-- Dynamic preliminary assessment text -->
+                </div>
+            </div>
+            
+            <!-- Current Strengths and Development Areas -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;" id="strengths-development-grid">
+                <!-- Dynamic strengths and development priorities will be inserted here -->
+            </div>
+            
+            <!-- Next Steps -->
+            <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 15px; margin: 20px 0; text-align: left;" id="next-steps-container">
+                <!-- Dynamic next steps will be inserted here -->
+            </div>
+            
+            <p style="font-size: 1.1em; color: #495057; max-width: 800px; margin: 20px auto 0;" id="overall-summary-text">
+                <!-- Dynamic summary text will be inserted here -->
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        const sampleAssessmentData1 = {
+ "assessment_metadata": {
+ "assessment_id": "TLA-2025-033",
+ "version": "1.0",
+ "framework_version": "TLF-2025",
+ "created_date": "2025-08-02T23:25:59.000Z",
+ "assessment_type": "comprehensive_leadership_evaluation"
+ },
+ "participant_profile": {
+ "participant_id": "26",
+ "participant_name": "Arun Kumar",
+ "email": "arunkumar061781@gmail.com",
+ "linkedin_name": "Arun Kumar",
+ "experience_category": "Rising",
+ "experience_range": "3-9 years",
+ "experience_years": "not_specified",
+ "domain": "Technology Leadership",
+ "assessment_status": "completed",
+ "questions_completed": 25,
+ "questions_total": 25,
+ "completion_percentage": 100,
+ "session_duration": "completed",
+ "overall_performance": "significant_development_opportunity_with_strategic_thinking_strength"
+ },
+ "assessment_progress": {
+ "current_pillar": 5,
+ "pillars_completed": [1, 2, 3, 4, 5],
+ "pillars_pending": [],
+ "total_score": 5,
+ "max_possible_score": 25,
+ "current_percentage": 20,
+ "performance_trend": "consistent_strategic_orientation_misaligned_with_target_level",
+ "confidence_score": 0.95,
+ "data_reliability": "high"
+ },
+ "pillar_assessments": {
+ "pillar_1_quality_attributes": {
+ "pillar_id": 1,
+ "pillar_name": "Quality Attributes Mastery",
+ "pillar_icon": "🎯",
+ "status": "completed",
+ "completion_date": "2025-08-02T23:25:59.000Z",
+ "questions_answered": 5,
+ "questions_correct": 0,
+ "pillar_score": 0,
+ "pillar_percentage": 0,
+ "competency_level": "strategic_orientation_above_target_level",
+ "demonstrated_skills": [
+ "enterprise_strategic_thinking",
+ "organizational_vision",
+ "high_level_systems_perspective"
+ ],
+ "missing_skills": [
+ "systematic_process_building",
+ "hands_on_implementation_focus",
+ "incremental_optimization_approach",
+ "tactical_alchemist_behaviors"
+ ],
+ "archetype_indicators": {
+ "explorer_traits": [],
+ "alchemist_traits": [],
+ "maverick_traits": ["innovation_focus"],
+ "oracle_traits": ["strategic_thinking", "enterprise_perspective", "organizational_standards_focus"]
+ },
+ "feedback": {
+ "pattern_observed": "Consistent selection of enterprise/strategic options (D) rather than systematic building options (B) expected for Rising Alchemist",
+ "key_insight": "Shows strong Oracle tendencies but lacks foundational Alchemist systematic building skills",
+ "development_focus": "Need to build systematic implementation and process optimization capabilities before advancing to strategic leadership"
+ }
+ },
+ "pillar_2_human_dynamics": {
+ "pillar_id": 2,
+ "pillar_name": "Human Dynamics Excellence",
+ "pillar_icon": "🤝",
+ "status": "completed",
+ "completion_date": "2025-08-02T23:25:59.000Z",
+ "questions_answered": 6,
+ "questions_correct": 2,
+ "pillar_score": 2,
+ "pillar_percentage": 33,
+ "competency_level": "mixed_signals_strategic_vs_systematic",
+ "demonstrated_skills": [
+ "culture_management_understanding",
+ "presentation_skills_development",
+ "strategic_people_leadership_vision"
+ ],
+ "missing_skills": [
+ "systematic_stakeholder_engagement_processes",
+ "structured_communication_frameworks",
+ "team_development_process_building"
+ ],
+ "archetype_indicators": {
+ "explorer_traits": ["observation_and_learning"],
+ "alchemist_traits": ["process_building", "systematic_approach"],
+ "maverick_traits": [],
+ "oracle_traits": ["enterprise_perspective", "organizational_standards_focus"]
+ },
+ "feedback": {
+ "pattern_observed": "Mix of correct Alchemist responses and strategic Oracle responses",
+ "strength_areas": "Culture management and presentation skills show Alchemist understanding",
+ "development_focus": "Apply systematic building approach to all human dynamics areas"
+ }
+ },
+ "pillar_3_design_excellence": {
+ "pillar_id": 3,
+ "pillar_name": "Design Excellence",
+ "pillar_icon": "🎨",
+ "status": "completed",
+ "completion_date": "2025-08-02T23:25:59.000Z",
+ "questions_answered": 5,
+ "questions_correct": 2,
+ "pillar_score": 2,
+ "pillar_percentage": 40,
+ "competency_level": "partial_alchemist_understanding_with_strategic_drift",
+ "demonstrated_skills": [
+ "requirements_management_processes",
+ "traceability_systems_building",
+ "systematic_design_thinking"
+ ],
+ "missing_skills": [
+ "systematic_design_process_implementation",
+ "component_reuse_system_building",
+ "design_validation_process_creation"
+ ],
+ "archetype_indicators": {
+ "explorer_traits": [],
+ "alchemist_traits": ["systematic_processes", "comprehensive_frameworks"],
+ "maverick_traits": ["innovation_focus", "new_approaches"],
+ "oracle_traits": ["enterprise_standards", "organizational_frameworks"]
+ },
+ "feedback": {
+ "pattern_observed": "Shows understanding of systematic design but gravitates toward enterprise-level solutions",
+ "strength_areas": "Requirements management and traceability show Alchemist capabilities",
+ "development_focus": "Focus on building and implementing design processes rather than defining enterprise standards"
+ }
+ },
+ "pillar_4_business_strategy": {
+ "pillar_id": 4,
+ "pillar_name": "Business Technology Strategy",
+ "pillar_icon": "💼",
+ "status": "completed",
+ "completion_date": "2025-08-02T23:25:59.000Z",
+ "questions_answered": 5,
+ "questions_correct": 0,
+ "pillar_score": 0,
+ "pillar_percentage": 0,
+ "competency_level": "strategic_orientation_beyond_rising_level",
+ "demonstrated_skills": [
+ "enterprise_strategic_thinking",
+ "organizational_influence_aspiration",
+ "high_level_business_perspective"
+ ],
+ "missing_skills": [
+ "systematic_financial_analysis_processes",
+ "structured_risk_management_implementation",
+ "hands_on_strategy_execution_capabilities"
+ ],
+ "archetype_indicators": {
+ "explorer_traits": [],
+ "alchemist_traits": [],
+ "maverick_traits": ["innovation_and_disruption_focus"],
+ "oracle_traits": ["strategic_thinking", "enterprise_influence", "organizational_direction_setting"]
+ },
+ "feedback": {
+ "pattern_observed": "Consistent preference for enterprise strategy definition over systematic process building",
+ "development_focus": "Need to build foundational business analysis and implementation skills before strategic leadership"
+ }
+ },
+ "pillar_5_engineering_environment": {
+ "pillar_id": 5,
+ "pillar_name": "Engineering Environment Excellence",
+ "pillar_icon": "⚙️",
+ "status": "completed",
+ "completion_date": "2025-08-02T23:25:59.000Z",
+ "questions_answered": 5,
+ "questions_correct": 0,
+ "pillar_score": 0,
+ "pillar_percentage": 0,
+ "competency_level": "strategic_focus_missing_implementation_foundation",
+ "demonstrated_skills": [
+ "enterprise_engineering_vision",
+ "organizational_standards_thinking",
+ "high_level_process_perspective"
+ ],
+ "missing_skills": [
+ "systematic_project_delivery_processes",
+ "hands_on_asset_management_systems",
+ "testing_framework_implementation",
+ "governance_process_building"
+ ],
+ "archetype_indicators": {
+ "explorer_traits": [],
+ "alchemist_traits": [],
+ "maverick_traits": ["innovation_preference"],
+ "oracle_traits": ["enterprise_standards", "organizational_strategy", "high_level_framework_thinking"]
+ },
+ "feedback": {
+ "pattern_observed": "Strong preference for enterprise-level standards and strategy over hands-on implementation",
+ "development_focus": "Critical need to develop systematic engineering process building and implementation skills"
+ }
+ }
+ },
+ "archetype_analysis": {
+ "methodology": "behavioral_pattern_analysis_across_25_responses",
+ "confidence_level": "very_high_clear_pattern",
+ "data_completeness": 100,
+ "minimum_confidence_threshold": 70,
+ "archetype_evidence": {
+ "explorer_traits": {
+ "total_indicators": 1,
+ "strength": "very_weak",
+ "pillars_detected": [2],
+ "specific_behaviors": ["observation_and_learning"],
+ "confidence_score": 0.04
+ },
+ "alchemist_traits": {
+ "total_indicators": 4,
+ "strength": "weak",
+ "pillars_detected": [2, 3],
+ "specific_behaviors": [
+ "process_building",
+ "systematic_approach",
+ "systematic_processes",
+ "comprehensive_frameworks"
+ ],
+ "confidence_score": 0.16
+ },
+ "maverick_traits": {
+ "total_indicators": 4,
+ "strength": "moderate",
+ "pillars_detected": [1, 3, 4, 5],
+ "specific_behaviors": [
+ "innovation_focus",
+ "new_approaches",
+ "innovation_and_disruption_focus",
+ "innovation_preference"
+ ],
+ "confidence_score": 0.16
+ },
+ "oracle_traits": {
+ "total_indicators": 16,
+ "strength": "very_strong",
+ "pillars_detected": [1, 2, 3, 4, 5],
+ "specific_behaviors": [
+ "strategic_thinking",
+ "enterprise_perspective",
+ "organizational_standards_focus",
+ "enterprise_perspective",
+ "organizational_standards_focus",
+ "enterprise_standards",
+ "organizational_frameworks",
+ "strategic_thinking",
+ "enterprise_influence",
+ "organizational_direction_setting",
+ "enterprise_standards",
+ "organizational_strategy",
+ "high_level_framework_thinking"
+ ],
+ "confidence_score": 0.64
+ }
+ },
+ "preliminary_assessment": {
+ "primary_archetype": "oracle",
+ "primary_confidence": 0.64,
+ "secondary_archetype": "none_clear",
+ "secondary_confidence": 0.16,
+ "assessment_text": "Rising individual with strong Oracle aspirations but lacking foundational Alchemist skills",
+ "archetype_confusion": {
+ "target_archetype": "alchemist",
+ "demonstrated_archetype": "oracle",
+ "interpretation": "participant_demonstrates_strategic_oracle_thinking_but_lacks_systematic_building_foundation_expected_for_rising_alchemist",
+ "development_implication": "needs_to_build_alchemist_foundation_before_advancing_to_oracle_capabilities"
+ }
+ },
+ "experience_archetype_combination": {
+ "experience_category": "Rising",
+ "demonstrated_archetype": "Oracle-aspirant",
+ "target_archetype": "Alchemist",
+ "persona_gap": "Rising Oracle-aspirant needs Rising Alchemist foundation",
+ "confidence_in_assessment": "very_high"
+ }
+ },
+ "competency_analysis": {
+ "overall_assessment": "strategic_vision_with_significant_implementation_gaps",
+ "strong_areas": {
+ "strategic_thinking": {
+ "competency_level": "emerging_to_veterans_level",
+ "evidence": "Consistent enterprise-level strategic thinking across all pillars",
+ "growth_potential": "high_but_premature",
+ "archetype_alignment": "oracle",
+ "development_path": "build_implementation_foundation_first"
+ },
+ "organizational_perspective": {
+ "competency_level": "advanced_for_rising_level",
+ "evidence": "Strong understanding of enterprise needs and organizational impact",
+ "growth_potential": "very_high",
+ "archetype_alignment": "oracle",
+ "development_path": "channel_into_systematic_building_experience"
+ }
+ },
+ "weak_areas": {
+ "systematic_implementation": {
+ "competency_level": "below_rising_expectations",
+ "evidence": "Lack of focus on building systematic processes and frameworks",
+ "growth_potential": "very_high",
+ "archetype_alignment": "alchemist",
+ "development_path": "critical_foundation_building_needed"
+ },
+ "hands_on_process_building": {
+ "competency_level": "underdeveloped",
+ "evidence": "Preference for strategy over implementation across all pillars",
+ "growth_potential": "high",
+ "archetype_alignment": "alchemist",
+ "development_path": "focus_on_tactical_delivery_and_optimization"
+ },
+ "incremental_improvement": {
+ "competency_level": "missing",
+ "evidence": "No demonstration of systematic optimization and refinement approaches",
+ "growth_potential": "high",
+ "archetype_alignment": "alchemist",
+ "development_path": "develop_continuous_improvement_mindset"
+ }
+ },
+ "competency_gaps": [
+ {
+ "gap_type": "archetype_level_mismatch",
+ "severity": "high",
+ "impact": "cannot_effectively_execute_strategic_vision_without_implementation_foundation",
+ "pillars_affected": [1, 2, 3, 4, 5]
+ },
+ {
+ "gap_type": "systematic_building_skills",
+ "severity": "high",
+ "impact": "lacks_credibility_and_practical_experience_for_strategic_leadership",
+ "pillars_affected": [1, 3, 4, 5]
+ },
+ {
+ "gap_type": "hands_on_implementation_experience",
+ "severity": "high",
+ "impact": "strategic_recommendations_may_lack_practical_feasibility",
+ "pillars_affected": [1, 3, 4, 5]
+ }
+ ],
+ "mixed_signals": {
+ "strategic_vs_tactical": "very_strong_strategic_orientation_with_minimal_tactical_implementation_focus",
+ "archetype_mismatch": "oracle_thinking_patterns_in_rising_alchemist_context",
+ "implications": "need_to_build_alchemist_foundation_before_advancing_to_oracle_responsibilities"
+ }
+ },
+ "performance_metrics": {
+ "overall_score": 5,
+ "max_possible": 25,
+ "percentage": 20,
+ "performance_level": "below_expectations_with_strategic_strengths",
+ "competency_distribution": {
+ "strong": 2,
+ "moderate": 0,
+ "weak": 3,
+ "archetype_misaligned": 5
+ },
+ "archetype_consistency": 0.64,
+ "growth_trajectory": "high_potential_with_focused_foundation_building",
+ "risk_indicators": [
+ "strategic_focus_without_implementation_foundation",
+ "may_struggle_with_credibility_in_technical_leadership_roles",
+ "potential_frustration_with_tactical_responsibilities"
+ ]
+ },
+ "development_recommendations": {
+ "immediate_priorities": [
+ {
+ "area": "alchemist_foundation_building",
+ "urgency": "critical",
+ "timeframe": "6-12 months",
+ "specific_actions": [
+ "Take ownership of a complex system optimization project",
+ "Build comprehensive processes and frameworks from scratch",
+ "Focus on systematic improvement and refinement rather than strategy",
+ "Measure success through implementation effectiveness, not strategic vision"
+ ]
+ },
+ {
+ "area": "hands_on_technical_implementation",
+ "urgency": "high",
+ "timeframe": "3-6 months",
+ "specific_actions": [
+ "Lead technical projects requiring systematic process building",
+ "Create reusable components and automated systems",
+ "Implement monitoring, testing, and governance frameworks",
+ "Focus on incremental optimization and continuous improvement"
+ ]
+ }
+ ],
+ "leverage_strengths": [
+ {
+ "strength": "strategic_vision_and_organizational_thinking",
+ "application": "systematic_process_design",
+ "specific_actions": [
+ "Use strategic thinking to design comprehensive systematic processes",
+ "Apply organizational perspective to create scalable team-level frameworks",
+ "Channel enterprise vision into building robust implementation foundations"
+ ]
+ },
+ {
+ "strength": "high_level_systems_perspective",
+ "application": "alchemist_process_architecture",
+ "specific_actions": [
+ "Design end-to-end systematic processes with enterprise scalability in mind",
+ "Build frameworks that can scale from team to organizational level",
+ "Create systematic approaches that align with long-term strategic vision"
+ ]
+ }
+ ],
+ "archetype_development": {
+ "primary_alchemist_path": {
+ "focus": "build_systematic_implementation_and_optimization_expertise",
+ "rationale": "must_develop_alchemist_foundation_before_oracle_advancement_possible",
+ "timeline": "12-18 months",
+ "milestones": [
+ "Successfully lead systematic process building projects",
+ "Demonstrate consistent incremental optimization capabilities",
+ "Build reputation for systematic implementation excellence",
+ "Gain credibility through hands-on technical leadership"
+ ]
+ },
+ "future_oracle_preparation": {
+ "focus": "channel_strategic_thinking_into_systematic_building_experience",
+ "rationale": "strategic_vision_will_enhance_alchemist_work_and_prepare_for_future_oracle_role",
+ "timeline": "18-24 months",
+ "milestones": [
+ "Combine strategic thinking with systematic implementation",
+ "Develop practical wisdom through hands-on optimization experience",
+ "Build track record of systematic delivery and improvement",
+ "Establish credibility for future strategic leadership roles"
+ ]
+ }
+ },
+ "career_path_guidance": [
+ "Seek roles that require systematic process building and optimization",
+ "Avoid pure strategy roles until implementation foundation is built",
+ "Focus on technical leadership opportunities that require systematic thinking",
+ "Build credibility through consistent delivery and improvement results"
+ ]
+ },
+ "next_steps": {
+ "assessment_insights": {
+ "key_finding": "Strong strategic Oracle thinking needs Alchemist implementation foundation",
+ "development_priority": "Build systematic process building and optimization skills",
+ "timeline_expectation": "12-18 months of focused Alchemist development"
+ },
+ "immediate_learning": {
+ "priority": "critical",
+ "focus": "systematic_process_building_and_implementation",
+ "timeline": "next_30_days",
+ "resources": [
+ "Process improvement methodologies (Lean, Six Sigma)",
+ "System optimization frameworks",
+ "Implementation project management approaches",
+ "Continuous improvement practices"
+ ]
+ },
+ "strength_building": {
+ "priority": "high",
+ "focus": "channel_strategic_thinking_into_systematic_building",
+ "timeline": "ongoing_next_6_months",
+ "activities": [
+ "Lead complex technical implementation projects",
+ "Build systematic frameworks and processes from scratch",
+ "Focus on optimization and refinement rather than strategy",
+ "Measure impact through implementation effectiveness"
+ ]
+ },
+ "gap_closing": {
+ "priority": "critical",
+ "focus": "develop_hands_on_alchemist_capabilities",
+ "timeline": "6-12_months",
+ "approach": "immerse_in_systematic_building_projects_that_leverage_strategic_thinking_for_process_design"
+ }
+ },
+ "growth_trajectory": {
+ "current_stage": "rising_oracle_aspirant_with_implementation_gaps",
+ "target_stage": "rising_alchemist_with_strategic_depth",
+ "estimated_timeline": "12-18 months to alchemist mastery, 24-36 months to emerging oracle",
+ "key_milestones": [
+ {
+ "milestone": "Master systematic process building",
+ "target_date": "6 months",
+ "success_criteria": "Successfully lead complex implementation projects with systematic approaches"
+ },
+ {
+ "milestone": "Demonstrate consistent optimization capabilities",
+ "target_date": "12 months",
+ "success_criteria": "Build reputation for systematic improvement and refinement excellence"
+ },
+ {
+ "milestone": "Achieve Rising Alchemist mastery",
+ "target_date": "18 months",
+ "success_criteria": "Combine strategic thinking with proven systematic implementation expertise"
+ },
+ {
+ "milestone": "Transition to Emerging Oracle consideration",
+ "target_date": "24-36 months",
+ "success_criteria": "Demonstrate strategic leadership credibility built on systematic implementation foundation"
+ }
+ ],
+ "success_indicators": [
+ "Consistent systematic process building and optimization results",
+ "Recognition as go-to person for complex implementation challenges",
+ "Ability to combine strategic vision with practical implementation expertise",
+ "Track record of building scalable systematic frameworks and processes"
+ ],
+ "development_philosophy": "Build Oracle credibility through Alchemist excellence - strategic vision gains power through systematic implementation mastery"
+ }
+};
+
+        const sampleAssessmentData2 = {
+          "assessment_metadata": {
+            "assessment_id": "TLA-2025-001",
+            "version": "1.0",
+            "framework_version": "TLF-2025",
+            "created_date": "2025-01-09T15:45:00Z",
+            "last_updated": "2025-01-09T15:45:00Z",
+            "assessment_type": "comprehensive_leadership_evaluation"
+          },
+          "participant_profile": {
+            "participant_id": "P-12345",
+            "experience_category": "Rising",
+            "experience_range": "3-9 years",
+            "experience_years": 5,
+            "domain_focus": "software_engineering",
+            "assessment_date": "2025-01-09",
+            "assessment_status": "completed",
+            "completion_percentage": 100,
+            "estimated_completion_time": "completed",
+            "questions_total": 5,
+            "questions_completed": 5,
+            "questions_remaining": 0,
+            "session_duration": "32 minutes",
+            "overall_performance": "strong_with_development_areas"
+          },
+          "assessment_progress": {
+            "current_pillar": 5,
+            "pillars_completed": [1, 2, 3, 4, 5],
+            "pillars_pending": [],
+            "total_score": 4,
+            "max_possible_score": 5,
+            "current_percentage": 80,
+            "performance_trend": "strong",
+            "confidence_score": 0.85,
+            "data_reliability": "high"
+          },
+          "pillar_assessments": {
+            "pillar_1_quality_attributes": {
+              "pillar_id": 1,
+              "pillar_name": "Quality Attributes Mastery",
+              "pillar_icon": "🎯",
+              "status": "completed",
+              "completion_date": "2025-01-09T15:15:00Z",
+              "scenario": {
+                "title": "Production Performance Crisis",
+                "description": "Production application experiencing performance issues during peak loads. Multiple stakeholders have different priorities: users complaining about speed, operations team concerned about reliability, and security team flagged vulnerabilities that need addressing.",
+                "complexity_level": "rising",
+                "stakeholder_count": 3,
+                "quality_attributes_involved": ["performance", "reliability", "security"]
+              },
+              "question": {
+                "text": "What's your Rising-level approach to balancing these quality attributes?",
+                "type": "multiple_choice",
+                "difficulty": "rising_level",
+                "competency_tested": "quality_attribute_balancing"
+              },
+              "options": {
+                "A": "Fix the performance issue first since users are complaining the most",
+                "B": "Document all three concerns, research their relationships, and propose a prioritized plan that considers trade-offs between performance, reliability, and security",
+                "C": "Ask your manager which quality attribute to focus on first",
+                "D": "Try to address all three simultaneously to make everyone happy"
+              },
+              "user_response": {
+                "selected_option": "B",
+                "response_time": "78 seconds",
+                "confidence_level": "high",
+                "reasoning_provided": true
+              },
+              "correct_answer": "B",
+              "is_correct": true,
+              "competency_level": "strong_rising_level",
+              "performance_score": 1,
+              "max_score": 1,
+              "percentage_score": 100,
+              "demonstrated_skills": [
+                "systematic_problem_analysis",
+                "stakeholder_balancing",
+                "trade_off_analysis_capability",
+                "documentation_and_research_habits",
+                "strategic_prioritization"
+              ],
+              "missing_skills": [],
+              "archetype_indicators": {
+                "explorer_traits": ["research_driven_approach"],
+                "alchemist_traits": ["systematic_analysis", "process_oriented"],
+                "maverick_traits": [],
+                "oracle_traits": ["strategic_thinking", "multi_stakeholder_perspective"]
+              },
+              "feedback": {
+                "why_correct": "Choice B demonstrates Rising-level systems thinking by documenting concerns, researching relationships, and proposing balanced solutions. This shows mature technical leadership.",
+                "key_strengths": [
+                  "Strong systems thinking approach",
+                  "Multi-stakeholder awareness",
+                  "Research and documentation habits",
+                  "Strategic prioritization capability"
+                ],
+                "leverage_opportunities": [
+                  "Apply systematic analysis to complex technical decisions",
+                  "Use stakeholder balancing skills in cross-functional projects",
+                  "Mentor others in quality attribute trade-off analysis"
+                ]
+              }
+            },
+            "pillar_2_human_dynamics": {
+              "pillar_id": 2,
+              "pillar_name": "Human Dynamics Excellence",
+              "pillar_icon": "🤝",
+              "status": "completed",
+              "completion_date": "2025-01-09T15:25:00Z",
+              "scenario": {
+                "title": "Cross-Functional Team Conflict",
+                "description": "You're leading a cross-functional team working on a new feature. The frontend developer wants to use the latest React framework, the backend developer prefers to stick with proven technologies, the product manager is pushing for faster delivery, and the QA engineer is concerned about testing complexity.",
+                "complexity_level": "rising",
+                "stakeholder_count": 4,
+                "conflict_areas": ["technology_choice", "delivery_speed", "testing_complexity"]
+              },
+              "question": {
+                "text": "How do you handle these conflicting perspectives as a Rising leader?",
+                "type": "multiple_choice",
+                "difficulty": "rising_level",
+                "competency_tested": "collaborative_leadership"
+              },
+              "options": {
+                "A": "Let the team vote on which approach to take",
+                "B": "Side with the most senior developer to avoid conflict",
+                "C": "Facilitate a discussion to understand each person's concerns, research the trade-offs of different approaches, and guide the team toward a decision that balances innovation with delivery goals",
+                "D": "Make the decision yourself based on what you think is best"
+              },
+              "user_response": {
+                "selected_option": "C",
+                "response_time": "52 seconds",
+                "confidence_level": "high",
+                "reasoning_provided": true
+              },
+              "correct_answer": "C",
+              "is_correct": true,
+              "competency_level": "strong_rising_level",
+              "performance_score": 1,
+              "max_score": 1,
+              "percentage_score": 100,
+              "demonstrated_skills": [
+                "facilitation_leadership",
+                "stakeholder_perspective_gathering",
+                "research_driven_decision_making",
+                "balance_innovation_pragmatism",
+                "collaborative_problem_solving"
+              ],
+              "missing_skills": [],
+              "archetype_indicators": {
+                "explorer_traits": ["research_driven_approach"],
+                "alchemist_traits": ["balance_seeking", "systematic_approach"],
+                "maverick_traits": ["innovation_focused"],
+                "oracle_traits": ["facilitation", "multi_perspective_gathering", "guided_decision_making"]
+              },
+              "feedback": {
+                "why_correct": "Choice C demonstrates exceptional Rising-level leadership by facilitating rather than dictating, gathering perspectives systematically, and balancing multiple concerns. This shows strong collaborative leadership maturity.",
+                "key_strengths": [
+                  "Natural facilitation instincts",
+                  "Research-oriented approach",
+                  "Multi-stakeholder awareness",
+                  "Innovation-pragmatism balance"
+                ],
+                "leverage_opportunities": [
+                  "Lead more complex technical discussions",
+                  "Mentor junior team members in collaborative decision-making",
+                  "Apply facilitation skills to organizational challenges"
+                ]
+              }
+            },
+            "pillar_3_design_excellence": {
+              "pillar_id": 3,
+              "pillar_name": "Design Excellence",
+              "pillar_icon": "🎨",
+              "status": "completed",
+              "completion_date": "2025-01-09T15:35:00Z",
+              "scenario": {
+                "title": "System Architecture Challenge",
+                "description": "You need to design a new microservices architecture for a growing e-commerce platform. The system must handle high traffic, integrate with multiple third-party services, support rapid feature development, and maintain data consistency across services.",
+                "complexity_level": "rising",
+                "stakeholder_count": 5,
+                "design_challenges": ["scalability", "integration", "development_speed", "data_consistency"]
+              },
+              "question": {
+                "text": "What's your Rising-level approach to this design challenge?",
+                "type": "multiple_choice",
+                "difficulty": "rising_level",
+                "competency_tested": "systematic_design_thinking"
+              },
+              "options": {
+                "A": "Start coding immediately to test different approaches",
+                "B": "Research proven patterns, create multiple design options, document trade-offs, and validate with stakeholders before implementation",
+                "C": "Copy the architecture from a successful company",
+                "D": "Use the most popular technologies regardless of requirements"
+              },
+              "user_response": {
+                "selected_option": "B",
+                "response_time": "89 seconds",
+                "confidence_level": "medium",
+                "reasoning_provided": true
+              },
+              "correct_answer": "B",
+              "is_correct": true,
+              "competency_level": "strong_rising_level",
+              "performance_score": 1,
+              "max_score": 1,
+              "percentage_score": 100,
+              "demonstrated_skills": [
+                "systematic_design_approach",
+                "pattern_research_capability",
+                "option_generation_and_evaluation",
+                "stakeholder_validation",
+                "trade_off_documentation"
+              ],
+              "missing_skills": [],
+              "archetype_indicators": {
+                "explorer_traits": ["research_driven", "multiple_options_exploration"],
+                "alchemist_traits": ["systematic_approach", "proven_patterns_focus"],
+                "maverick_traits": [],
+                "oracle_traits": ["stakeholder_validation", "trade_off_analysis"]
+              },
+              "feedback": {
+                "why_correct": "Choice B shows mature design thinking by emphasizing research, options analysis, and stakeholder validation. This demonstrates Rising-level systematic design excellence.",
+                "key_strengths": [
+                  "Systematic design methodology",
+                  "Pattern research skills",
+                  "Stakeholder validation instincts",
+                  "Trade-off analysis capability"
+                ],
+                "leverage_opportunities": [
+                  "Lead architectural design sessions",
+                  "Mentor others in design methodologies",
+                  "Create design standards for the team"
+                ]
+              }
+            },
+            "pillar_4_business_strategy": {
+              "pillar_id": 4,
+              "pillar_name": "Business Technology Strategy",
+              "pillar_icon": "💼",
+              "status": "completed",
+              "completion_date": "2025-01-09T15:40:00Z",
+              "scenario": {
+                "title": "Technology Investment Decision",
+                "description": "Your company needs to choose between investing in AI capabilities, modernizing legacy systems, or expanding mobile features. Budget allows for only one major initiative this year. Each option has different costs, timelines, and business impacts.",
+                "complexity_level": "rising",
+                "stakeholder_count": 6,
+                "decision_factors": ["budget_constraints", "business_impact", "technical_debt", "market_opportunity"]
+              },
+              "question": {
+                "text": "How do you approach this strategic technology decision as a Rising leader?",
+                "type": "multiple_choice",
+                "difficulty": "rising_level",
+                "competency_tested": "business_technology_alignment"
+              },
+              "options": {
+                "A": "Choose the most exciting technology trend",
+                "B": "Analyze business impact, technical feasibility, and ROI for each option, then present recommendations with clear rationale to stakeholders",
+                "C": "Let the business stakeholders decide without technical input",
+                "D": "Choose the safest option to avoid risk"
+              },
+              "user_response": {
+                "selected_option": "B",
+                "response_time": "95 seconds",
+                "confidence_level": "high",
+                "reasoning_provided": true
+              },
+              "correct_answer": "B",
+              "is_correct": true,
+              "competency_level": "strong_rising_level",
+              "performance_score": 1,
+              "max_score": 1,
+              "percentage_score": 100,
+              "demonstrated_skills": [
+                "business_impact_analysis",
+                "technical_feasibility_assessment",
+                "roi_calculation_capability",
+                "stakeholder_communication",
+                "strategic_recommendation_development"
+              ],
+              "missing_skills": [],
+              "archetype_indicators": {
+                "explorer_traits": ["comprehensive_analysis"],
+                "alchemist_traits": ["systematic_evaluation", "feasibility_focus"],
+                "maverick_traits": [],
+                "oracle_traits": ["strategic_thinking", "stakeholder_communication", "rationale_development"]
+              },
+              "feedback": {
+                "why_correct": "Choice B demonstrates Rising-level business-technology alignment by combining analytical rigor with strategic communication. This shows mature understanding of technology leadership in business context.",
+                "key_strengths": [
+                  "Business impact focus",
+                  "Analytical decision-making",
+                  "Stakeholder communication skills",
+                  "Strategic thinking capability"
+                ],
+                "leverage_opportunities": [
+                  "Lead technology strategy initiatives",
+                  "Bridge business and technical teams",
+                  "Mentor others in business-technology alignment"
+                ]
+              }
+            },
+            "pillar_5_engineering_environment": {
+              "pillar_id": 5,
+              "pillar_name": "Engineering Environment Excellence",
+              "pillar_icon": "⚙️",
+              "status": "completed",
+              "completion_date": "2025-01-09T15:45:00Z",
+              "scenario": {
+                "title": "Development Process Optimization",
+                "description": "Your engineering team is struggling with slow deployments, inconsistent code quality, and lack of visibility into system performance. Team productivity is declining and technical debt is accumulating. You need to improve the engineering environment to boost team effectiveness.",
+                "complexity_level": "rising",
+                "stakeholder_count": 4,
+                "process_challenges": ["deployment_speed", "code_quality", "system_visibility", "technical_debt"]
+              },
+              "question": {
+                "text": "What's your Rising-level approach to improving the engineering environment?",
+                "type": "multiple_choice",
+                "difficulty": "rising_level",
+                "competency_tested": "engineering_productivity"
+              },
+              "options": {
+                "A": "Implement all the latest DevOps tools immediately",
+                "B": "Assess current pain points, prioritize improvements based on impact, implement changes incrementally with team feedback, and measure results",
+                "C": "Hire more senior engineers to solve the problems",
+                "D": "Focus only on the most visible issue first"
+              },
+              "user_response": {
+                "selected_option": "A",
+                "response_time": "43 seconds",
+                "confidence_level": "medium",
+                "reasoning_provided": false
+              },
+              "correct_answer": "B",
+              "is_correct": false,
+              "competency_level": "below_rising_level",
+              "performance_score": 0,
+              "max_score": 1,
+              "percentage_score": 0,
+              "demonstrated_skills": [
+                "technology_enthusiasm",
+                "solution_oriented_thinking"
+              ],
+              "missing_skills": [
+                "systematic_assessment_capability",
+                "prioritization_framework",
+                "incremental_improvement_approach",
+                "team_feedback_integration",
+                "measurement_and_validation"
+              ],
+              "archetype_indicators": {
+                "explorer_traits": ["technology_enthusiasm", "quick_response"],
+                "alchemist_traits": [],
+                "maverick_traits": ["immediate_action_preference"],
+                "oracle_traits": []
+              },
+              "feedback": {
+                "why_incorrect": "Choice A shows enthusiasm but lacks systematic thinking. Rising leaders assess before acting, prioritize based on impact, and implement changes incrementally with measurement.",
+                "correct_approach": "Rising leaders systematically assess problems, prioritize improvements, implement incrementally, and measure results to ensure sustainable engineering environment improvements.",
+                "growth_areas": [
+                  "Develop systematic assessment frameworks",
+                  "Learn prioritization methodologies",
+                  "Practice incremental improvement approaches",
+                  "Build measurement and validation habits"
+                ],
+                "immediate_actions": [
+                  "Study engineering productivity assessment methods",
+                  "Practice impact-based prioritization",
+                  "Learn incremental improvement frameworks"
+                ]
+              }
+            }
+          },
+          "archetype_analysis": {
+            "methodology": "multi_pillar_behavioral_analysis",
+            "confidence_level": "high_consistent_indicators",
+            "data_completeness": 100,
+            "minimum_confidence_threshold": 70,
+            "archetype_evidence": {
+              "explorer_traits": {
+                "total_indicators": 6,
+                "strength": "moderate",
+                "pillars_detected": [1, 2, 3, 4, 5],
+                "specific_behaviors": [
+                  "research_driven_approach",
+                  "comprehensive_analysis",
+                  "multiple_options_exploration",
+                  "technology_enthusiasm"
+                ],
+                "confidence_score": 0.65
+              },
+              "alchemist_traits": {
+                "total_indicators": 8,
+                "strength": "strong",
+                "pillars_detected": [1, 2, 3, 4],
+                "specific_behaviors": [
+                  "systematic_analysis",
+                  "process_oriented",
+                  "balance_seeking",
+                  "proven_patterns_focus",
+                  "systematic_evaluation",
+                  "feasibility_focus"
+                ],
+                "confidence_score": 0.80
+              },
+              "maverick_traits": {
+                "total_indicators": 2,
+                "strength": "weak",
+                "pillars_detected": [2, 5],
+                "specific_behaviors": [
+                  "innovation_focused",
+                  "immediate_action_preference"
+                ],
+                "confidence_score": 0.25
+              },
+              "oracle_traits": {
+                "total_indicators": 9,
+                "strength": "very_strong",
+                "pillars_detected": [1, 2, 3, 4],
+                "specific_behaviors": [
+                  "strategic_thinking",
+                  "multi_stakeholder_perspective",
+                  "facilitation",
+                  "multi_perspective_gathering",
+                  "guided_decision_making",
+                  "stakeholder_validation",
+                  "trade_off_analysis",
+                  "stakeholder_communication",
+                  "rationale_development"
+                ],
+                "confidence_score": 0.90
+              }
+            },
+            "preliminary_assessment": {
+              "primary_archetype": "oracle",
+              "primary_confidence": 0.90,
+              "secondary_archetype": "alchemist",
+              "secondary_confidence": 0.80,
+              "assessment_text": "Rising Oracle with strong Alchemist tendencies",
+              "archetype_confusion": {
+                "pillar_1_suggests": "rising_oracle_alchemist",
+                "pillar_2_suggests": "rising_oracle",
+                "pillar_3_suggests": "rising_oracle_alchemist",
+                "pillar_4_suggests": "rising_oracle",
+                "pillar_5_suggests": "rising_explorer_maverick",
+                "interpretation": "strong_oracle_alchemist_pattern_with_engineering_environment_gap",
+                "needs_more_data": false
+              }
+            },
+            "experience_archetype_combination": {
+              "experience_category": "Rising",
+              "primary_archetype": "Oracle",
+              "persona": "Rising Oracle",
+              "alternative_personas": ["Rising Alchemist"],
+              "confidence_in_combination": "high"
+            }
+          },
+          "competency_analysis": {
+            "overall_assessment": "strong_with_specific_development_area",
+            "strong_areas": {
+              "human_dynamics": {
+                "competency_level": "rising_oracle",
+                "evidence": "Exceptional facilitation, multi-stakeholder thinking, collaborative leadership",
+                "growth_potential": "high",
+                "archetype_alignment": "oracle",
+                "development_path": "leverage_for_organizational_leadership"
+              },
+              "quality_attributes": {
+                "competency_level": "rising_oracle_alchemist",
+                "evidence": "Strong systems thinking, stakeholder balancing, trade-off analysis",
+                "growth_potential": "high",
+                "archetype_alignment": "oracle_alchemist",
+                "development_path": "expand_to_complex_systems"
+              },
+              "design_excellence": {
+                "competency_level": "rising_oracle_alchemist",
+                "evidence": "Systematic design approach, pattern research, stakeholder validation",
+                "growth_potential": "high",
+                "archetype_alignment": "oracle_alchemist",
+                "development_path": "lead_architectural_initiatives"
+              },
+              "business_strategy": {
+                "competency_level": "rising_oracle",
+                "evidence": "Business impact analysis, strategic communication, stakeholder alignment",
+                "growth_potential": "very_high",
+                "archetype_alignment": "oracle",
+                "development_path": "technology_strategy_leadership"
+              }
+            },
+            "weak_areas": {
+              "engineering_environment": {
+                "competency_level": "aspiring_explorer",
+                "evidence": "Technology enthusiasm without systematic assessment, lacks prioritization framework",
+                "growth_potential": "high",
+                "archetype_alignment": "explorer",
+                "development_path": "systematic_engineering_productivity_focus"
+              }
+            },
+            "competency_gaps": [
+              {
+                "gap_type": "systematic_engineering_assessment",
+                "severity": "medium",
+                "impact": "limits_engineering_productivity_leadership",
+                "pillars_affected": [5]
+              },
+              {
+                "gap_type": "incremental_improvement_methodology",
+                "severity": "medium",
+                "impact": "may_implement_changes_too_rapidly",
+                "pillars_affected": [5]
+              }
+            ],
+            "mixed_signals": {
+              "systematic_vs_enthusiastic": "highly_systematic_in_strategy_design_enthusiastic_in_engineering",
+              "implications": "oracle_alchemist_strengths_need_application_to_engineering_domain"
+            }
+          },
+          "performance_metrics": {
+            "overall_score": 4,
+            "max_possible": 5,
+            "percentage": 80,
+            "performance_level": "strong",
+            "competency_distribution": {
+              "strong": 4,
+              "moderate": 0,
+              "weak": 1,
+              "unknown": 0
+            },
+            "archetype_consistency": 0.85,
+            "growth_trajectory": "very_positive_with_focused_development",
+            "risk_indicators": [
+              "engineering_environment_implementation_without_assessment"
+            ]
+          },
+          "development_recommendations": {
+            "immediate_priorities": [
+              {
+                "area": "engineering_environment_assessment",
+                "urgency": "medium",
+                "timeframe": "2-3 weeks",
+                "specific_actions": [
+                  "Study systematic engineering productivity assessment methods",
+                  "Practice impact-based prioritization frameworks",
+                  "Learn incremental improvement methodologies for engineering teams"
+                ]
+              }
+            ],
+            "leverage_strengths": [
+              {
+                "strength": "systematic_strategic_thinking",
+                "application": "engineering_environment_leadership",
+                "specific_actions": [
+                  "Apply Oracle strategic thinking to engineering productivity challenges",
+                  "Use facilitation skills to assess team pain points systematically",
+                  "Leverage stakeholder communication skills for engineering environment improvements"
+                ]
+              },
+              {
+                "strength": "oracle_alchemist_combination",
+                "application": "comprehensive_technical_leadership",
+                "specific_actions": [
+                  "Lead cross-functional architectural initiatives",
+                  "Mentor others in systematic technical decision-making",
+                  "Bridge business and engineering teams",
+                  "Facilitate architectural decision-making processes"
+                ]
+              }
+            ],
+            "archetype_development": {
+              "primary_oracle_path": {
+                "focus": "expand_oracle_capabilities_to_engineering_domain",
+                "rationale": "apply_proven_strategic_systematic_thinking_to_all_technical_areas",
+                "timeline": "3-6 months",
+                "milestones": [
+                  "Apply systematic assessment to engineering challenges",
+                  "Lead comprehensive engineering environment improvements",
+                  "Mentor others in Oracle-style technical leadership"
+                ]
+              },
+              "secondary_alchemist_development": {
+                "focus": "strengthen_systematic_improvement_approach",
+                "rationale": "build_on_existing_systematic_tendencies_for_engineering_optimization",
+                "timeline": "2-4 months",
+                "milestones": [
+                  "Master incremental improvement methodologies",
+                  "Develop engineering productivity optimization skills",
+                  "Create systematic frameworks for technical debt management"
+                ]
+              }
+            },
+            "cross_archetype_development": [
+              "Combine Oracle strategic thinking with Alchemist systematic improvement for engineering leadership",
+              "Use Oracle facilitation skills to implement Alchemist-style process improvements",
+              "Apply Oracle stakeholder management to Alchemist engineering optimization initiatives"
+            ]
+          },
+          "next_steps": {
+            "assessment_continuation": {
+              "status": "completed",
+              "insights_gained": [
+                "Clear Rising Oracle archetype with strong Alchemist tendencies",
+                "Exceptional performance in 4 of 5 pillars",
+                "Specific development need in engineering environment domain"
+              ]
+            },
+            "immediate_learning": {
+              "priority": "medium",
+              "focus": "engineering_environment_systematic_assessment",
+              "timeline": "next_2_weeks",
+              "resources": [
+                "Engineering productivity assessment frameworks",
+                "Incremental improvement methodologies",
+                "DevOps implementation best practices"
+              ]
+            },
+            "strength_building": {
+              "priority": "high",
+              "focus": "oracle_alchemist_technical_leadership",
+              "timeline": "ongoing",
+              "activities": [
+                "Lead complex technical strategy initiatives",
+                "Mentor others in systematic technical decision-making",
+                "Bridge business and engineering teams",
+                "Facilitate architectural decision-making processes"
+              ]
+            },
+            "gap_closing": {
+              "priority": "medium",
+              "focus": "engineering_environment_leadership",
+              "timeline": "2-3_months",
+              "approach": "apply_existing_oracle_alchemist_strengths_to_engineering_productivity"
+            }
+          },
+          "growth_trajectory": {
+            "current_stage": "rising_oracle_with_strong_foundation",
+            "target_stage": "emerging_oracle_with_comprehensive_technical_leadership",
+            "estimated_timeline": "12-18 months",
+            "key_milestones": [
+              {
+                "milestone": "Master engineering environment systematic assessment",
+                "target_date": "2025-03-01",
+                "success_criteria": "Can systematically assess and improve engineering productivity"
+              },
+              {
+                "milestone": "Lead comprehensive technical strategy initiative",
+                "target_date": "2025-06-01",
+                "success_criteria": "Successfully lead multi-pillar technical initiative using Oracle-Alchemist approach"
+              },
+              {
+                "milestone": "Establish as technical leadership mentor",
+                "target_date": "2025-09-01",
+                "success_criteria": "Mentor others in systematic technical leadership across all 5 pillars"
+              },
+              {
+                "milestone": "Transition to Emerging Oracle",
+                "target_date": "2025-12-01",
+                "success_criteria": "Demonstrate Emerging-level Oracle capabilities across all competency areas"
+              }
+            ],
+            "success_indicators": [
+              "Consistent Oracle demonstration across all 5 pillars",
+              "Strong performance in both technical and strategic leadership scenarios",
+              "Recognition as go-to person for systematic technical decision-making",
+              "Successful mentoring of others in Oracle-Alchemist technical leadership style"
+            ]
+          }
+        };
+
+        // Function to load assessment results dynamically
+        function loadAssessmentResults(data) {
+            try {
+                // Update participant profile
+                updateParticipantProfile(data.participant_profile, data.assessment_progress, data.assessment_metadata);
+                
+                // Update pillar results
+                updatePillarResults(data.pillar_assessments);
+                
+                // Update overall summary
+                updateOverallSummary(data);
+
+                // Update status message
+                updateStatusMessage('Assessment results loaded successfully.', 'success');
+                
+                console.log('Assessment results loaded successfully');
+            } catch (error) {
+                console.error('Error loading assessment results:', error);
+                updateStatusMessage('Error loading data. Please check the JSON format.', 'error');
+            }
+        }
+
+        function updateStatusMessage(message, type) {
+            const statusMessageDiv = document.getElementById('status-message');
+            statusMessageDiv.textContent = message;
+            statusMessageDiv.className = `data-load-status ${type}`;
+        }
+        
+        function updateParticipantProfile(profile, progress, metadata) {
+            const experienceLevel = document.getElementById('experience-level');
+            const progressDiv = document.getElementById('progress');
+            const currentScore = document.getElementById('current-score');
+            const assessmentDate = document.getElementById('assessment-date');
+            const overallPerformance = document.getElementById('overall-performance');
+            const congratulationsMessage = document.getElementById('congratulations-message');
+            
+            congratulationsMessage.textContent = `Congratulations, ${profile.participant_name || 'Participant'}!`;
+            experienceLevel.innerHTML = `<strong>Experience Level:</strong> ${profile.experience_category} (${profile.experience_range})`;
+            progressDiv.innerHTML = `<strong>Progress:</strong> ${progress.questions_completed} of ${profile.questions_total} questions completed`;
+            currentScore.innerHTML = `<strong>Current Score:</strong> ${progress.current_percentage}% (${progress.total_score}/${progress.max_possible_score} correct)`;
+            assessmentDate.innerHTML = `<strong>Assessment Date:</strong> ${new Date(metadata.created_date).toLocaleDateString()}`;
+            overallPerformance.innerHTML = `<strong>Overall Performance:</strong> ${profile.overall_performance.replace(/_/g, ' ')}`;
+        }
+        
+        function updatePillarResults(pillarsData) {
+            const assessmentGrid = document.querySelector('.assessment-grid');
+            assessmentGrid.innerHTML = ''; // Clear existing content
+            
+            const pillarTitles = Object.keys(pillarsData);
+            pillarTitles.forEach(key => {
+                const pillarData = pillarsData[key];
+                const cardHtml = createPillarCard(pillarData);
+                assessmentGrid.innerHTML += cardHtml;
+            });
+        }
+        
+        function createPillarCard(data) {
+            const borderColor = data.pillar_score > 0 ? '#28a745' : '#dc3545';
+            const bgColor = data.pillar_score > 0 ? 'linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%)' : 'linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%)';
+            const textColor = data.pillar_score > 0 ? '#28a745' : '#dc3545';
+            const progressColor = data.pillar_score > 0 ? 'linear-gradient(90deg, #28a745 0%, #20c997 100%)' : 'linear-gradient(90deg, #dc3545 0%, #c82333 100%)';
+            const progressWidth = `${data.pillar_percentage}%`;
+
+            const demonstratedSkillsList = data.demonstrated_skills ? data.demonstrated_skills.map(skill => `<li>${skill.replace(/_/g, ' ')}</li>`).join('') : '';
+            const missingSkillsList = data.missing_skills ? data.missing_skills.map(skill => `<li>${skill.replace(/_/g, ' ')}</li>`).join('') : '';
+
+            const feedbackContent = data.feedback ?
+                `<div class="recommendations" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-left: 4px solid #ffc107;">
+                    <h4>💡 Feedback:</h4>
+                    <ul style="color: #495057; margin: 0; padding-left: 20px;">
+                        ${data.feedback.pattern_observed ? `<li><strong>Pattern Observed:</strong> ${data.feedback.pattern_observed}</li>` : ''}
+                        ${data.feedback.key_insight ? `<li><strong>Key Insight:</strong> ${data.feedback.key_insight}</li>` : ''}
+                        ${data.feedback.development_focus ? `<li><strong>Development Focus:</strong> ${data.feedback.development_focus}</li>` : ''}
+                        ${data.feedback.strength_areas ? `<li><strong>Strength Areas:</strong> ${data.feedback.strength_areas}</li>` : ''}
+                    </ul>
+                </div>` : '';
+            
+            return `
+                <div class="result-card" style="border-left: 6px solid ${borderColor};">
+                    <h3>${data.pillar_icon} ${data.pillar_name}</h3>
+                    <div class="score-display" style="background: ${bgColor};">
+                        <div class="score-number" style="color: ${textColor};">${data.pillar_score}</div>
+                        <div class="score-label">/ ${data.questions_answered} point${data.questions_answered > 1 ? 's' : ''}<br><strong>${data.competency_level.replace(/_/g, ' ')}</strong></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progressWidth}; background: ${progressColor};"></div>
+                    </div>
+                    
+                    <div class="analysis">
+                        ${demonstratedSkillsList ? `
+                            <h4>Demonstrated Skills:</h4>
+                            <p class="strengths">
+                                <ul style="list-style-type: disc; margin: 0; padding-left: 20px;">${demonstratedSkillsList}</ul>
+                            </p>
+                        ` : ''}
+                        
+                        ${missingSkillsList ? `
+                            <h4>Missing Skills:</h4>
+                            <p class="improvements">
+                                <ul style="list-style-type: disc; margin: 0; padding-left: 20px;">${missingSkillsList}</ul>
+                            </p>
+                        ` : ''}
+                        
+                        ${feedbackContent}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateOverallSummary(data) {
+            const overallPercentage = document.getElementById('overall-percentage');
+            const overallPerformanceSummary = document.getElementById('overall-performance-summary');
+            const completedPillarsSummary = document.getElementById('completed-pillars-summary');
+            const archetypeEvidenceGrid = document.getElementById('archetype-evidence-grid');
+            const preliminaryAssessment = document.getElementById('preliminary-assessment');
+            const strengthsDevelopmentGrid = document.getElementById('strengths-development-grid');
+            const nextStepsContainer = document.getElementById('next-steps-container');
+            const overallSummaryText = document.getElementById('overall-summary-text');
+
+            // Overall score
+            overallPercentage.textContent = `${data.assessment_progress.current_percentage}%`;
+            overallPerformanceSummary.textContent = data.performance_metrics.performance_level.replace(/_/g, ' ');
+            completedPillarsSummary.textContent = `${data.assessment_progress.pillars_completed.length} of ${data.participant_profile.questions_total / 5} pillars completed`;
+
+            // Archetype analysis
+            archetypeEvidenceGrid.innerHTML = Object.keys(data.archetype_analysis.archetype_evidence).map(archetypeKey => {
+                const archetypeData = data.archetype_analysis.archetype_evidence[archetypeKey];
+                const primaryArchetype = data.archetype_analysis.preliminary_assessment.primary_archetype + "_traits";
+                const secondaryArchetype = data.archetype_analysis.preliminary_assessment.secondary_archetype + "_traits";
+                
+                let borderColor = '#6c757d';
+                let bgColor = '#f8f9fa';
+                let h4Color = '#495057';
+                let icon = '🔮';
+                
+                if (archetypeKey === primaryArchetype) {
+                    borderColor = '#28a745';
+                    bgColor = '#e8f5e8';
+                    h4Color = '#155724';
+                    icon = '🏆';
+                } else if (archetypeKey === secondaryArchetype && secondaryArchetype !== "none_clear_traits") {
+                    borderColor = '#ffc107';
+                    bgColor = '#fff3cd';
+                    h4Color = '#856404';
+                    icon = '⭐';
+                }
+
+                return `
+                    <div style="background: ${bgColor}; padding: 20px; border-radius: 10px; border-left: 4px solid ${borderColor};">
+                        <h4 style="color: ${h4Color}; margin-bottom: 10px;">${icon} ${archetypeKey.replace(/_traits/g, '').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} Traits Observed</h4>
+                        <p><strong>Strength:</strong> ${archetypeData.strength.replace(/_/g, ' ')}</p>
+                        <p><strong>Confidence:</strong> ${(archetypeData.confidence_score * 100).toFixed(0)}%</p>
+                        <ul style="color: #495057; margin: 0; padding-left: 20px;">
+                            ${archetypeData.specific_behaviors.map(trait => `<li>${trait.replace(/_/g, ' ')}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }).join('');
+
+            preliminaryAssessment.innerHTML = `
+                <strong style="color: #2c3e50;">Preliminary Assessment:</strong> 
+                <span style="color: #1565c0;">${data.archetype_analysis.preliminary_assessment.assessment_text}</span><br>
+                <small style="color: #6c757d;">(Confidence: ${data.archetype_analysis.confidence_level.replace(/_/g, ' ')})</small>
+            `;
+            
+            // Strengths and Development Priorities
+            const strongAreas = Object.values(data.competency_analysis.strong_areas);
+            const weakAreas = Object.values(data.competency_analysis.weak_areas);
+            
+            strengthsDevelopmentGrid.innerHTML = `
+                <div class="collapsible-card" style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #28a745;">
+                    <div class="collapsible-header" data-target="strengths-content">
+                        <h3 style="color: #155724;">💪 Current Strengths</h3>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div id="strengths-content" class="collapsible-content">
+                        <ul style="color: #495057; margin: 0; padding-left: 20px; line-height: 1.6;">
+                            ${strongAreas.map(area => `<li><strong>${area.competency_level.replace(/_/g, ' ')}</strong>: ${area.evidence}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapsible-card" style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #dc3545;">
+                    <div class="collapsible-header" data-target="development-content">
+                        <h3 style="color: #721c24;">🎯 Development Priorities</h3>
+                        <span class="collapsible-icon">▼</span>
+                    </div>
+                    <div id="development-content" class="collapsible-content">
+                        <ul style="color: #495057; margin: 0; padding-left: 20px; line-height: 1.6;">
+                            ${weakAreas.map(area => `<li><strong>${area.competency_level.replace(/_/g, ' ')}</strong>: ${area.evidence}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            // Next Steps
+            const immediateActionsList = data.development_recommendations.immediate_priorities[0].specific_actions.map(action => `<li>${action}</li>`).join('');
+            const strengthBuildingList = data.development_recommendations.leverage_strengths[0].specific_actions.map(action => `<li>${action}</li>`).join('');
+
+            nextStepsContainer.innerHTML = `
+                <h3 style="color: #1565c0; margin-bottom: 15px; text-align: center;">🚀 Immediate Next Steps</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div>
+                        <h4 style="color: #1976d2; margin-bottom: 8px;">📚 Immediate Focus</h4>
+                        <ul style="color: #495057; font-size: 0.9em; margin: 0; padding-left: 20px;">
+                            ${immediateActionsList}
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #1976d2; margin-bottom: 8px;">💼 Leverage Strengths</h4>
+                        <ul style="color: #495057; font-size: 0.9em; margin: 0; padding-left: 20px;">
+                            ${strengthBuildingList}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            // Overall summary text
+            overallSummaryText.innerHTML = `
+                The assessment reveals a strong **${data.archetype_analysis.preliminary_assessment.assessment_text}** with significant development opportunities. The primary development area is a foundational gap in systematic implementation, where a more hands-on and process-building approach is needed. Your existing Oracle strengths can be leveraged to address this gap and prepare you for future strategic leadership roles.
+            `;
+            
+            // Add event listeners for collapsible sections
+            document.querySelectorAll('.collapsible-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const targetId = header.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    const icon = header.querySelector('.collapsible-icon');
+
+                    if (targetContent.classList.contains('expanded')) {
+                        targetContent.classList.remove('expanded');
+                        icon.style.transform = 'rotate(-90deg)';
+                    } else {
+                        targetContent.classList.add('expanded');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        }
+
+        // Function to load external JSON data (for user interaction)
+        function loadExternalAssessmentData(jsonData) {
+            loadAssessmentResults(jsonData);
+        }
+
+        // Event listener for loading data from the textarea
+        document.getElementById('load-data-button').addEventListener('click', () => {
+            const jsonInput = document.getElementById('json-input').value;
+            if (jsonInput) {
+                try {
+                    const jsonData = JSON.parse(jsonInput);
+                    loadExternalAssessmentData(jsonData);
+                    updateStatusMessage('Successfully loaded data from textarea!', 'success');
+                } catch (e) {
+                    updateStatusMessage('Invalid JSON format. Please check your data.', 'error');
+                    console.error('JSON parsing error:', e);
+                }
+            } else {
+                updateStatusMessage('Text area is empty. Please paste your JSON data.', 'error');
+            }
+        });
+
+        // Event listener for loading sample data 1
+        document.getElementById('load-sample1-button').addEventListener('click', () => {
+            loadExternalAssessmentData(sampleAssessmentData1);
+            updateStatusMessage('Successfully loaded Sample 1 data!', 'success');
+        });
+
+        // Event listener for loading sample data 2
+        document.getElementById('load-sample2-button').addEventListener('click', () => {
+            loadExternalAssessmentData(sampleAssessmentData2);
+            updateStatusMessage('Successfully loaded Sample 2 data!', 'success');
+        });
+
+        // Initialize with sample data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the default sample data
+            loadAssessmentResults(sampleAssessmentData1);
+            
+            // Animate progress bars after content is loaded
+            setTimeout(() => {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const targetWidth = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = targetWidth;
+                    }, 100);
+                });
+            }, 100);
+            
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.result-card, .pillar-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.style.opacity || this.style.opacity === '1') {
+                        this.style.transform = 'translateY(-5px)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            console.log('Dynamic assessment results system initialized');
+        });
+    </script>
+</body>
+</html>
