@@ -410,7 +410,7 @@
                 <h3 style="margin-bottom: 15px; color: #856404;">📋 Assessment Status</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                     <div id="experience-level"></div>
-                    <div id="progress"></div>
+                    <!-- <div id="progress"></div> -->
                     <div id="current-score"></div>
                     <div id="assessment-date"></div>
                 </div>
@@ -484,6 +484,7 @@
             <!-- Archetype Analysis -->
             <div style="background: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: left;">
                 <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎯 Leadership Archetype Analysis</h3>
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">This gives an competency distribution of your skills and knowledge in the different archetypes levels </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;" id="archetype-evidence-grid">
                     <!-- Dynamic archetype evidence will be inserted here -->
                 </div>
@@ -1721,7 +1722,7 @@
         
         function updateParticipantProfile(profile, progress, metadata) {
             const experienceLevel = document.getElementById('experience-level');
-            const progressDiv = document.getElementById('progress');
+           //  const progressDiv = document.getElementById('progress'); 
             const currentScore = document.getElementById('current-score');
             const assessmentDate = document.getElementById('assessment-date');
             const overallPerformance = document.getElementById('overall-performance');
@@ -1729,7 +1730,7 @@
             
             congratulationsMessage.textContent = `Congratulations, ${profile.participant_name || 'Participant'}!`;
             experienceLevel.innerHTML = `<strong>Experience Level:</strong> ${profile.experience_category} (${profile.experience_range})`;
-            progressDiv.innerHTML = `<strong>Progress:</strong> ${progress.questions_completed} of ${profile.questions_total} questions completed`;
+            //progressDiv.innerHTML = `<strong>Progress:</strong> ${progress.questions_completed} of ${profile.questions_total} questions completed`;
             currentScore.innerHTML = `<strong>Current Score:</strong> ${progress.current_percentage}% (${progress.total_score}/${progress.max_possible_score} correct)`;
             assessmentDate.innerHTML = `<strong>Assessment Date:</strong> ${new Date(metadata.created_date).toLocaleDateString()}`;
             overallPerformance.innerHTML = `<strong>Overall Performance:</strong> ${profile.overall_performance.replace(/_/g, ' ')}`;
@@ -1842,7 +1843,7 @@
                     <div style="background: ${bgColor}; padding: 20px; border-radius: 10px; border-left: 4px solid ${borderColor};">
                         <h4 style="color: ${h4Color}; margin-bottom: 10px;">${icon} ${archetypeKey.replace(/_traits/g, '').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} Traits Observed</h4>
                         <p><strong>Strength:</strong> ${archetypeData.strength.replace(/_/g, ' ')}</p>
-                        <p><strong>Confidence:</strong> ${(archetypeData.confidence_score * 100).toFixed(0)}%</p>
+                        <p><strong>Contribution:</strong> ${(archetypeData.confidence_score * 100).toFixed(0)}%</p>
                         <ul style="color: #495057; margin: 0; padding-left: 20px;">
                             ${archetypeData.specific_behaviors.map(trait => `<li>${trait.replace(/_/g, ' ')}</li>`).join('')}
                         </ul>

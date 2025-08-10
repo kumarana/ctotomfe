@@ -1,0 +1,395 @@
+{
+  "participant_info": {
+    "experience_years": null,
+    "domain": "Rising",
+    "participant_id": "26",
+    "participant_name": "Arunn",
+    "email": "arunkumar061781@gmail.com",
+    "linkedin_name": "Arun Kumar",
+    "linkedin_profile": "https://media.licdn.com/dms/image/v2/D4E03AQHedZaHwePHFA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1687872625821?e=1756944000&v=beta&t=NZEZxLw-mFyx59rA07P-3zVMeDtVwqLdducna20JR3c",
+    "archetype": "Alchemist",
+    "archetype_description": "Builder and refiner of systems",
+    "category": "Rising",
+    "submission_date": "2025-08-10T15:02:52.000Z",
+    "total_score": 9,
+    "total_questions": 25,
+    "assessment_status": "Not_Done"
+  },
+  "responses": [
+    {
+      "pillar": "Quality Attributes",
+      "question_text": "What is the primary focus of a Rising Alchemist in Live Operations?",
+      "options": {
+        "A": "Learning new monitoring tools",
+        "B": "Building robust monitoring and alerting systems",
+        "C": "Experimenting with cutting-edge solutions",
+        "D": "Defining enterprise monitoring strategy"
+      },
+      "user_response": "C",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Live Operations monitoring and alerting for Rising Alchemist"
+    },
+    {
+      "pillar": "Quality Attributes",
+      "question_text": "How should a Rising Alchemist approach Performance optimization?",
+      "options": {
+        "A": "Research performance patterns",
+        "B": "Implement systematic performance improvement processes",
+        "C": "Pioneer new performance techniques",
+        "D": "Create organizational performance standards"
+      },
+      "user_response": "C",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Performance optimization approach for Rising Alchemist"
+    },
+    {
+      "pillar": "Quality Attributes",
+      "question_text": "What characterizes a Rising Alchemist's Security implementation approach?",
+      "options": {
+        "A": "Study security frameworks",
+        "B": "Build comprehensive security controls and processes",
+        "C": "Innovate novel security approaches",
+        "D": "Define enterprise security architecture"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Security implementation for Rising Alchemist"
+    },
+    {
+      "pillar": "Human Dynamics",
+      "question_text": "How does a Rising Alchemist handle Usability requirements?",
+      "options": {
+        "A": "Experiment with UX research",
+        "B": "Create systematic user experience processes",
+        "C": "Challenge conventional UX approaches",
+        "D": "Establish organizational UX strategy"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Usability requirements handling for Rising Alchemist"
+    },
+    {
+      "pillar": "Quality Attributes",
+      "question_text": "What defines a Rising Alchemist's approach to Service Level Management?",
+      "options": {
+        "A": "Learn about SLA concepts",
+        "B": "Build effective SLA monitoring and reporting systems",
+        "C": "Disrupt traditional SLA approaches",
+        "D": "Create enterprise SLA strategy"
+      },
+      "user_response": "C",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Service Level Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Human Dynamics",
+      "question_text": "How should a Rising Alchemist approach Stakeholder Relationship Management?",
+      "options": {
+        "A": "Study stakeholder analysis techniques",
+        "B": "Build systematic stakeholder engagement processes",
+        "C": "Challenge traditional stakeholder approaches",
+        "D": "Define organizational stakeholder strategy"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Stakeholder Relationship Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Human Dynamics",
+      "question_text": "What characterizes a Rising Alchemist's Communication Excellence?",
+      "options": {
+        "A": "Learn communication methods",
+        "B": "Create structured communication frameworks and processes",
+        "C": "Innovate new communication approaches",
+        "D": "Establish organizational communication standards"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Communication Excellence for Rising Alchemist"
+    },
+    {
+      "pillar": "Human Dynamics",
+      "question_text": "How does a Rising Alchemist develop Leadership and Management skills?",
+      "options": {
+        "A": "Observe leadership styles",
+        "B": "Build systematic team development processes",
+        "C": "Challenge conventional leadership approaches",
+        "D": "Mentor organizational leaders"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Leadership and Management skills development for Rising Alchemist"
+    },
+    {
+      "pillar": "Human Dynamics",
+      "question_text": "What defines a Rising Alchemist's approach to Culture Management?",
+      "options": {
+        "A": "Study organizational culture",
+        "B": "Build processes to work effectively within culture",
+        "C": "Challenge cultural norms constructively",
+        "D": "Shape organizational culture transformation"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Culture Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Human Dynamics",
+      "question_text": "How should a Rising Alchemist handle Presentation Skills?",
+      "options": {
+        "A": "Practice presentation techniques",
+        "B": "Create systematic presentation development processes",
+        "C": "Innovate presentation delivery methods",
+        "D": "Establish organizational presentation standards"
+      },
+      "user_response": "C",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Presentation Skills for Rising Alchemist"
+    },
+    {
+      "pillar": "Design",
+      "question_text": "What characterizes a Rising Alchemist's use of Design Methods?",
+      "options": {
+        "A": "Study design methodologies",
+        "B": "Implement systematic design processes and workflows",
+        "C": "Pioneer new design approaches",
+        "D": "Define organizational design standards"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Design Methods usage for Rising Alchemist"
+    },
+    {
+      "pillar": "Design",
+      "question_text": "How should a Rising Alchemist approach Component Reuse?",
+      "options": {
+        "A": "Learn about reusable components",
+        "B": "Build systematic component libraries and reuse processes",
+        "C": "Innovate new reuse paradigms",
+        "D": "Establish enterprise reuse strategy"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Component Reuse approach for Rising Alchemist"
+    },
+    {
+      "pillar": "Design",
+      "question_text": "What defines a Rising Alchemist's Requirements Management approach?",
+      "options": {
+        "A": "Study requirements techniques",
+        "B": "Build comprehensive requirements management processes",
+        "C": "Challenge traditional requirements approaches",
+        "D": "Define enterprise requirements framework"
+      },
+      "user_response": "C",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Requirements Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Design",
+      "question_text": "How does a Rising Alchemist handle Design Analysis and Validation?",
+      "options": {
+        "A": "Learn analysis methods",
+        "B": "Implement systematic design review and validation processes",
+        "C": "Pioneer new analysis techniques",
+        "D": "Establish organizational design standards"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Design Analysis and Validation for Rising Alchemist"
+    },
+    {
+      "pillar": "Design",
+      "question_text": "What characterizes a Rising Alchemist's approach to Traceability Management?",
+      "options": {
+        "A": "Study traceability concepts",
+        "B": "Build comprehensive traceability systems and processes",
+        "C": "Innovate new traceability approaches",
+        "D": "Define enterprise traceability strategy"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Traceability Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Business Strategy",
+      "question_text": "How should a Rising Alchemist approach Financial Management understanding?",
+      "options": {
+        "A": "Study business finance concepts",
+        "B": "Build systematic financial analysis and reporting processes",
+        "C": "Challenge traditional financial approaches",
+        "D": "Define organizational financial strategy"
+      },
+      "user_response": "C",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Financial Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Business Strategy",
+      "question_text": "What defines a Rising Alchemist's approach to Risk Assessment?",
+      "options": {
+        "A": "Learn risk analysis techniques",
+        "B": "Implement systematic risk management processes",
+        "C": "Pioneer new risk approaches",
+        "D": "Establish enterprise risk framework"
+      },
+      "user_response": "A",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Risk Assessment for Rising Alchemist"
+    },
+    {
+      "pillar": "Business Strategy",
+      "question_text": "How does a Rising Alchemist handle Industry Analysis?",
+      "options": {
+        "A": "Research industry trends",
+        "B": "Build systematic competitive analysis processes",
+        "C": "Disrupt industry conventional thinking",
+        "D": "Define organizational industry strategy"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Industry Analysis for Rising Alchemist"
+    },
+    {
+      "pillar": "Business Strategy",
+      "question_text": "What characterizes a Rising Alchemist's approach to Compliance Review?",
+      "options": {
+        "A": "Study compliance requirements",
+        "B": "Build systematic compliance monitoring and reporting processes",
+        "C": "Challenge compliance assumptions",
+        "D": "Define enterprise compliance strategy"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Compliance Review for Rising Alchemist"
+    },
+    {
+      "pillar": "Business Strategy",
+      "question_text": "How should a Rising Alchemist develop Strategy Development skills?",
+      "options": {
+        "A": "Learn strategic frameworks",
+        "B": "Build systematic strategy development and execution processes",
+        "C": "Innovate new strategic approaches",
+        "D": "Influence organizational strategic direction"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Strategy Development skills for Rising Alchemist"
+    },
+    {
+      "pillar": "Engineering Environment",
+      "question_text": "What defines a Rising Alchemist's approach to Technical Project Management?",
+      "options": {
+        "A": "Study PM methodologies",
+        "B": "Build systematic project delivery processes and workflows",
+        "C": "Pioneer new project approaches",
+        "D": "Establish organizational PM standards"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Technical Project Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Engineering Environment",
+      "question_text": "How should a Rising Alchemist handle Asset Management?",
+      "options": {
+        "A": "Learn asset lifecycle concepts",
+        "B": "Build comprehensive asset tracking and management systems",
+        "C": "Innovate new asset management approaches",
+        "D": "Define organizational asset strategy"
+      },
+      "user_response": "D",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Asset Management for Rising Alchemist"
+    },
+    {
+      "pillar": "Engineering Environment",
+      "question_text": "What characterizes a Rising Alchemist's approach to Testing Excellence?",
+      "options": {
+        "A": "Study testing methodologies",
+        "B": "Implement systematic testing frameworks and automation",
+        "C": "Pioneer new testing approaches",
+        "D": "Establish organizational testing standards"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Testing Excellence for Rising Alchemist"
+    },
+    {
+      "pillar": "Engineering Environment",
+      "question_text": "How does a Rising Alchemist approach Governance Framework implementation?",
+      "options": {
+        "A": "Learn governance concepts",
+        "B": "Build systematic governance processes and controls",
+        "C": "Challenge governance assumptions",
+        "D": "Define enterprise governance strategy"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Governance Framework implementation for Rising Alchemist"
+    },
+    {
+      "pillar": "Engineering Environment",
+      "question_text": "What defines a Rising Alchemist's approach to Knowledge Management?",
+      "options": {
+        "A": "Study knowledge systems",
+        "B": "Build comprehensive knowledge capture and sharing processes",
+        "C": "Innovate new knowledge approaches",
+        "D": "Establish organizational knowledge strategy"
+      },
+      "user_response": "B",
+      "correct_answer": "B",
+      "response_time": null,
+      "confidence": null,
+      "scenario_description": "Knowledge Management for Rising Alchemist"
+    }
+  ]
+}
