@@ -195,6 +195,86 @@
             line-height: 1.8;
         }
 
+        /* Drivers Section */
+        .drivers {
+            background: #f9f9f9;
+            padding: 5rem 0;
+        }
+
+        .drivers h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        .drivers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .driver-card {
+            background: linear-gradient(135deg, #26abed 0%, #8cc63f 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .driver-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .driver-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* Transform Section */
+        .transform {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .transform h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        .transform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .transform-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .transform-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #39b54a;
+        }
+
+        .transform-card p {
+            line-height: 1.6;
+        }
+
+        .transform .cta-button {
+            margin-top: 2rem;
+        }
+
         /* Blockers Section */
         .blockers {
             background: linear-gradient(135deg, #39b54a 0%, #8cc63f 100%);
@@ -349,6 +429,14 @@
             font-weight: 500;
         }
 
+        /* Footer */
+        .footer {
+            background: white;
+            text-align: center;
+            padding: 2rem 0;
+            color: #000000;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -414,8 +502,9 @@
     <section class="hero">
         <div class="container">
             <h1>Unlock the CTO Within</h1>
-            <p>Transform from a technical contributor to a visionary technology leader. Join a community of like-minded peers and experienced mentors who will accelerate your journey to the C-suite.</p>
-            
+            <p>Unlock the CTO within by growing in a community of like-minded peers. Join a community that fosters your growth, innovation, and leadership, and shape your future.</p>
+            <a href="#join" class="cta-button">Join for Free</a>
+
             <div class="video-container">
                 <video controls width="100%" height="450" style="border-radius: 20px;">
                     <source src="https://kumarana.github.io/ctotomfe/1%20MIN%20CTO%20TOMORROW.mp4" type="video/mp4">
@@ -481,10 +570,56 @@
         </div>
     </section>
 
+    <section class="drivers">
+        <div class="container">
+            <h2>Essential Drivers for a CTO</h2>
+            <div class="drivers-grid">
+                <div class="driver-card">
+                    <h3>Mindset</h3>
+                    <p>A growth-focused and visionary mindset empowers CTOs to navigate challenges, foster innovation, and lead their teams with clarity and confidence.</p>
+                </div>
+                <div class="driver-card">
+                    <h3>Method</h3>
+                    <p>A strategic, adaptable method ensures CTOs can effectively implement cutting-edge solutions, aligning technical execution with overarching business objectives for long-term success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transform">
+        <div class="container">
+            <h2>How Do You Transform to CTO?</h2>
+            <div class="transform-grid">
+                <div class="transform-card">
+                    <h3>Mentoring</h3>
+                    <p>Provide targeted guidance on real needs and execution challenges, helping mentees evolve from task execution to becoming advocates of best practices and thought leaders.</p>
+                </div>
+                <div class="transform-card">
+                    <h3>Strategy Consulting</h3>
+                    <p>Develop actionable strategies by assessing current constraints and resources, ensuring alignment with organizational goals through practical, workshop-based planning.</p>
+                </div>
+                <div class="transform-card">
+                    <h3>Leadership Knowledge Base</h3>
+                    <p>Create a repository of leadership strategies and insights tailored for technology leaders, including curated resources, workshops, and expert-led sessions.</p>
+                </div>
+                <div class="transform-card">
+                    <h3>Shadowing</h3>
+                    <p>Offer immersive experiences by observing seasoned CTOs in their daily roles, providing insights into real-world challenges and decision-making processes.</p>
+                </div>
+                <div class="transform-card">
+                    <h3>Peer-to-Peer Debates</h3>
+                    <p>Facilitate dynamic discussions among CTOs to explore diverse perspectives and innovative solutions through structured debates and roundtables.</p>
+                </div>
+            </div>
+            <a href="#join" class="cta-button">Join for Free</a>
+        </div>
+    </section>
+
     <section class="tribe-section">
         <div class="container">
             <h2>Meet Your Tribe</h2>
             <div id="tribeMembers"></div>
+            <a href="#join" class="cta-button">Start Now</a>
         </div>
     </section>
 
@@ -506,6 +641,12 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>We combine real-world tech leadership experience with ongoing learning and adaptation to new technologies.</p>
+        </div>
+    </footer>
 
     <script>
         document.getElementById('joinForm').addEventListener('submit', function(e) {
@@ -533,15 +674,15 @@
         });
 
         // Smooth scrolling for navigation (for older anchor link)
-        const joinLink = document.querySelector('a[href="#join"]');
-        if (joinLink) {
-            joinLink.addEventListener('click', function(e) {
+        const joinLinks = document.querySelectorAll('a[href="#join"]');
+        joinLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.getElementById('join').scrollIntoView({
                     behavior: 'smooth'
                 });
             });
-        }
+        });
 
         // Dynamic tribe members rendering
         const tribeMembers = [
