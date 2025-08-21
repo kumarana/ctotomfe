@@ -291,6 +291,64 @@
             box-shadow: 0 10px 25px rgba(57, 181, 74, 0.3);
         }
 
+        /* Tribe Section */
+        .tribe-section {
+            background: white;
+            padding: 5rem 0;
+            color: #000000;
+        }
+
+        .tribe-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tribe-category {
+            margin-bottom: 2rem;
+        }
+
+        .tribe-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .members-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .member-card {
+            flex: 0 0 auto;
+            width: 200px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-card a {
+            color: #0077b5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -423,6 +481,13 @@
         </div>
     </section>
 
+    <section class="tribe-section">
+        <div class="container">
+            <h2>Meet Your Tribe</h2>
+            <div id="tribeMembers"></div>
+        </div>
+    </section>
+
     <section class="cta-section" id="join">
         <div class="container">
             <h2>Ready to Transform Your Career?</h2>
@@ -477,6 +542,55 @@
                 });
             });
         }
+
+        // Dynamic tribe members rendering
+        const tribeMembers = [
+            { name: 'Mr. Rajagobal', category: 'CTO Veterans', photo: 'https://via.placeholder.com/150?text=Rajagobal', linkedin: 'https://linkedin.com/in/rajagobal' },
+            { name: 'Mr. Harish', category: 'CTO Veterans', photo: 'https://via.placeholder.com/150?text=Harish', linkedin: 'https://linkedin.com/in/harish' },
+            { name: 'Mr. Gaurav', category: 'CTO Veterans', photo: 'https://via.placeholder.com/150?text=Gaurav', linkedin: 'https://linkedin.com/in/gaurav' },
+            { name: 'Mr. Arunrajiah', category: 'CTO Veterans', photo: 'https://via.placeholder.com/150?text=Arunrajiah', linkedin: 'https://linkedin.com/in/arunrajiah' },
+            { name: 'Mr. Srinivasa', category: 'CTO Veterans', photo: 'https://via.placeholder.com/150?text=Srinivasa', linkedin: 'https://linkedin.com/in/srinivasa' },
+            { name: 'Mr. Murugan', category: 'Emerging Leaders', photo: 'https://via.placeholder.com/150?text=Murugan', linkedin: 'https://linkedin.com/in/murugan' },
+            { name: 'Mr. Janaka', category: 'Emerging Leaders', photo: 'https://via.placeholder.com/150?text=Janaka', linkedin: 'https://linkedin.com/in/janaka' },
+            { name: 'Mr. Nirosh', category: 'Emerging Leaders', photo: 'https://via.placeholder.com/150?text=Nirosh', linkedin: 'https://linkedin.com/in/nirosh' },
+            { name: 'Mr. Ramkumar', category: 'Emerging Leaders', photo: 'https://via.placeholder.com/150?text=Ramkumar', linkedin: 'https://linkedin.com/in/ramkumar' },
+            { name: 'Mr. Monish', category: 'Rising Technologists', photo: 'https://via.placeholder.com/150?text=Monish', linkedin: 'https://linkedin.com/in/monish' }
+        ];
+
+        const tribeContainer = document.getElementById('tribeMembers');
+        const categories = {};
+        tribeMembers.forEach(member => {
+            if (!categories[member.category]) {
+                categories[member.category] = [];
+            }
+            categories[member.category].push(member);
+        });
+
+        Object.keys(categories).forEach(category => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'tribe-category';
+
+            const title = document.createElement('h3');
+            title.textContent = category;
+            categoryDiv.appendChild(title);
+
+            const membersDiv = document.createElement('div');
+            membersDiv.className = 'members-container';
+
+            categories[category].forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+                    <img src="${member.photo}" alt="${member.name}" class="member-photo" onerror="this.style.display='none'">
+                    <div class="member-name">${member.name}</div>
+                    <a href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
+                `;
+                membersDiv.appendChild(card);
+            });
+
+            categoryDiv.appendChild(membersDiv);
+            tribeContainer.appendChild(categoryDiv);
+        });
     </script>
 </body>
 </html>
