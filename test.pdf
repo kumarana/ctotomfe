@@ -1,0 +1,225 @@
+\documentclass[aspectratio=43, 12pt]{beamer}
+
+% --- PREAMBLE & PACKAGES ---
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning, shadows, calc}
+\usepackage{xcolor}
+
+% --- FONTS ---
+% Using Noto Sans as the primary font for a clean, modern look
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+
+% --- THEME & COLORS ---
+\usetheme{Madrid}
+\usecolortheme{structure}
+
+% CTO / Tech Palette
+\definecolor{techblue}{RGB}{0, 70, 140}       % Deep Blue
+\definecolor{techpurple}{RGB}{102, 0, 204}    % Electric Purple
+\definecolor{offwhite}{RGB}{245, 247, 250}    % Clean Background
+\definecolor{accentgreen}{RGB}{0, 153, 76}    % Success Green
+
+% Apply Colors
+\setbeamercolor{palette primary}{bg=techblue,fg=white}
+\setbeamercolor{palette secondary}{bg=techpurple,fg=white}
+\setbeamercolor{palette tertiary}{bg=techblue!80!black,fg=white}
+\setbeamercolor{structure}{fg=techblue}
+\setbeamercolor{background canvas}{bg=offwhite}
+
+% Remove navigation symbols for a clean "PDF Carousel" feel
+\setbeamertemplate{navigation symbols}{}
+
+% --- METADATA ---
+\title[Progressive Disclosure]{The AI Coding Paradigm Shift}
+\subtitle{Stop "Context Stuffing" Your Codebase}
+\author{#CTOTOMORROW}
+\date{\today}
+
+\begin{document}
+
+% --- SLIDE 1: THE HOOK ---
+\begin{frame}
+    \centering
+    \vspace{1cm}
+    {\usebeamercolor[fg]{palette primary}\Huge \textbf{The AI Coding\\Paradigm Shift}}
+    
+    \vspace{0.5cm}
+    {\Large Stop "Context Stuffing." Start \textbf{Progressive Disclosure}.}
+    
+    \vspace{1.5cm}
+    
+    \begin{tikzpicture}
+        % Concept: A messy stack vs a sleek magnifier
+        \node[draw=techblue, fill=white, rounded corners, inner sep=10pt, drop shadow] (box) {
+            \begin{minipage}{0.6\textwidth}
+                \centering
+                \color{techblue}
+                \textbf{The Insight:}\\
+                Why read 10,000 lines of code\\
+                when you only need 10?
+            \end{minipage}
+        };
+    \end{tikzpicture}
+    
+    \vfill
+    \tiny \#CTOTOMORROW | Leadership in the Age of AI
+\end{frame}
+
+% --- SLIDE 2: THE PROBLEM ---
+\begin{frame}{The Problem: Context Overload}
+    \centering
+    
+    \begin{tikzpicture}[node distance=1cm]
+        % Funnel Visualization
+        \node[cylinder, shape border rotate=90, draw=techblue, fill=techblue!10, aspect=0.25, minimum height=3cm, minimum width=2.5cm] (context) {};
+        
+        \node[above=0.2cm of context, font=\bfseries] {The Context Window};
+        
+        % Stuffing it
+        \node[above=1cm of context, align=center] (files) {
+            \textbf{Entire Codebase} \\
+            (GBs of Data)
+        };
+        \draw[->, ultra thick, techpurple] (files) -- (context.top);
+        
+        % Output
+        \node[below=0.5cm of context, draw=red, thick, rounded corners, fill=red!10, align=center] (result) {
+            \textbf{HIGH COST} (\$\$\$)\\
+            \textbf{SLOW LATENCY}\\
+            \textbf{CONFUSION}
+        };
+        \draw[->, thick, dashed] (context.bottom) -- (result);
+    \end{tikzpicture}
+    
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item \textbf{Wasted Tokens:} Paying for irrelevant code.
+        \item \textbf{Model Confusion:} "Noise" reduces accuracy.
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \textit{"Irrelevant context is just expensive noise."}
+\end{frame}
+
+% --- SLIDE 3: THE SOLUTION ---
+\begin{frame}{The Solution: Progressive Disclosure}
+    
+    \begin{columns}
+        \column{0.5\textwidth}
+            \centering
+            \begin{tikzpicture}
+                % Maze concept
+                \draw[thick, techblue] (0,0) grid (3,3);
+                \fill[techpurple] (0.5, 0.5) circle (0.2) node[right=5pt, black] {Agent};
+                % Spotlight effect
+                \draw[yellow, opacity=0.5, line width=5pt] (0.5, 0.5) -- (1.5, 0.5) -- (1.5, 1.5);
+                \node at (1.5, 2.5) [font=\tiny] {Hidden};
+            \end{tikzpicture}
+            
+        \column{0.5\textwidth}
+            \textbf{The Strategy:}
+            \begin{itemize}
+                \item Don't dump the whole repo.
+                \item Let the AI \textbf{explore} step-by-step.
+                \item Mimic a Senior Engineer: Look at file structure $\to$ Search $\to$ Read specific file.
+            \end{itemize}
+    \end{columns}
+    
+    \vspace{1cm}
+    \centering
+    \large \textbf{Just-in-Time Information Retrieval}
+\end{frame}
+
+% --- SLIDE 4: THE MECHANISM ---
+\begin{frame}{How It Works: Bash \& MCP}
+    \centering
+    \textit{Moving from custom RAG to Standard Bash}
+    \vspace{0.5cm}
+    
+    \begin{tikzpicture}[auto, node distance=1.5cm,
+        block/.style={rectangle, draw=techblue, fill=white, text width=2.5cm, align=center, rounded corners, minimum height=1.2cm},
+        arrow/.style={->, >=stealth, thick, techpurple}]
+        
+        \node[block, fill=techblue!10] (ai) {\textbf{AI Agent}};
+        \node[block, right=of ai] (tools) {\textbf{Bash Tools}\\ \texttt{ls}, \texttt{grep}, \texttt{cat}};
+        \node[block, right=of tools] (fs) {\textbf{File System}};
+        
+        \draw[arrow] (ai) -- node[above, font=\tiny] {Calls Tool} (tools);
+        \draw[arrow] (tools) -- node[above, font=\tiny] {Reads} (fs);
+        \draw[arrow, bend left=45] (fs) to node[below, font=\tiny] {Returns Data} (ai);
+        
+    \end{tikzpicture}
+    
+    \vspace{1cm}
+    \begin{itemize}
+        \item \textbf{Predictable:} Uses standard command line tools.
+        \item \textbf{Efficient:} Reads only what is strictly necessary.
+        \item \textbf{Scalable:} Protocols like \textbf{MCP} standardize this.
+    \end{itemize}
+\end{frame}
+
+% --- SLIDE 5: CTO IMPACT ---
+\begin{frame}{Driving Value: The CTO Perspective}
+    
+    \begin{columns}[T]
+        \column{0.33\textwidth}
+            \begin{block}{\centering Cost}
+                \centering
+                \vspace{0.2cm}
+                {\color{accentgreen}\Huge \textbf{\$}} \\
+                \vspace{0.2cm}
+                \small Reduced token usage means significantly lower operational spend.
+            \end{block}
+            
+        \column{0.33\textwidth}
+            \begin{block}{\centering Scale}
+                \centering
+                \vspace{0.2cm}
+                {\color{techpurple}\Huge \textbf{$\nearrow$}} \\
+                \vspace{0.2cm}
+                \small Agents can now tackle massive repositories without crashing.
+            \end{block}
+            
+        \column{0.33\textwidth}
+            \begin{block}{\centering Green}
+                \centering
+                \vspace{0.2cm}
+                {\color{techblue}\Huge \textbf{CO$_2$}} \\
+                \vspace{0.2cm}
+                \small Less compute load = better sustainability metrics.
+            \end{block}
+    \end{columns}
+    
+    \vspace{0.5cm}
+    \centering
+    \textbf{Result:} Faster adoption speed \& happier shareholders.
+\end{frame}
+
+% --- SLIDE 6: CONCLUSION & CTA ---
+\begin{frame}
+    \centering
+    \Huge \textbf{The Future is Agentic.}
+    
+    \vspace{0.5cm}
+    \large
+    "Giving an AI the entire codebase to fix a bug is like buying the whole library just to find a single quote."
+    
+    \vspace{1cm}
+    
+    \begin{beamercolorbox}[sep=1em,center,shadow=true,rounded=true]{palette secondary}
+        If becoming or being a CTO is your passion join us. A practice of 5 mins daily will take you on this journey.
+    \end{beamercolorbox}
+    
+    \vspace{0.5cm}
+    \small
+    Follow the hashtag \textbf{\#CTOTOMORROW} for more insights.
+    
+    \vspace{0.5cm}
+    \tiny
+    \#leadership \#DigitalTransformation \#GenerativeAI \#SoftwareArchitecture \#CostOptimization \#DevOps \#AIStrategy \#TechInnovation \#SustainableTech \#EngineeringExcellence
+\end{frame}
+
+\end{document}
+
